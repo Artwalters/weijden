@@ -130,9 +130,31 @@
     text-align: center;
   }
 
+  .footer-brand {
+    text-align: center;
+  }
+
+  .footer-desc {
+    max-width: none;
+    text-align: center;
+  }
+
   .footer-links {
     grid-template-columns: 1fr;
     gap: var(--space-lg);
+    text-align: center;
+  }
+
+  .footer-column {
+    text-align: center;
+  }
+
+  .footer-list {
+    align-items: center;
+  }
+
+  .footer-contact li {
+    justify-content: center;
   }
 
   /* Page hero mobile */
@@ -201,8 +223,30 @@
     text-align: center;
   }
 
+  .footer-brand {
+    text-align: center;
+  }
+
+  .footer-desc {
+    max-width: none;
+    text-align: center;
+  }
+
   .footer-links {
     grid-template-columns: repeat(2, 1fr);
+    text-align: center;
+  }
+
+  .footer-column {
+    text-align: center;
+  }
+
+  .footer-list {
+    align-items: center;
+  }
+
+  .footer-contact li {
+    justify-content: center;
   }
 
   /* Info grid */
