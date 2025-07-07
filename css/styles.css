@@ -401,14 +401,20 @@ a:hover {
   background: var(--primary);
   color: white;
   margin-left: 0.5rem;
-  box-shadow: 0 4px 16px rgba(var(--primary-rgb), 0.3);
+  border-radius: var(--radius-md);
+  box-shadow: 0 0.25rem 1rem rgba(var(--primary-rgb), 0.3);
 }
 
 .nav-link--cta:hover {
   background: var(--primary-dark);
   color: white;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(var(--primary-rgb), 0.4);
+  transform: translateY(-0.1875rem);
+  box-shadow: 0 0.5rem 1.5rem rgba(var(--primary-rgb), 0.4);
+}
+
+.nav-link--cta.active {
+  background: var(--primary-dark);
+  color: white;
 }
 
 .nav-link--cta .nav-indicator {
@@ -563,8 +569,8 @@ a:hover {
   background: linear-gradient(135deg, var(--primary), var(--primary-dark));
   color: white;
   margin: 1rem 2rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 16px rgba(var(--primary-rgb), 0.3);
+  border-radius: 1rem; /* 16px */
+  box-shadow: 0 0.25rem 1rem rgba(var(--primary-rgb), 0.3);
 }
 
 .mobile-nav-link--cta::before {
@@ -572,8 +578,13 @@ a:hover {
 }
 
 .mobile-nav-link--cta:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(var(--primary-rgb), 0.4);
+  transform: translateY(-0.125rem);
+  box-shadow: 0 0.5rem 1.5rem rgba(var(--primary-rgb), 0.4);
+}
+
+.mobile-nav-link--cta.active {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  color: white;
 }
 
 .mobile-nav-link--cta .mobile-nav-icon {
@@ -1103,7 +1114,63 @@ a:hover {
 }
 
 /* ==========================================================================
-   10. RESPONSIVE DESIGN
+   10. PAGE HERO SECTIONS
+   ========================================================================== */
+/* Universal page hero styling for all subpages */
+.page-hero {
+  padding: 7.5rem 0 3.75rem; /* 120px 0 60px */
+  /* background: var(--bg-primary); */
+  position: relative;
+  text-align: center;
+  margin-top: 5rem; /* 80px */
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #4ab69a;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.page-title {
+  font-size: var(--font-fluid-5xl);
+  font-weight: var(--font-extrabold);
+  margin-bottom: var(--space-fluid-md);
+  color: var(--text-primary);
+}
+
+.page-subtitle {
+  font-size: var(--font-fluid-lg);
+  color: var(--text-color-secondary);
+  max-width: 43.75rem; /* 700px */
+  margin: 0 auto;
+}
+
+/* First sections after page hero get same background */
+.services-section,
+.about-intro,
+.contact-section,
+.intro-section {
+  background: var(--bg-primary);
+  position: relative;
+}
+
+.services-section::before,
+.about-intro::before,
+.contact-section::before,
+.intro-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #4ab69a;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+/* ==========================================================================
+   11. RESPONSIVE DESIGN
    ========================================================================== */
 /* Mobile Navigation */
 @media (max-width: 48em) { /* 768px */
@@ -1298,14 +1365,18 @@ a:hover {
     justify-content: center;
   }
 
-  /* Page hero - base and mobile styles */
+  /* Page hero - mobile styles */
   .page-hero {
     margin-top: 0;
-    padding: 2.5rem 0; /* 40px */
+    padding: 5rem 0 2.5rem; /* 80px 0 40px */
   }
 
   .page-title {
-    font-size: clamp(1.5rem, 6vw, 2rem);
+    font-size: clamp(2rem, 7vw, 2.5rem);
+  }
+  
+  .page-subtitle {
+    font-size: var(--font-fluid-base);
   }
 
   /* Fix scroll behavior */
@@ -1685,50 +1756,9 @@ a:hover {
   50% { transform: rotate(15deg) translateY(-8px); }
 }
 
-/* Ripple effect */
-.ripple {
-  position: relative;
-  overflow: hidden;
-}
+/* Ripple effect removed for cleaner UX */
 
-.ripple::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.5);
-  transform: translate(-50%, -50%);
-  transition: width 0.6s ease, height 0.6s ease;
-}
-
-.ripple:active::before {
-  width: 18.75rem; /* 300px */
-  height: 18.75rem; /* 300px */
-}
-
-/* Micro-interactions */
-.nav-link::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(circle at center, rgba(var(--primary-rgb), 0.15) 0%, transparent 70%);
-  opacity: 0;
-  transform: scale(0);
-  transition: all 0.4s ease;
-  border-radius: inherit;
-}
-
-.nav-link:active::after {
-  opacity: 1;
-  transform: scale(1);
-  transition: all 0.1s ease;
-}
+/* Micro-interactions removed for cleaner UX */
 
 /* ==========================================================================
    12. UTILITY CLASSES
@@ -1770,17 +1800,29 @@ body.mobile-menu-open {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Focus states for accessibility */
-.nav-link:focus,
-.mobile-nav-link:focus,
-.mobile-menu-btn:focus {
+/* Focus states for accessibility - only show on keyboard navigation */
+.nav-link:focus-visible,
+.mobile-nav-link:focus-visible,
+.mobile-menu-btn:focus-visible {
   outline: 0.125rem solid var(--primary); /* 2px */
   outline-offset: 0.125rem; /* 2px */
+}
+
+/* Remove focus outline on click/touch */
+.nav-link:focus:not(:focus-visible),
+.mobile-nav-link:focus:not(:focus-visible),
+.mobile-menu-btn:focus:not(:focus-visible) {
+  outline: none;
 }
 
 *:focus-visible {
   outline: 0.125rem solid var(--primary); /* 2px */
   outline-offset: 0.125rem; /* 2px */
+}
+
+/* Remove default focus for mouse/touch interactions */
+*:focus:not(:focus-visible) {
+  outline: none;
 }
 
 /* ==========================================================================

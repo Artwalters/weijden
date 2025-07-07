@@ -353,22 +353,7 @@
 
     <!-- Page Specific Styles -->
     <style>
-        .page-hero {
-            padding: 120px 0 60px;
-            background: linear-gradient(135deg, var(--bg-accent) 0%, var(--bg-secondary) 100%);
-            text-align: center;
-            margin-top: 80px;
-        }
-        
-        .page-title {
-            font-size: var(--font-size-5xl);
-            margin-bottom: var(--space-md);
-        }
-        
-        .page-subtitle {
-            font-size: var(--font-size-lg);
-            color: var(--text-color-secondary);
-        }
+        /* Page hero styling now in main CSS - styles.css */
         
         .diensten-section {
             padding: var(--space-3xl) 0;
@@ -434,8 +419,10 @@
         
         .service-header {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: var(--space-lg);
+            text-align: center;
+            gap: var(--space-md);
             margin-bottom: var(--space-lg);
         }
         
@@ -463,6 +450,7 @@
             font-size: var(--font-size-base);
             line-height: 1.6;
             margin-bottom: var(--space-lg);
+            text-align: left;
         }
         
         .service-list {
@@ -473,7 +461,7 @@
         
         .service-list li {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: var(--space-sm);
             margin-bottom: var(--space-sm);
             padding: var(--space-sm);
@@ -481,6 +469,7 @@
             border-radius: var(--radius-md);
             font-size: var(--font-size-sm);
             color: var(--text-color-secondary);
+            text-align: left;
         }
         
         .service-list li::before {
@@ -498,11 +487,7 @@
                 gap: var(--space-xl);
             }
             
-            .service-header {
-                flex-direction: column;
-                text-align: center;
-                gap: var(--space-md);
-            }
+            /* Service header already centered on desktop */
             
             .service-icon {
                 width: 60px;
