@@ -632,99 +632,128 @@
         .application-section {
             background: var(--primary);
             color: white;
+            padding: var(--space-2xl) 0;
         }
         
         .application-content {
             display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: var(--space-3xl);
+            grid-template-columns: 1.2fr 1fr;
+            gap: var(--space-2xl);
             align-items: start;
         }
         
         .application-title {
             color: white;
-            margin-bottom: var(--space-md);
+            font-size: var(--font-size-2xl);
+            margin-bottom: var(--space-lg);
+            font-weight: var(--font-semibold);
         }
         
         .application-desc {
-            font-size: var(--font-size-lg);
-            margin-bottom: var(--space-xl);
+            font-size: var(--font-size-base);
+            margin-bottom: var(--space-lg);
             color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
         }
         
         .application-info h3 {
             color: white;
+            font-size: var(--font-size-lg);
             margin-bottom: var(--space-md);
+            font-weight: var(--font-medium);
         }
         
         .application-info ul {
             list-style: none;
             padding: 0;
+            margin: 0;
         }
         
         .application-info li {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: var(--space-sm);
             margin-bottom: var(--space-sm);
             color: rgba(255, 255, 255, 0.9);
+            font-size: var(--font-size-sm);
+            line-height: 1.5;
         }
         
         .application-info li::before {
             content: '•';
             color: rgba(255, 255, 255, 0.7);
+            margin-top: 2px;
+            flex-shrink: 0;
         }
         
         .application-actions h3 {
             color: white;
-            margin-bottom: var(--space-lg);
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--space-md);
+            font-weight: var(--font-medium);
         }
         
         .action-buttons {
             display: flex;
             flex-direction: column;
-            gap: var(--space-md);
-            margin-bottom: var(--space-xl);
+            gap: var(--space-sm);
+            margin-bottom: var(--space-lg);
         }
         
         .application-actions .btn-primary {
             background: white;
             color: var(--primary);
+            font-size: var(--font-size-sm);
+            padding: var(--space-sm) var(--space-lg);
         }
         
         .application-actions .btn-primary:hover {
             background: var(--bg-light-subtle);
+            transform: translateY(-1px);
         }
         
         .application-actions .btn-secondary {
             background: transparent;
             border-color: white;
             color: white;
+            font-size: var(--font-size-sm);
+            padding: var(--space-sm) var(--space-lg);
         }
         
         .application-actions .btn-secondary:hover {
             background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-1px);
         }
         
         .contact-person {
-            padding: var(--space-lg);
+            padding: var(--space-md);
             background: rgba(255, 255, 255, 0.1);
             border-radius: var(--radius-md);
+            border-left: 3px solid white;
         }
         
         .contact-person h4 {
             color: white;
-            margin-bottom: var(--space-sm);
+            font-size: var(--font-size-base);
+            margin-bottom: var(--space-xs);
+            font-weight: var(--font-medium);
         }
         
         .contact-person p {
             color: rgba(255, 255, 255, 0.9);
             margin: 0;
+            font-size: var(--font-size-sm);
+            line-height: 1.4;
         }
         
         .contact-person a {
             color: white;
             text-decoration: none;
+            font-weight: var(--font-medium);
+        }
+        
+        .contact-person a:hover {
+            text-decoration: underline;
         }
         
         /* Mobile Responsive */
@@ -739,16 +768,28 @@
             
             .application-content {
                 grid-template-columns: 1fr;
-                gap: var(--space-xl);
+                gap: var(--space-lg);
+            }
+            
+            .application-title {
+                font-size: var(--font-size-xl);
+                text-align: center;
             }
             
             .action-buttons {
                 flex-direction: column;
+                gap: var(--space-xs);
+            }
+            
+            .contact-person {
+                text-align: center;
+                margin-top: var(--space-md);
             }
         }
     </style>
 
     <!-- Scripts -->
+    <script src="../js/fix-theme.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/menu.js"></script>
     <script src="../js/dark-mode.js"></script>

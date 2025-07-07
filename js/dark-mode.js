@@ -118,16 +118,16 @@ class ThemeManager {
     if (!this.themeToggle) return;
     
     const currentTheme = this.getCurrentTheme();
-    const sunIcon = this.themeToggle.querySelector('.sun-icon');
-    const moonIcon = this.themeToggle.querySelector('.moon-icon');
+    const lightIcon = this.themeToggle.querySelector('.theme-icon--light');
+    const darkIcon = this.themeToggle.querySelector('.theme-icon--dark');
     
     if (currentTheme === this.themes.DARK) {
-      if (sunIcon) sunIcon.style.display = 'none';
-      if (moonIcon) moonIcon.style.display = 'block';
+      if (lightIcon) lightIcon.style.display = 'none';
+      if (darkIcon) darkIcon.style.display = 'block';
       this.themeToggle.setAttribute('aria-label', 'Switch to light mode');
     } else {
-      if (sunIcon) sunIcon.style.display = 'block';
-      if (moonIcon) moonIcon.style.display = 'none';
+      if (lightIcon) lightIcon.style.display = 'block';
+      if (darkIcon) darkIcon.style.display = 'none';
       this.themeToggle.setAttribute('aria-label', 'Switch to dark mode');
     }
   }
@@ -205,6 +205,15 @@ const themeStyles = `
     
     .theme-toggle:active {
       transform: scale(0.95);
+    }
+    
+    /* Hide inactive theme icon */
+    [data-theme="light"] .theme-icon--dark {
+      display: none !important;
+    }
+    
+    [data-theme="dark"] .theme-icon--light {
+      display: none !important;
     }
     
     /* Focus styles for accessibility */

@@ -162,68 +162,14 @@ class ModernMenu {
   }
 
   setupThemeToggle() {
-    if (!this.themeToggle) return;
-
-    this.themeToggle.addEventListener('click', () => {
-      this.toggleTheme();
-    });
+    // Theme toggle is now handled by dark-mode.js
+    // This method is kept empty for compatibility
   }
 
   toggleTheme() {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
-    // Animate theme transition
-    gsap.to(this.themeToggle, {
-      scale: 0.8,
-      duration: 0.1,
-      ease: "power2.out",
-      yoyo: true,
-      repeat: 1,
-      onComplete: () => {
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        
-        // Animate theme icons
-        const lightIcon = document.querySelector('.theme-icon--light');
-        const darkIcon = document.querySelector('.theme-icon--dark');
-        
-        if (newTheme === 'dark') {
-          gsap.to(lightIcon, { rotation: -180, scale: 0.8, opacity: 0, duration: 0.3 });
-          gsap.to(darkIcon, { rotation: 0, scale: 1, opacity: 1, duration: 0.3 });
-        } else {
-          gsap.to(darkIcon, { rotation: 180, scale: 0.8, opacity: 0, duration: 0.3 });
-          gsap.to(lightIcon, { rotation: 0, scale: 1, opacity: 1, duration: 0.3 });
-        }
-      }
-    });
-
-    // Create theme transition effect
-    const overlay = document.createElement('div');
-    overlay.style.cssText = `
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: ${newTheme === 'dark' ? '#0f172a' : '#ffffff'};
-      z-index: 9999;
-      pointer-events: none;
-      opacity: 0;
-    `;
-    
-    document.body.appendChild(overlay);
-    
-    gsap.to(overlay, {
-      opacity: 0.3,
-      duration: 0.2,
-      ease: "power2.out",
-      yoyo: true,
-      repeat: 1,
-      onComplete: () => {
-        overlay.remove();
-      }
-    });
+    // Theme toggle is now handled by dark-mode.js
+    // This function is kept for compatibility but does nothing
+    return;
   }
 
   setupNavAnimations() {
