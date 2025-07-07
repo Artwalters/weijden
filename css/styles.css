@@ -699,6 +699,13 @@ a:hover {
   margin-top: var(--space-2xl);
 }
 
+.service-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: all var(--transition-base);
+}
+
 .service-card {
   background-color: var(--bg-secondary);
   border-radius: var(--radius-lg);
@@ -707,12 +714,19 @@ a:hover {
   transition: all var(--transition-base);
   border: 1px solid transparent;
   position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-.service-card:hover {
+.service-card-link:hover .service-card {
   transform: translateY(-5px);
   box-shadow: var(--shadow-xl);
   border-color: var(--primary);
+}
+
+.service-card-link:hover {
+  color: inherit;
 }
 
 .service-icon {
@@ -741,15 +755,19 @@ a:hover {
 .service-link {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: var(--space-xs);
   font-size: var(--font-size-sm);
   font-weight: var(--font-medium);
   color: var(--primary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  margin-top: auto;
+  pointer-events: none;
+  width: 100%;
 }
 
-.service-link:hover {
+.service-card-link:hover .service-link {
   gap: var(--space-sm);
 }
 
@@ -793,8 +811,11 @@ a:hover {
 .about-shape-2 {
   position: absolute;
   border-radius: var(--radius-xl);
-  background: linear-gradient(135deg, var(--primary), var(--primary-light));
-  opacity: 0.1;
+  background-image: url('../assets/images/businesscar.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.6;
+  border: 3px solid var(--primary);
 }
 
 .about-shape-1 {
@@ -825,6 +846,15 @@ a:hover {
   box-shadow: var(--shadow-xl);
   z-index: 1;
   position: relative;
+  padding: 20px;
+}
+
+.about-logo {
+  width: 100%;
+  height: auto;
+  max-width: 80px;
+  display: block;
+  margin: 0 auto;
 }
 
 /* Stats Section */
