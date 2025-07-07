@@ -18,6 +18,10 @@
    Small Devices (Phones) - Up to 640px
    ========================================================================== */
 @media (max-width: 640px) {
+  /* Reset any problematic styles */
+  * {
+    box-sizing: border-box;
+  }
   /* Typography adjustments */
   :root {
     --font-size-xs: 0.7rem;
@@ -86,16 +90,22 @@
 
   /* Navigation mobile */
   .nav {
-    height: 70px;
+    height: 60px;
     padding: 0 var(--space-md);
   }
 
   .header {
-    margin-bottom: 70px;
+    top: 0;
+    margin-bottom: 0;
   }
+  
 
   .nav-logo {
     font-size: var(--font-size-lg);
+  }
+  
+  .logo-image {
+    height: 30px;
   }
 
   /* Services grid mobile */
@@ -392,11 +402,9 @@
    ========================================================================== */
 @media print {
   /* Hide interactive elements */
-  .nav-toggle,
   .theme-toggle,
   .scroll-to-top,
   .loader,
-  .hero-scroll,
   .slider-controls,
   .slider-dots {
     display: none !important;
@@ -471,9 +479,6 @@
     animation: none !important;
   }
 
-  .scroll-line::after {
-    animation: none !important;
-  }
 }
 
 /* ==========================================================================
@@ -537,8 +542,7 @@
   .btn,
   .nav-link,
   .service-link,
-  .theme-toggle,
-  .nav-toggle {
+  .theme-toggle {
     min-height: 44px; /* Apple's recommended touch target size */
     min-width: 44px;
   }

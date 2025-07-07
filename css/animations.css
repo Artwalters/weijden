@@ -239,71 +239,7 @@
   left: 100%;
 }
 
-/* Mobile menu animations */
-.nav-menu.opening .nav-item {
-  animation: slideInUp 0.3s ease forwards;
-}
 
-.nav-menu.opening .nav-item:nth-child(1) { animation-delay: 0.1s; }
-.nav-menu.opening .nav-item:nth-child(2) { animation-delay: 0.15s; }
-.nav-menu.opening .nav-item:nth-child(3) { animation-delay: 0.2s; }
-.nav-menu.opening .nav-item:nth-child(4) { animation-delay: 0.25s; }
-.nav-menu.opening .nav-item:nth-child(5) { animation-delay: 0.3s; }
-
-/* ==========================================================================
-   Button Animations
-   ========================================================================== */
-
-.btn {
-  position: relative;
-  overflow: hidden;
-}
-
-.btn::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: width 0.6s ease, height 0.6s ease;
-}
-
-.btn:hover::before {
-  width: 200%;
-  height: 200%;
-}
-
-.btn-primary::before {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.btn-secondary::before {
-  background: rgba(65, 163, 143, 0.1);
-}
-
-/* Button loading state */
-.btn.loading {
-  color: transparent;
-  position: relative;
-}
-
-.btn.loading::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 20px;
-  height: 20px;
-  margin: -10px 0 0 -10px;
-  border: 2px solid transparent;
-  border-top: 2px solid currentColor;
-  border-radius: 50%;
-  animation: rotate 1s linear infinite;
-}
 
 /* ==========================================================================
    Card Animations

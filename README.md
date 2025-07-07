@@ -83,3 +83,4 @@ npm run deploy  # Info over Netlify deployment
 - Safari: Laatste 2 versies
 - Mobile: iOS Safari, Chrome Mobile
 
+# weijden

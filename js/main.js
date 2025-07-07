@@ -484,19 +484,6 @@ class WeijdenMulticare {
 document.addEventListener('DOMContentLoaded', () => {
   window.weijdenMulticare = new WeijdenMulticare();
   
-  // Emergency loader failsafe - force hide after 3 seconds
-  setTimeout(() => {
-    const loader = document.getElementById('loader');
-    if (loader && loader.style.display !== 'none') {
-      console.warn('Loader timeout - force hiding');
-      loader.style.opacity = '0';
-      loader.style.visibility = 'hidden';
-      loader.style.pointerEvents = 'none';
-      setTimeout(() => {
-        loader.style.display = 'none';
-      }, 300);
-    }
-  }, 3000);
 });
 
 // Export utilities for global use

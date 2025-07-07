@@ -167,8 +167,8 @@ class NavigationMenu {
       this.header.classList.remove('scrolled');
     }
 
-    // Hide/show header on scroll direction (optional)
-    if (Math.abs(currentScrollY - this.lastScrollY) > 10) {
+    // Hide/show header on scroll direction (disabled on mobile)
+    if (window.innerWidth > 768 && Math.abs(currentScrollY - this.lastScrollY) > 10) {
       if (currentScrollY > this.lastScrollY && currentScrollY > 200) {
         // Scrolling down
         this.header.classList.add('header-hidden');
@@ -177,6 +177,9 @@ class NavigationMenu {
         this.header.classList.remove('header-hidden');
       }
       this.lastScrollY = currentScrollY;
+    } else if (window.innerWidth <= 768) {
+      // Ensure header is always visible on mobile
+      this.header.classList.remove('header-hidden');
     }
 
     // Update active link based on scroll position

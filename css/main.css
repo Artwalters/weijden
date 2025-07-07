@@ -227,24 +227,31 @@ a:hover {
 .btn-primary {
   background-color: var(--primary);
   color: white;
+  border: 2px solid var(--primary);
+  font-weight: var(--font-semibold);
 }
 
 .btn-primary:hover {
   background-color: var(--primary-light);
+  border-color: var(--primary-light);
+  color: white;
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
 }
 
 .btn-secondary {
   background-color: transparent;
-  color: var(--text-color);
-  border: 2px solid var(--border-color);
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  font-weight: var(--font-semibold);
 }
 
 .btn-secondary:hover {
-  background-color: var(--bg-accent);
+  background-color: var(--primary);
   border-color: var(--primary);
-  color: var(--primary);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
 }
 
 /* ==========================================================================
@@ -416,45 +423,6 @@ a:hover {
   display: block;
 }
 
-/* Mobile Menu Toggle */
-.nav-toggle {
-  display: none;
-  width: 40px;
-  height: 40px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  position: relative;
-}
-
-.nav-toggle span {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background-color: var(--text-color);
-  margin: 0 auto;
-  transition: all var(--transition-base);
-  position: absolute;
-  left: 8px;
-}
-
-.nav-toggle span:nth-child(1) { top: 14px; }
-.nav-toggle span:nth-child(2) { top: 20px; }
-.nav-toggle span:nth-child(3) { top: 26px; }
-
-.nav-toggle.active span:nth-child(1) {
-  transform: rotate(45deg);
-  top: 20px;
-}
-
-.nav-toggle.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.nav-toggle.active span:nth-child(3) {
-  transform: rotate(-45deg);
-  top: 20px;
-}
 
 /* ==========================================================================
    Hero Section
@@ -466,6 +434,7 @@ a:hover {
   position: relative;
   overflow: hidden;
   margin-top: 80px;
+  box-sizing: border-box;
 }
 
 .hero-bg {
@@ -503,6 +472,10 @@ a:hover {
 }
 
 .hero-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-3xl);
@@ -579,45 +552,6 @@ a:hover {
   transform: rotate(30deg);
 }
 
-.hero-scroll {
-  position: absolute;
-  bottom: var(--space-xl);
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-sm);
-  color: var(--text-color-tertiary);
-  font-size: var(--font-size-xs);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-
-.scroll-line {
-  width: 1px;
-  height: 40px;
-  background-color: var(--border-color);
-  position: relative;
-  overflow: hidden;
-}
-
-.scroll-line::after {
-  content: '';
-  position: absolute;
-  top: -40px;
-  left: 0;
-  width: 100%;
-  height: 20px;
-  background-color: var(--primary);
-  animation: scrollDown 2s infinite;
-}
-
-@keyframes scrollDown {
-  to {
-    transform: translateY(60px);
-  }
-}
 
 /* ==========================================================================
    Services Grid
@@ -833,21 +767,31 @@ a:hover {
 .cta .btn-primary {
   background-color: white;
   color: var(--primary);
+  border: 2px solid white;
+  font-weight: var(--font-bold);
 }
 
 .cta .btn-primary:hover {
-  background-color: var(--bg-light-subtle);
+  background-color: var(--primary);
+  color: white;
+  border-color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .cta .btn-secondary {
-  border-color: white;
+  background-color: transparent;
+  border: 2px solid white;
   color: white;
+  font-weight: var(--font-bold);
 }
 
 .cta .btn-secondary:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: white;
   border-color: white;
-  color: white;
+  color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 /* ==========================================================================
@@ -958,118 +902,3 @@ a:hover {
   font-size: var(--font-size-sm);
 }
 
-/* ==========================================================================
-   Loading Screen
-   ========================================================================== */
-.loader {
-  position: fixed;
-  inset: 0;
-  background-color: var(--bg-primary);
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-  opacity: 1;
-  visibility: visible;
-}
-
-.loader.hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.loader-content {
-  text-align: center;
-}
-
-.loader-logo {
-  margin-bottom: var(--space-lg);
-  animation: pulse 2s ease-in-out infinite;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.loader-logo-image {
-  height: 80px;
-  width: auto;
-  transition: opacity var(--transition-base);
-}
-
-/* Light mode loader logo (default) */
-.loader-logo-image.light-logo {
-  display: block;
-}
-
-.loader-logo-image.dark-logo {
-  display: none;
-}
-
-/* Dark mode loader logo switching */
-[data-theme="dark"] .loader-logo-image.light-logo {
-  display: none;
-}
-
-[data-theme="dark"] .loader-logo-image.dark-logo {
-  display: block;
-}
-
-.loader-bar {
-  width: 200px;
-  height: 4px;
-  background-color: var(--bg-accent);
-  border-radius: var(--radius-full);
-  overflow: hidden;
-  position: relative;
-}
-
-.loader-bar::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background-color: var(--primary);
-  animation: loading 1.2s ease-in-out infinite;
-}
-
-@keyframes loading {
-  0% {
-    left: -100%;
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    left: 100%;
-    opacity: 0;
-  }
-}
-
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.6;
-  }
-}
-
-/* Force hide loader if it hangs */
-.loader[style*="display: none"] {
-  display: none !important;
-}
-
-.loader[style*="opacity: 0"] {
-  opacity: 0 !important;
-  pointer-events: none !important;
-}
-
-.loader[style*="visibility: hidden"] {
-  visibility: hidden !important;
-  pointer-events: none !important;
-}
