@@ -134,6 +134,10 @@
     text-align: center;
   }
 
+  .footer-logo {
+    justify-content: center;
+  }
+
   .footer-desc {
     max-width: none;
     text-align: center;
@@ -225,6 +229,10 @@
 
   .footer-brand {
     text-align: center;
+  }
+
+  .footer-logo {
+    justify-content: center;
   }
 
   .footer-desc {
