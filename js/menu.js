@@ -115,6 +115,29 @@ class ModernMenu {
         this.closeMobileMenu();
       }
     });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (this.isMenuOpen && 
+          !this.mobileMenuOverlay.contains(e.target) && 
+          !this.mobileMenuBtn.contains(e.target)) {
+        this.closeMobileMenu();
+      }
+    });
+
+    // Close menu when scrolling
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+      if (this.isMenuOpen) {
+        // Clear previous timeout
+        clearTimeout(scrollTimeout);
+        
+        // Set a small delay to avoid closing on minimal scroll
+        scrollTimeout = setTimeout(() => {
+          this.closeMobileMenu();
+        }, 150);
+      }
+    });
   }
 
   toggleMobileMenu() {
