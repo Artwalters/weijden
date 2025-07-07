@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="nl" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Weijden Multicare Diensten - Professionele sloop, ontruiming en graafwerkzaamheden">
+    <title>Diensten - Weijden Multicare</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <img src="../assets/images/lightmode_big.svg" alt="Weijden Multicare" class="loader-logo-image light-logo">
+                <img src="../assets/images/darkmode_big.svg" alt="Weijden Multicare" class="loader-logo-image dark-logo">
+            </div>
+            <div class="loader-bar"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="../index.html" class="nav-logo">
+                <img src="../assets/images/lightmode_big.svg" alt="Weijden Multicare" class="logo-image light-logo">
+                <img src="../assets/images/darkmode_big.svg" alt="Weijden Multicare" class="logo-image dark-logo">
+            </a>
+            
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="diensten.html" class="nav-link active">Diensten</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="wie-zijn-we.html" class="nav-link">Wie wij zijn</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="vacatures.html" class="nav-link">Vacatures</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title">Onze Diensten</h1>
+                <p class="page-subtitle">Professionele oplossingen voor al uw projecten</p>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="section services-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Onze specialiteiten</h2>
+                    <p class="section-subtitle">Professionele diensten met jarenlange ervaring</p>
+                </div>
+                
+                <div class="services-grid">
+                    <!-- Sloopwerkzaamheden -->
+                    <article class="service-card" id="sloop">
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                    <rect x="12" y="12" width="24" height="24" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M8 20L24 4L40 20" stroke="currentColor" stroke-width="2"/>
+                                    <circle cx="24" cy="24" r="4" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <h3 class="service-title">Sloopwerkzaamheden</h3>
+                        </div>
+                        <p class="service-description">
+                            Wij bieden een uitgebreide reeks sloopwerkzaamheden aan, uitgevoerd met zorg en precisie. 
+                            Tijdens onze werkzaamheden werken we stofvrij door gebruik te maken van moderne afzuigsystemen.
+                        </p>
+                        <ul class="service-list">
+                            <li>Badkamer- en keukenverwijdering</li>
+                            <li>Vloer- en tegelverwijdering</li>
+                            <li>Muur doorbraak en verwijdering</li>
+                            <li>Stofvrij werken met afzuigsystemen</li>
+                            <li>Professionele afvoer van puin</li>
+                        </ul>
+                    </article>
+
+                    <!-- Ontruimingen -->
+                    <article class="service-card" id="ontruiming">
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                    <rect x="8" y="16" width="32" height="24" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M16 16V12C16 9.79086 17.7909 8 20 8H28C30.2091 8 32 9.79086 32 12V16" stroke="currentColor" stroke-width="2"/>
+                                    <line x1="24" y1="26" x2="24" y2="30" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <h3 class="service-title">Ontruimingen</h3>
+                        </div>
+                        <p class="service-description">
+                            Gespecialiseerd in het uitvoeren van ontruimingen. Of het nu gaat om koopwoningen, 
+                            huurwoningen of bedrijfsruimtes, wij zorgen voor een efficiënte en zorgvuldige ontruiming.
+                        </p>
+                        <ul class="service-list">
+                            <li>Woningontruiming na verhuizing of overlijden</li>
+                            <li>Bedrijfspand ontruimen</li>
+                            <li>Schoonmaken en opleveren</li>
+                            <li>Afvoeren van grofvuil en meubels</li>
+                            <li>Respectvolle behandeling van eigendommen</li>
+                        </ul>
+                    </article>
+
+                    <!-- Graafwerkzaamheden -->
+                    <article class="service-card" id="graaf">
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                    <path d="M12 36L24 24L36 36" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M24 24V8" stroke="currentColor" stroke-width="2"/>
+                                    <circle cx="24" cy="8" r="4" stroke="currentColor" stroke-width="2"/>
+                                    <line x1="8" y1="40" x2="40" y2="40" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <h3 class="service-title">Graafwerkzaamheden</h3>
+                        </div>
+                        <p class="service-description">
+                            Een uitgebreid scala aan graaf- en grondwerkzaamheden, uitgevoerd met precisie en vakmanschap. 
+                            Van tuinprojecten tot infrastructuurwerken.
+                        </p>
+                        <ul class="service-list">
+                            <li>Bomen en heggen verwijderen</li>
+                            <li>Grondafgraving voor vijvers of zwembaden</li>
+                            <li>Voorbereidende grondwerken voor bestrating</li>
+                            <li>Drainage- en sleufwerkzaamheden</li>
+                            <li>Aanleg van tuinpaden en terrassen</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Additional Info Section -->
+        <section class="section additional-info">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Waarom Weijden Multicare?</h2>
+                    <p class="section-subtitle">Kwaliteit, betrouwbaarheid en vakmanschap sinds 2018</p>
+                </div>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <path d="M24 8L27.09 17.26L37 18.27L30.45 24.97L32.18 35L24 30.27L15.82 35L17.55 24.97L11 18.27L20.91 17.26L24 8Z" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3 class="info-title">Ervaren Team</h3>
+                        <p class="info-desc">Jong, energiek team met jarenlange ervaring en een netwerk van specialisten</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2"/>
+                                <path d="M16 24L22 30L32 18" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3 class="info-title">Gecertificeerd</h3>
+                        <p class="info-desc">NEN3140 gecertificeerd voor veilig werken met elektrische installaties</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <rect x="8" y="12" width="32" height="24" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <path d="M16 12V8C16 5.79086 17.7909 4 20 4H28C30.2091 4 32 5.79086 32 8V12" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3 class="info-title">Maatwerk</h3>
+                        <p class="info-desc">Flexibele oplossingen aangepast aan uw specifieke wensen en behoeften</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title">Interesse in onze diensten?</h2>
+                    <p class="cta-text">Neem contact op voor een vrijblijvende offerte</p>
+                    <div class="cta-buttons">
+                        <a href="tel:+31615372259" class="btn btn-primary">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M3 5C3 3.89543 3.89543 3 5 3H7.27924C7.70967 3 8.09181 3.27543 8.22792 3.68377L9.2108 6.63246C9.33847 7.01453 9.22761 7.43263 8.92951 7.69825L7.54338 9.00101C8.60286 11.1177 10.3459 12.8609 12.463 13.921L13.7648 12.5341C14.0307 12.2358 14.449 12.1249 14.8312 12.2527L17.78 13.2357C18.1884 13.3719 18.4639 13.7541 18.4639 14.1846V16.3718C18.4639 17.5156 17.5395 18.44 16.3957 18.44C8.68949 18.44 2.44 12.1905 2.44 4.48425" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            Bel direct
+                        </a>
+                        <a href="contact.html" class="btn btn-secondary">Stuur een bericht</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="../assets/images/lightmode_big.svg" alt="Weijden Multicare" class="footer-logo-image light-logo">
+                        <img src="../assets/images/darkmode_big.svg" alt="Weijden Multicare" class="footer-logo-image dark-logo">
+                    </div>
+                    <p class="footer-desc">Uw partner in veiligheid en betrouwbaarheid sinds 2018</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-title">Diensten</h4>
+                        <ul class="footer-list">
+                            <li><a href="#sloop">Sloopwerkzaamheden</a></li>
+                            <li><a href="#ontruiming">Ontruimingen</a></li>
+                            <li><a href="#graaf">Graafwerkzaamheden</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-title">Bedrijf</h4>
+                        <ul class="footer-list">
+                            <li><a href="wie-zijn-we.html">Wie wij zijn</a></li>
+                            <li><a href="vacatures.html">Vacatures</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-title">Contact</h4>
+                        <ul class="footer-list footer-contact">
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M2.4 4C2.4 3.11635 3.11635 2.4 4 2.4H5.82339C6.18173 2.4 6.50745 2.62034 6.66233 2.96301L7.56864 4.90597C7.71077 5.21162 7.66209 5.5701 7.44361 5.8266L6.23471 7.20081C7.08229 8.89418 8.5367 10.3486 10.2301 11.1962L11.6039 9.98695C11.8606 9.76864 12.219 9.71999 12.525 9.86219L14.468 10.7686C14.8107 10.9235 15.0311 11.2493 15.0311 11.6077V13.4311C15.0311 14.3148 14.3148 15.0311 13.4311 15.0311" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                                <a href="tel:+31615372259">+31 6 15372259</a>
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <rect x="2" y="4" width="12" height="9" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                                    <path d="M2 5L8 9L14 5" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                                <a href="mailto:info@weijdenmulticare.nl">info@weijdenmulticare.nl</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Weijden Multicare. Alle rechten voorbehouden.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Page Specific Styles -->
+    <style>
+        .page-hero {
+            padding: 120px 0 60px;
+            background: linear-gradient(135deg, var(--bg-accent) 0%, var(--bg-secondary) 100%);
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        .page-title {
+            font-size: var(--font-size-5xl);
+            margin-bottom: var(--space-md);
+        }
+        
+        .page-subtitle {
+            font-size: var(--font-size-lg);
+            color: var(--text-color-secondary);
+        }
+        
+        .diensten-section {
+            padding: var(--space-3xl) 0;
+            background-color: var(--bg-primary);
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-2xl);
+        }
+        
+        .info-card {
+            text-align: center;
+            padding: var(--space-xl);
+        }
+        
+        .info-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto var(--space-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--bg-accent);
+            border-radius: var(--radius-full);
+            color: var(--primary);
+        }
+        
+        .info-title {
+            font-size: var(--font-size-xl);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .info-desc {
+            color: var(--text-color-secondary);
+            font-size: var(--font-size-sm);
+        }
+        
+        /* Services Grid Styles */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--space-2xl);
+            margin-top: var(--space-2xl);
+        }
+        
+        .service-card {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            padding: var(--space-2xl);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-base);
+            border: 2px solid transparent;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary);
+        }
+        
+        .service-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex-shrink: 0;
+        }
+        
+        .service-title {
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-bold);
+            color: var(--text-color);
+            margin: 0;
+        }
+        
+        .service-description {
+            color: var(--text-color-secondary);
+            font-size: var(--font-size-base);
+            line-height: 1.6;
+            margin-bottom: var(--space-lg);
+        }
+        
+        .service-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .service-list li {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-sm);
+            padding: var(--space-sm);
+            background: var(--bg-accent);
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-sm);
+            color: var(--text-color-secondary);
+        }
+        
+        .service-list li::before {
+            content: '✓';
+            color: var(--primary);
+            font-weight: bold;
+            font-size: var(--font-size-base);
+            flex-shrink: 0;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-xl);
+            }
+            
+            .service-header {
+                flex-direction: column;
+                text-align: center;
+                gap: var(--space-md);
+            }
+            
+            .service-icon {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .service-title {
+                font-size: var(--font-size-xl);
+            }
+        }
+    </style>
+
+    <!-- Scripts -->
+    <script src="../js/main.js"></script>
+    <script src="../js/page-transitions.js"></script>
+    <script src="../js/menu.js"></script>
+    <script src="../js/dark-mode.js"></script>
+</body>
+</html>

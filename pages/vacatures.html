@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="nl" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vacatures bij Weijden Multicare - Word deel van ons enthousiaste team">
+    <title>Vacatures - Weijden Multicare</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <img src="../assets/images/lightmode_big.svg" alt="Weijden Multicare" class="loader-logo-image light-logo">
+                <img src="../assets/images/darkmode_big.svg" alt="Weijden Multicare" class="loader-logo-image dark-logo">
+            </div>
+            <div class="loader-bar"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="../index.html" class="nav-logo">
+                <img src="../assets/images/lightmode_big.svg" alt="Weijden Multicare" class="logo-image light-logo">
+                <img src="../assets/images/darkmode_big.svg" alt="Weijden Multicare" class="logo-image dark-logo">
+            </a>
+            
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="diensten.html" class="nav-link">Diensten</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="wie-zijn-we.html" class="nav-link">Wie wij zijn</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="vacatures.html" class="nav-link active">Vacatures</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title">Vacatures</h1>
+                <p class="page-subtitle">Word deel van ons enthousiaste team bij Weijden Multicare</p>
+            </div>
+        </section>
+
+        <!-- Intro Section -->
+        <section class="section intro-section">
+            <div class="container">
+                <div class="intro-content">
+                    <h2 class="intro-title">Werken bij Weijden Multicare</h2>
+                    <p class="intro-text">
+                        Wij zijn altijd op zoek naar gemotiveerde en hardwerkende collega's die ons team willen versterken. 
+                        Bij Weijden Multicare werk je in een jonge, dynamische omgeving waar kwaliteit, veiligheid en 
+                        teamwork centraal staan.
+                    </p>
+                    <p>
+                        Ook als er momenteel geen specifieke vacatures open staan, nodigen we je uit om een 
+                        open sollicitatie te sturen. We waarderen initiatief en zijn altijd geïnteresseerd 
+                        in talent dat past bij onze bedrijfscultuur.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="section benefits-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Waarom werken bij ons?</h2>
+                    <p class="section-subtitle">Wat wij jou te bieden hebben</p>
+                </div>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <path d="M24 8L27.09 17.26L37 18.27L30.45 24.97L32.18 35L24 30.27L15.82 35L17.55 24.97L11 18.27L20.91 17.26L24 8Z" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3 class="benefit-title">Groei & Ontwikkeling</h3>
+                        <p class="benefit-desc">
+                            Ruimte voor persoonlijke en professionele ontwikkeling. 
+                            We investeren in cursussen en certificeringen voor onze medewerkers.
+                        </p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <path d="M16 20L24 12L32 20V36C32 37.1046 31.1046 38 30 38H18C16.8954 38 16 37.1046 16 36V20Z" stroke="currentColor" stroke-width="2"/>
+                                <path d="M22 30H26" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3 class="benefit-title">Stabiele Werkgever</h3>
+                        <p class="benefit-desc">
+                            Een groeiend bedrijf met een sterke reputatie en vaste klanten. 
+                            Zekerheid en stabiliteit in een dynamische sector.
+                        </p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <circle cx="24" cy="16" r="8" stroke="currentColor" stroke-width="2"/>
+                                <path d="M8 40C8 32 15 26 24 26C33 26 40 32 40 40" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3 class="benefit-title">Jong Team</h3>
+                        <p class="benefit-desc">
+                            Werk samen met een enthousiast en gedreven team. 
+                            Korte communicatielijnen en een informele werksfeer.
+                        </p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <path d="M20 24C20 26.2091 21.7909 28 24 28C26.2091 28 28 26.2091 28 24C28 21.7909 26.2091 20 24 20C21.7909 20 20 21.7909 20 24Z" stroke="currentColor" stroke-width="2"/>
+                                <path d="M24 4C29.5228 4 34 8.47715 34 14C34 19.5228 29.5228 24 24 24C18.4772 24 14 19.5228 14 14C14 8.47715 18.4772 4 24 4Z" stroke="currentColor" stroke-width="2"/>
+                                <path d="M24 28C29.5228 28 34 32.4772 34 38C34 43.5228 29.5228 48 24 48C18.4772 48 14 43.5228 14 38C14 32.4772 18.4772 28 24 28Z" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3 class="benefit-title">Afwisselend Werk</h3>
+                        <p class="benefit-desc">
+                            Geen dag is hetzelfde. Werk aan diverse projecten 
+                            van kleine klussen tot grote renovaties.
+                        </p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <rect x="8" y="16" width="32" height="24" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <path d="M16 16V12C16 9.79086 17.7909 8 20 8H28C30.2091 8 32 9.79086 32 12V16" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="24" cy="28" r="3" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3 class="benefit-title">Goede Arbeidsvoorwaarden</h3>
+                        <p class="benefit-desc">
+                            Marktconform salaris, bedrijfskleding en gereedschappen. 
+                            Ook pensioenregeling en vakantiegeld.
+                        </p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2"/>
+                                <path d="M16 24L22 30L32 18" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3 class="benefit-title">Veiligheid Voorop</h3>
+                        <p class="benefit-desc">
+                            Veilig werken staat centraal. Alle benodigde certificeringen, 
+                            PBM's en veiligheidsuitrusting worden verzorgd.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Current Openings Section -->
+        <section class="section openings-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Huidige vacatures</h2>
+                    <p class="section-subtitle">Bekijk onze openstaande posities</p>
+                </div>
+                
+                <div class="openings-content">
+                    <div class="no-openings">
+                        <div class="no-openings-icon">
+                            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                                <circle cx="40" cy="40" r="36" stroke="currentColor" stroke-width="2"/>
+                                <path d="M28 40H52" stroke="currentColor" stroke-width="2"/>
+                                <path d="M40 28V52" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3>Momenteel geen openstaande vacatures</h3>
+                        <p>
+                            Er zijn op dit moment geen specifieke vacatures beschikbaar. 
+                            Maar dat betekent niet dat we niet geïnteresseerd zijn in jouw talent!
+                        </p>
+                        <p>
+                            Stuur gerust een <strong>open sollicitatie</strong> en wie weet kunnen we 
+                            binnenkort samen aan de slag.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profiles Section -->
+        <section class="section profiles-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Wie zoeken we?</h2>
+                    <p class="section-subtitle">Profielen die bij ons passen</p>
+                </div>
+                
+                <div class="profiles-grid">
+                    <div class="profile-card">
+                        <div class="profile-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <rect x="12" y="12" width="24" height="24" stroke="currentColor" stroke-width="2"/>
+                                <path d="M8 20L24 4L40 20" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="24" cy="24" r="4" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3 class="profile-title">Sloopwerker</h3>
+                        <ul class="profile-requirements">
+                            <li>Ervaring met sloopwerkzaamheden</li>
+                            <li>VCA certificaat (of bereidheid om te behalen)</li>
+                            <li>Fysiek in goede conditie</li>
+                            <li>Zelfstandig en in teamverband kunnen werken</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="profile-card">
+                        <div class="profile-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <path d="M12 36L24 24L36 36" stroke="currentColor" stroke-width="2"/>
+                                <path d="M24 24V8" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="24" cy="8" r="4" stroke="currentColor" stroke-width="2"/>
+                                <line x1="8" y1="40" x2="40" y2="40" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3 class="profile-title">Grondwerker</h3>
+                        <ul class="profile-requirements">
+                            <li>Ervaring met graafmachines en grondverzet</li>
+                            <li>Rijbewijs B, bij voorkeur ook voor graafmachine</li>
+                            <li>Kennis van bestrating en drainage</li>
+                            <li>Accuraat en resultaatgericht</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="profile-card">
+                        <div class="profile-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <rect x="8" y="16" width="32" height="24" stroke="currentColor" stroke-width="2"/>
+                                <path d="M16 16V12C16 9.79086 17.7909 8 20 8H28C30.2091 8 32 9.79086 32 12V16" stroke="currentColor" stroke-width="2"/>
+                                <line x1="24" y1="26" x2="24" y2="30" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3 class="profile-title">Allround Medewerker</h3>
+                        <ul class="profile-requirements">
+                            <li>Breed inzetbaar in verschillende disciplines</li>
+                            <li>Handig en praktisch ingesteld</li>
+                            <li>Rijbewijs B</li>
+                            <li>Leergierig en flexibel</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Application Section -->
+        <section class="section application-section">
+            <div class="container">
+                <div class="application-content">
+                    <div class="application-text">
+                        <h2 class="application-title">Interesse? Neem contact op!</h2>
+                        <p class="application-desc">
+                            Herken je jezelf in een van de profielen? Of denk je dat je op een andere manier 
+                            een waardevolle toevoeging kunt zijn aan ons team? We horen graag van je!
+                        </p>
+                        <div class="application-info">
+                            <h3>Wat verwachten we van je sollicitatie?</h3>
+                            <ul>
+                                <li>Een motivatiebrief waarin je vertelt waarom je bij ons wilt werken</li>
+                                <li>Je CV met relevante werkervaring</li>
+                                <li>Eventuele certificaten (VCA, rijbewijzen, etc.)</li>
+                                <li>Contactgegevens van referenties</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="application-actions">
+                        <h3>Solliciteren kan op verschillende manieren:</h3>
+                        <div class="action-buttons">
+                            <a href="mailto:info@weijdenmulticare.nl?subject=Sollicitatie" class="btn btn-primary">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <rect x="2" y="4" width="16" height="12" rx="1" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M2 5L10 11L18 5" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                                E-mail sollicitatie
+                            </a>
+                            <a href="tel:+31615372259" class="btn btn-secondary">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M3 5C3 3.89543 3.89543 3 5 3H7.27924C7.70967 3 8.09181 3.27543 8.22792 3.68377L9.2108 6.63246C9.33847 7.01453 9.22761 7.43263 8.92951 7.69825L7.54338 9.00101C8.60286 11.1177 10.3459 12.8609 12.463 13.921L13.7648 12.5341C14.0307 12.2358 14.449 12.1249 14.8312 12.2527L17.78 13.2357C18.1884 13.3719 18.4639 13.7541 18.4639 14.1846V16.3718C18.4639 17.5156 17.5395 18.44 16.3957 18.44C8.68949 18.44 2.44 12.1905 2.44 4.48425" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                                Bel voor informatie
+                            </a>
+                        </div>
+                        
+                        <div class="contact-person">
+                            <h4>Contactpersoon</h4>
+                            <p><strong>Sander Weijden</strong><br>
+                            Eigenaar & Projectleider<br>
+                            <a href="tel:+31615372259">+31 6 15372259</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="../assets/images/lightmode_big.svg" alt="Weijden Multicare" class="footer-logo-image light-logo">
+                        <img src="../assets/images/darkmode_big.svg" alt="Weijden Multicare" class="footer-logo-image dark-logo">
+                    </div>
+                    <p class="footer-desc">Uw partner in veiligheid en betrouwbaarheid sinds 2018</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-title">Diensten</h4>
+                        <ul class="footer-list">
+                            <li><a href="diensten.html#sloop">Sloopwerkzaamheden</a></li>
+                            <li><a href="diensten.html#ontruiming">Ontruimingen</a></li>
+                            <li><a href="diensten.html#graaf">Graafwerkzaamheden</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-title">Bedrijf</h4>
+                        <ul class="footer-list">
+                            <li><a href="wie-zijn-we.html">Wie wij zijn</a></li>
+                            <li><a href="vacatures.html">Vacatures</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-title">Contact</h4>
+                        <ul class="footer-list footer-contact">
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M2.4 4C2.4 3.11635 3.11635 2.4 4 2.4H5.82339C6.18173 2.4 6.50745 2.62034 6.66233 2.96301L7.56864 4.90597C7.71077 5.21162 7.66209 5.5701 7.44361 5.8266L6.23471 7.20081C7.08229 8.89418 8.5367 10.3486 10.2301 11.1962L11.6039 9.98695C11.8606 9.76864 12.219 9.71999 12.525 9.86219L14.468 10.7686C14.8107 10.9235 15.0311 11.2493 15.0311 11.6077V13.4311C15.0311 14.3148 14.3148 15.0311 13.4311 15.0311" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                                <a href="tel:+31615372259">+31 6 15372259</a>
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <rect x="2" y="4" width="12" height="9" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                                    <path d="M2 5L8 9L14 5" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                                <a href="mailto:info@weijdenmulticare.nl">info@weijdenmulticare.nl</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Weijden Multicare. Alle rechten voorbehouden.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Page Specific Styles -->
+    <style>
+        .page-hero {
+            padding: 120px 0 60px;
+            background: linear-gradient(135deg, var(--bg-accent) 0%, var(--bg-secondary) 100%);
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        .intro-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .intro-title {
+            font-size: var(--font-size-3xl);
+            margin-bottom: var(--space-lg);
+            color: var(--primary);
+        }
+        
+        .intro-text {
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--space-md);
+            line-height: 1.6;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-2xl);
+        }
+        
+        .benefit-card {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            text-align: center;
+            transition: all var(--transition-base);
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto var(--space-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary);
+            border-radius: var(--radius-full);
+            color: white;
+        }
+        
+        .benefit-title {
+            font-size: var(--font-size-xl);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .benefit-desc {
+            color: var(--text-color-secondary);
+            font-size: var(--font-size-sm);
+            line-height: 1.6;
+        }
+        
+        .openings-section {
+            background: var(--bg-accent);
+        }
+        
+        .no-openings {
+            text-align: center;
+            padding: var(--space-3xl);
+            background: var(--bg-primary);
+            border-radius: var(--radius-lg);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .no-openings-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto var(--space-xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            opacity: 0.7;
+        }
+        
+        .no-openings h3 {
+            font-size: var(--font-size-2xl);
+            margin-bottom: var(--space-lg);
+            color: var(--primary);
+        }
+        
+        .no-openings p {
+            font-size: var(--font-size-base);
+            margin-bottom: var(--space-md);
+            line-height: 1.6;
+        }
+        
+        .profiles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-2xl);
+        }
+        
+        .profile-card {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+        }
+        
+        .profile-icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: var(--space-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-accent);
+            border-radius: var(--radius-full);
+            color: var(--primary);
+        }
+        
+        .profile-title {
+            font-size: var(--font-size-xl);
+            margin-bottom: var(--space-md);
+        }
+        
+        .profile-requirements {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .profile-requirements li {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-sm);
+            font-size: var(--font-size-sm);
+            color: var(--text-color-secondary);
+        }
+        
+        .profile-requirements li::before {
+            content: '✓';
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        .application-section {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .application-content {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: var(--space-3xl);
+            align-items: start;
+        }
+        
+        .application-title {
+            color: white;
+            margin-bottom: var(--space-md);
+        }
+        
+        .application-desc {
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--space-xl);
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .application-info h3 {
+            color: white;
+            margin-bottom: var(--space-md);
+        }
+        
+        .application-info ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .application-info li {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-sm);
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .application-info li::before {
+            content: '•';
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .application-actions h3 {
+            color: white;
+            margin-bottom: var(--space-lg);
+        }
+        
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+        }
+        
+        .application-actions .btn-primary {
+            background: white;
+            color: var(--primary);
+        }
+        
+        .application-actions .btn-primary:hover {
+            background: var(--bg-light-subtle);
+        }
+        
+        .application-actions .btn-secondary {
+            background: transparent;
+            border-color: white;
+            color: white;
+        }
+        
+        .application-actions .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .contact-person {
+            padding: var(--space-lg);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+        }
+        
+        .contact-person h4 {
+            color: white;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .contact-person p {
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0;
+        }
+        
+        .contact-person a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .profiles-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .application-content {
+                grid-template-columns: 1fr;
+                gap: var(--space-xl);
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+
+    <!-- Scripts -->
+    <script src="../js/main.js"></script>
+    <script src="../js/page-transitions.js"></script>
+    <script src="../js/menu.js"></script>
+    <script src="../js/dark-mode.js"></script>
+</body>
+</html>

@@ -1,0 +1,674 @@
+/* ==========================================================================
+   Weijden Multicare - GSAP & CSS Animations
+   Enhanced animations and micro-interactions
+   ========================================================================== */
+
+/* ==========================================================================
+   CSS Custom Animations (Fallbacks)
+   ========================================================================== */
+
+/* Loading animations */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Continuous animations */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+/* Slider specific animations */
+@keyframes slideDown {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 500px;
+    opacity: 1;
+  }
+}
+
+/* ==========================================================================
+   Page Transition Classes
+   ========================================================================== */
+
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.page-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* ==========================================================================
+   Component Animation Classes
+   ========================================================================== */
+
+/* Animate elements on page load */
+.animate-on-load {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: slideInUp 0.8s ease forwards;
+}
+
+.animate-on-load.delay-1 {
+  animation-delay: 0.1s;
+}
+
+.animate-on-load.delay-2 {
+  animation-delay: 0.2s;
+}
+
+.animate-on-load.delay-3 {
+  animation-delay: 0.3s;
+}
+
+.animate-on-load.delay-4 {
+  animation-delay: 0.4s;
+}
+
+/* Scroll reveal animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.8s ease;
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: all 0.8s ease;
+}
+
+.reveal-left.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: all 0.8s ease;
+}
+
+.reveal-right.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.8s ease;
+}
+
+.reveal-scale.revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ==========================================================================
+   Navigation Animations
+   ========================================================================== */
+
+.nav-link {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(65, 163, 143, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.nav-link:hover::before {
+  left: 100%;
+}
+
+/* Mobile menu animations */
+.nav-menu.opening .nav-item {
+  animation: slideInUp 0.3s ease forwards;
+}
+
+.nav-menu.opening .nav-item:nth-child(1) { animation-delay: 0.1s; }
+.nav-menu.opening .nav-item:nth-child(2) { animation-delay: 0.15s; }
+.nav-menu.opening .nav-item:nth-child(3) { animation-delay: 0.2s; }
+.nav-menu.opening .nav-item:nth-child(4) { animation-delay: 0.25s; }
+.nav-menu.opening .nav-item:nth-child(5) { animation-delay: 0.3s; }
+
+/* ==========================================================================
+   Button Animations
+   ========================================================================== */
+
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn:hover::before {
+  width: 200%;
+  height: 200%;
+}
+
+.btn-primary::before {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.btn-secondary::before {
+  background: rgba(65, 163, 143, 0.1);
+}
+
+/* Button loading state */
+.btn.loading {
+  color: transparent;
+  position: relative;
+}
+
+.btn.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: rotate 1s linear infinite;
+}
+
+/* ==========================================================================
+   Card Animations
+   ========================================================================== */
+
+.service-card,
+.info-card {
+  transition: all 0.3s ease;
+}
+
+.service-card::before,
+.info-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  opacity: 0;
+  border-radius: inherit;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.service-card:hover::before,
+.info-card:hover::before {
+  opacity: 0.05;
+}
+
+/* Card content animations */
+.service-card .service-icon,
+.info-card .info-icon {
+  transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon,
+.info-card:hover .info-icon {
+  transform: scale(1.1);
+}
+
+/* ==========================================================================
+   Slider Animations
+   ========================================================================== */
+
+.dienst-card {
+  position: relative;
+}
+
+.dienst-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: translateX(-100%) rotate(45deg);
+  transition: transform 0.6s ease;
+  pointer-events: none;
+}
+
+.dienst-card:hover::after {
+  transform: translateX(100%) rotate(45deg);
+}
+
+/* Slider track smooth scrolling */
+.diensten-track.initialized {
+  scroll-behavior: smooth;
+}
+
+.dienst-card.in-view {
+  animation: scaleIn 0.6s ease forwards;
+}
+
+/* ==========================================================================
+   Loading States
+   ========================================================================== */
+
+.shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+[data-theme="dark"] .shimmer {
+  background: linear-gradient(90deg, #2a2a2a 25%, #1a1a1a 50%, #2a2a2a 75%);
+  background-size: 200% 100%;
+}
+
+.skeleton {
+  border-radius: var(--radius-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shimmer 1.5s infinite;
+}
+
+/* ==========================================================================
+   Floating Elements
+   ========================================================================== */
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.float.delay-1 {
+  animation-delay: 0.5s;
+}
+
+.float.delay-2 {
+  animation-delay: 1s;
+}
+
+.float.delay-3 {
+  animation-delay: 1.5s;
+}
+
+/* Hero shapes floating */
+.hero-shape-1 {
+  animation: float 6s ease-in-out infinite;
+}
+
+.hero-shape-2 {
+  animation: float 8s ease-in-out infinite reverse;
+}
+
+.hero-shape-3 {
+  animation: float 10s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   Scroll Animations
+   ========================================================================== */
+
+.scroll-fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.scroll-fade-in.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-slide-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.8s ease;
+}
+
+.scroll-slide-left.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-slide-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.8s ease;
+}
+
+.scroll-slide-right.in-view {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ==========================================================================
+   Interactive Elements
+   ========================================================================== */
+
+.interactive {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.interactive:hover {
+  transform: translateY(-2px);
+}
+
+.interactive:active {
+  transform: translateY(0);
+}
+
+/* Ripple effect */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.ripple:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* ==========================================================================
+   Form Animations
+   ========================================================================== */
+
+.form-group {
+  position: relative;
+}
+
+.form-input {
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  transform: scale(1.02);
+  box-shadow: 0 0 0 3px rgba(65, 163, 143, 0.1);
+}
+
+.form-label {
+  transition: all 0.3s ease;
+}
+
+.form-input:focus + .form-label,
+.form-input:valid + .form-label {
+  transform: translateY(-20px) scale(0.8);
+  color: var(--primary);
+}
+
+/* Success/Error states */
+.form-success {
+  animation: slideInUp 0.3s ease;
+}
+
+.form-error {
+  animation: bounceIn 0.5s ease;
+}
+
+/* ==========================================================================
+   Notification Animations
+   ========================================================================== */
+
+.notification {
+  animation: slideInDown 0.3s ease;
+}
+
+.notification.removing {
+  animation: slideInUp 0.3s ease reverse;
+}
+
+/* ==========================================================================
+   Footer Animations
+   ========================================================================== */
+
+.footer-logo {
+  transition: all 0.3s ease;
+}
+
+.footer-logo:hover {
+  transform: scale(1.05);
+}
+
+.footer-list a {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.footer-list a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.footer-list a:hover::after {
+  width: 100%;
+}
+
+/* ==========================================================================
+   Theme Transition Animations
+   ========================================================================== */
+
+.theme-transition-enter {
+  opacity: 0;
+}
+
+.theme-transition-enter-active {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.theme-transition-exit {
+  opacity: 1;
+}
+
+.theme-transition-exit-active {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* ==========================================================================
+   Reduced Motion Fallbacks
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  /* Disable all animations for accessibility */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  /* Keep essential transitions but make them instant */
+  .btn,
+  .nav-link,
+  .service-card,
+  .info-card {
+    transition-duration: 0.01ms !important;
+  }
+
+  /* Remove floating animations */
+  .float,
+  .hero-shape-1,
+  .hero-shape-2,
+  .hero-shape-3 {
+    animation: none !important;
+  }
+}
+
+/* ==========================================================================
+   Performance Optimizations
+   ========================================================================== */
+
+/* GPU acceleration for smooth animations */
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Will-change for elements that will animate */
+.will-animate {
+  will-change: transform, opacity;
+}
+
+/* Remove will-change after animation */
+.animation-complete {
+  will-change: auto;
+}

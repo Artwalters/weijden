@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="nl" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Leer meer over Weijden Multicare - Jong, energiek team opgericht in 2018 door Sander Weijden">
+    <title>Wie wij zijn - Weijden Multicare</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <img src="../assets/images/lightmode_big.svg" alt="Weijden Multicare" class="loader-logo-image light-logo">
+                <img src="../assets/images/darkmode_big.svg" alt="Weijden Multicare" class="loader-logo-image dark-logo">
+            </div>
+            <div class="loader-bar"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="../index.html" class="nav-logo">
+                <img src="../assets/images/lightmode_big.svg" alt="Weijden Multicare" class="logo-image light-logo">
+                <img src="../assets/images/darkmode_big.svg" alt="Weijden Multicare" class="logo-image dark-logo">
+            </a>
+            
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="diensten.html" class="nav-link">Diensten</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="wie-zijn-we.html" class="nav-link active">Wie wij zijn</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="vacatures.html" class="nav-link">Vacatures</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title">Wie wij zijn</h1>
+                <p class="page-subtitle">Leer ons jonge en enthousiaste team kennen</p>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="section about-intro">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-content">
+                        <h2 class="section-title">Welkom bij Weijden Multicare!</h2>
+                        <p class="intro-text">
+                            Opgericht in 2018 door Sander Weijden, zijn wij een jong en energiek bedrijf 
+                            met een duidelijke missie: het leveren van kwaliteit, veiligheid en 
+                            gepersonaliseerde diensten aan al onze klanten.
+                        </p>
+                        <p>
+                            Ons team bestaat uit ervaren professionals die met passie en vakmanschap 
+                            werken aan diverse projecten. Van kleine klussen tot grote renovaties, 
+                            wij benaderen elke opdracht met dezelfde toewijding en oog voor detail.
+                        </p>
+                    </div>
+                    <div class="about-image">
+                        <div class="image-placeholder">
+                            <svg width="200" height="150" viewBox="0 0 200 150" fill="none">
+                                <rect width="200" height="150" fill="var(--bg-accent)"/>
+                                <path d="M50 60C50 47.85 59.85 38 72 38H128C140.15 38 150 47.85 150 60V110H50V60Z" fill="var(--primary)" opacity="0.2"/>
+                                <circle cx="100" cy="70" r="15" fill="var(--primary)" opacity="0.4"/>
+                                <path d="M70 100L100 90L130 100V110H70V100Z" fill="var(--primary)" opacity="0.3"/>
+                            </svg>
+                            <span>Team foto</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values Section -->
+        <section class="section values-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Onze kernwaarden</h2>
+                    <p class="section-subtitle">Waar we voor staan</p>
+                </div>
+                
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <path d="M24 8L27.09 17.26L37 18.27L30.45 24.97L32.18 35L24 30.27L15.82 35L17.55 24.97L11 18.27L20.91 17.26L24 8Z" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3 class="value-title">Kwaliteit</h3>
+                        <p class="value-desc">
+                            Wij streven naar de hoogste kwaliteit in alles wat we doen. 
+                            Van de eerste planning tot de eindoplevering.
+                        </p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2"/>
+                                <path d="M16 24L22 30L32 18" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3 class="value-title">Veiligheid</h3>
+                        <p class="value-desc">
+                            Veiligheid staat altijd voorop. We zijn NEN3140 gecertificeerd 
+                            en werken volgens de strengste veiligheidsnormen.
+                        </p>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <path d="M16 20L24 12L32 20V36C32 37.1046 31.1046 38 30 38H18C16.8954 38 16 37.1046 16 36V20Z" stroke="currentColor" stroke-width="2"/>
+                                <path d="M22 30H26" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3 class="value-title">Betrouwbaarheid</h3>
+                        <p class="value-desc">
+                            Op ons kunt u rekenen. We houden ons aan afspraken 
+                            en communiceren helder over verwachtingen en voortgang.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section class="section timeline-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Ons verhaal</h2>
+                    <p class="section-subtitle">Van start-up tot gevestigde naam</p>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span>2018</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>De start</h3>
+                            <p>Sander Weijden richt Weijden Multicare op met een duidelijke visie: 
+                            kwaliteit en betrouwbaarheid in de bouw- en renovatiesector.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span>2020</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Groei en uitbreiding</h3>
+                            <p>Uitbreiding van het team en diensten. Samenwerking met 
+                            gerenommeerde partners zoals Van Wijnen en Graus Bouw.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span>2024</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>Certificering</h3>
+                            <p>NEN3140 cursus afgerond voor certificering elektrische werkmateriaal. 
+                            Continue investering in kennis en veiligheid.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-marker">
+                            <span>Nu</span>
+                        </div>
+                        <div class="timeline-content">
+                            <h3>De toekomst</h3>
+                            <p>Met een ervaren team en bewezen track record, 
+                            blijven we groeien en investeren in innovatie en duurzaamheid.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="section team-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Ons team</h2>
+                    <p class="section-subtitle">Jong, energiek team met netwerk van ervaren specialisten</p>
+                </div>
+                
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-image">
+                            <div class="image-placeholder">
+                                <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+                                    <circle cx="60" cy="60" r="60" fill="var(--bg-accent)"/>
+                                    <circle cx="60" cy="45" r="15" fill="var(--primary)" opacity="0.4"/>
+                                    <path d="M30 90C30 75 42 65 60 65C78 65 90 75 90 90" fill="var(--primary)" opacity="0.3"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="member-name">Sander Weijden</h3>
+                        <p class="member-role">Oprichter & Eigenaar</p>
+                        <p class="member-desc">
+                            Met jarenlange ervaring in de bouwsector richtte Sander 
+                            Weijden Multicare op vanuit zijn passie voor vakwerk en klanttevredenheid.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="partners-section">
+                    <h3>Onze partners</h3>
+                    <p>Wij werken samen met een netwerk van gespecialiseerde partners:</p>
+                    <div class="partners-list">
+                        <span class="partner">Van Wijnen</span>
+                        <span class="partner">Graus Bouw</span>
+                        <span class="partner">Habenu vd Kreeke</span>
+                        <span class="partner">ZOwonen</span>
+                        <span class="partner">Maasveste</span>
+                        <span class="partner">Daelmans</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title">Klaar om samen te werken?</h2>
+                    <p class="cta-text">Neem contact op en ervaar zelf wat Weijden Multicare voor u kan betekenen</p>
+                    <div class="cta-buttons">
+                        <a href="tel:+31615372259" class="btn btn-primary">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M3 5C3 3.89543 3.89543 3 5 3H7.27924C7.70967 3 8.09181 3.27543 8.22792 3.68377L9.2108 6.63246C9.33847 7.01453 9.22761 7.43263 8.92951 7.69825L7.54338 9.00101C8.60286 11.1177 10.3459 12.8609 12.463 13.921L13.7648 12.5341C14.0307 12.2358 14.449 12.1249 14.8312 12.2527L17.78 13.2357C18.1884 13.3719 18.4639 13.7541 18.4639 14.1846V16.3718C18.4639 17.5156 17.5395 18.44 16.3957 18.44C8.68949 18.44 2.44 12.1905 2.44 4.48425" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                            Bel direct
+                        </a>
+                        <a href="contact.html" class="btn btn-secondary">Stuur een bericht</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="../assets/images/lightmode_big.svg" alt="Weijden Multicare" class="footer-logo-image light-logo">
+                        <img src="../assets/images/darkmode_big.svg" alt="Weijden Multicare" class="footer-logo-image dark-logo">
+                    </div>
+                    <p class="footer-desc">Uw partner in veiligheid en betrouwbaarheid sinds 2018</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-title">Diensten</h4>
+                        <ul class="footer-list">
+                            <li><a href="diensten.html#sloop">Sloopwerkzaamheden</a></li>
+                            <li><a href="diensten.html#ontruiming">Ontruimingen</a></li>
+                            <li><a href="diensten.html#graaf">Graafwerkzaamheden</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-title">Bedrijf</h4>
+                        <ul class="footer-list">
+                            <li><a href="wie-zijn-we.html">Wie wij zijn</a></li>
+                            <li><a href="vacatures.html">Vacatures</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-title">Contact</h4>
+                        <ul class="footer-list footer-contact">
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M2.4 4C2.4 3.11635 3.11635 2.4 4 2.4H5.82339C6.18173 2.4 6.50745 2.62034 6.66233 2.96301L7.56864 4.90597C7.71077 5.21162 7.66209 5.5701 7.44361 5.8266L6.23471 7.20081C7.08229 8.89418 8.5367 10.3486 10.2301 11.1962L11.6039 9.98695C11.8606 9.76864 12.219 9.71999 12.525 9.86219L14.468 10.7686C14.8107 10.9235 15.0311 11.2493 15.0311 11.6077V13.4311C15.0311 14.3148 14.3148 15.0311 13.4311 15.0311" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                                <a href="tel:+31615372259">+31 6 15372259</a>
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <rect x="2" y="4" width="12" height="9" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                                    <path d="M2 5L8 9L14 5" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                                <a href="mailto:info@weijdenmulticare.nl">info@weijdenmulticare.nl</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Weijden Multicare. Alle rechten voorbehouden.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Page Specific Styles -->
+    <style>
+        .page-hero {
+            padding: 120px 0 60px;
+            background: linear-gradient(135deg, var(--bg-accent) 0%, var(--bg-secondary) 100%);
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        .page-title {
+            font-size: var(--font-size-5xl);
+            margin-bottom: var(--space-md);
+        }
+        
+        .page-subtitle {
+            font-size: var(--font-size-lg);
+            color: var(--text-color-secondary);
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: var(--space-3xl);
+            align-items: center;
+        }
+        
+        .intro-text {
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-medium);
+            color: var(--primary);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .image-placeholder {
+            background: var(--bg-accent);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-md);
+            color: var(--text-color-secondary);
+            font-size: var(--font-size-sm);
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-2xl);
+        }
+        
+        .value-card {
+            text-align: center;
+            padding: var(--space-xl);
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            transition: all var(--transition-base);
+        }
+        
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto var(--space-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-accent);
+            border-radius: var(--radius-full);
+            color: var(--primary);
+        }
+        
+        .value-title {
+            font-size: var(--font-size-xl);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .value-desc {
+            color: var(--text-color-secondary);
+            font-size: var(--font-size-sm);
+        }
+        
+        .timeline {
+            position: relative;
+            padding: var(--space-2xl) 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: var(--space-3xl);
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: var(--space-xl);
+            align-items: center;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            grid-column: 1;
+            text-align: right;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            grid-column: 3;
+            text-align: left;
+        }
+        
+        .timeline-marker {
+            grid-column: 2;
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: var(--font-bold);
+            font-size: var(--font-size-sm);
+            z-index: 1;
+        }
+        
+        .timeline-content h3 {
+            font-size: var(--font-size-xl);
+            margin-bottom: var(--space-sm);
+            color: var(--primary);
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-2xl);
+            margin-bottom: var(--space-3xl);
+        }
+        
+        .team-member {
+            text-align: center;
+            padding: var(--space-xl);
+        }
+        
+        .member-image {
+            margin-bottom: var(--space-lg);
+        }
+        
+        .member-name {
+            font-size: var(--font-size-xl);
+            margin-bottom: var(--space-xs);
+        }
+        
+        .member-role {
+            color: var(--primary);
+            font-weight: var(--font-semibold);
+            margin-bottom: var(--space-md);
+        }
+        
+        .member-desc {
+            color: var(--text-color-secondary);
+            font-size: var(--font-size-sm);
+        }
+        
+        .partners-section {
+            text-align: center;
+            padding: var(--space-2xl);
+            background: var(--bg-accent);
+            border-radius: var(--radius-lg);
+        }
+        
+        .partners-section h3 {
+            margin-bottom: var(--space-md);
+        }
+        
+        .partners-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-md);
+            justify-content: center;
+            margin-top: var(--space-lg);
+        }
+        
+        .partner {
+            background: var(--bg-secondary);
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-medium);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-xl);
+            }
+            
+            .about-image {
+                order: -1;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                grid-template-columns: auto 1fr;
+                gap: var(--space-lg);
+            }
+            
+            .timeline-marker {
+                grid-column: 1;
+                width: 60px;
+                height: 60px;
+            }
+            
+            .timeline-content {
+                grid-column: 2 !important;
+                text-align: left !important;
+            }
+            
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .partners-list {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+
+    <!-- Scripts -->
+    <script src="../js/main.js"></script>
+    <script src="../js/page-transitions.js"></script>
+    <script src="../js/menu.js"></script>
+    <script src="../js/dark-mode.js"></script>
+</body>
+</html>

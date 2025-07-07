@@ -1,0 +1,537 @@
+/* ==========================================================================
+   Weijden Multicare - Responsive Styles
+   Mobile-first responsive design with modern breakpoints
+   ========================================================================== */
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+:root {
+  --breakpoint-sm: 640px;   /* Small devices */
+  --breakpoint-md: 768px;   /* Medium devices */
+  --breakpoint-lg: 1024px;  /* Large devices */
+  --breakpoint-xl: 1280px;  /* Extra large devices */
+  --breakpoint-2xl: 1536px; /* 2X large devices */
+}
+
+/* ==========================================================================
+   Small Devices (Phones) - Up to 640px
+   ========================================================================== */
+@media (max-width: 640px) {
+  /* Typography adjustments */
+  :root {
+    --font-size-xs: 0.7rem;
+    --font-size-sm: 0.8rem;
+    --font-size-base: 0.9rem;
+    --font-size-lg: 1rem;
+    --font-size-xl: 1.1rem;
+    --font-size-2xl: 1.3rem;
+    --font-size-3xl: 1.6rem;
+    --font-size-4xl: 2rem;
+    --font-size-5xl: 2.5rem;
+  }
+
+  /* Container adjustments */
+  .container {
+    padding: 0 var(--space-md);
+  }
+
+  /* Section spacing */
+  .section {
+    padding: var(--space-2xl) 0;
+  }
+
+  /* Button adjustments */
+  .btn {
+    padding: var(--space-md) var(--space-lg);
+    font-size: var(--font-size-xs);
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  /* Hero section mobile */
+  .hero {
+    min-height: 80vh;
+    padding: var(--space-2xl) 0;
+  }
+
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    text-align: center;
+  }
+
+  .hero-visual {
+    height: 300px;
+    order: -1;
+  }
+
+  .hero-title {
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+  }
+
+  .hero-subtitle {
+    font-size: var(--font-size-base);
+  }
+
+  /* Navigation mobile */
+  .nav {
+    height: 70px;
+    padding: 0 var(--space-md);
+  }
+
+  .header {
+    margin-bottom: 70px;
+  }
+
+  .nav-logo {
+    font-size: var(--font-size-lg);
+  }
+
+  /* Services grid mobile */
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .service-card {
+    padding: var(--space-lg);
+  }
+
+  .service-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  /* Stats grid mobile */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+
+  .stat-number {
+    font-size: var(--font-size-3xl);
+  }
+
+  /* Footer mobile */
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    text-align: center;
+  }
+
+  .footer-links {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  /* Page hero mobile */
+  .page-hero {
+    padding: 100px 0 40px;
+  }
+
+  .page-title {
+    font-size: var(--font-size-3xl);
+  }
+
+  .page-subtitle {
+    font-size: var(--font-size-base);
+  }
+
+  /* Info grid mobile */
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .info-card {
+    padding: var(--space-lg);
+  }
+
+  .info-icon {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* ==========================================================================
+   Medium Devices (Tablets) - 641px to 768px
+   ========================================================================== */
+@media (min-width: 641px) and (max-width: 768px) {
+  /* Container adjustments */
+  .container {
+    padding: 0 var(--space-lg);
+  }
+
+  /* Hero adjustments */
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+    text-align: center;
+  }
+
+  .hero-visual {
+    height: 400px;
+  }
+
+  /* Services grid */
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+  }
+
+  /* Stats grid */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Footer */
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-links {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Info grid */
+  .info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ==========================================================================
+   Large Devices (Desktops) - 769px to 1024px
+   ========================================================================== */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Container adjustments */
+  .container {
+    max-width: 960px;
+  }
+
+  /* Hero adjustments */
+  .hero-container {
+    grid-template-columns: 1.2fr 0.8fr;
+  }
+
+  /* Services grid */
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Footer */
+  .footer-content {
+    grid-template-columns: 1.5fr 2fr;
+  }
+
+  .footer-links {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Info grid */
+  .info-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ==========================================================================
+   Extra Large Devices - 1025px and up
+   ========================================================================== */
+@media (min-width: 1025px) {
+  /* Container adjustments */
+  .container {
+    max-width: 1200px;
+  }
+
+  /* Enhanced hover effects for desktop */
+  .service-card:hover {
+    transform: translateY(-8px);
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Enhanced animations */
+  .hero-shape-1,
+  .hero-shape-2,
+  .hero-shape-3 {
+    opacity: 0.15;
+  }
+}
+
+/* ==========================================================================
+   Ultra Wide Displays - 1440px and up
+   ========================================================================== */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1400px;
+  }
+
+  /* Increase font sizes for large screens */
+  .hero-title {
+    font-size: clamp(3rem, 5vw, 5rem);
+  }
+
+  .section-title {
+    font-size: var(--font-size-5xl);
+  }
+}
+
+/* ==========================================================================
+   Print Styles
+   ========================================================================== */
+@media print {
+  /* Hide interactive elements */
+  .nav-toggle,
+  .theme-toggle,
+  .scroll-to-top,
+  .loader,
+  .hero-scroll,
+  .slider-controls,
+  .slider-dots {
+    display: none !important;
+  }
+
+  /* Ensure good contrast for print */
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Remove shadows and transitions */
+  * {
+    box-shadow: none !important;
+    transition: none !important;
+  }
+
+  /* Optimize text for print */
+  .hero-title,
+  .section-title {
+    color: black !important;
+    page-break-after: avoid;
+  }
+
+  .service-card,
+  .info-card {
+    break-inside: avoid;
+    border: 1px solid #ddd;
+    margin-bottom: 1rem;
+  }
+
+  /* Footer adjustments */
+  .footer {
+    border-top: 2px solid #ddd;
+    margin-top: 2rem;
+  }
+}
+
+/* ==========================================================================
+   High DPI / Retina Displays
+   ========================================================================== */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Optimize for high DPI displays */
+  .nav-logo,
+  .footer-logo {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* ==========================================================================
+   Reduced Motion
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  /* Disable animations for users who prefer reduced motion */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .hero-shape-1,
+  .hero-shape-2,
+  .hero-shape-3 {
+    animation: none !important;
+  }
+
+  .loader-bar::after {
+    animation: none !important;
+  }
+
+  .scroll-line::after {
+    animation: none !important;
+  }
+}
+
+/* ==========================================================================
+   High Contrast Mode
+   ========================================================================== */
+@media (prefers-contrast: high) {
+  /* Increase contrast for better accessibility */
+  .btn-primary {
+    background-color: #000;
+    color: #fff;
+    border: 2px solid #000;
+  }
+
+  .btn-secondary {
+    background-color: #fff;
+    color: #000;
+    border: 2px solid #000;
+  }
+
+  .service-card,
+  .info-card {
+    border: 2px solid var(--text-color);
+  }
+
+  .nav-link::after {
+    height: 3px;
+  }
+}
+
+/* ==========================================================================
+   Landscape Orientation (Mobile)
+   ========================================================================== */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero {
+    min-height: 100vh;
+    padding: var(--space-lg) 0;
+  }
+
+  .hero-title {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+
+  .nav {
+    height: 60px;
+  }
+
+  .header {
+    margin-bottom: 60px;
+  }
+
+  .page-hero {
+    padding: 80px 0 30px;
+  }
+}
+
+/* ==========================================================================
+   Touch Device Optimizations
+   ========================================================================== */
+@media (hover: none) and (pointer: coarse) {
+  /* Optimize for touch devices */
+  .btn,
+  .nav-link,
+  .service-link,
+  .theme-toggle,
+  .nav-toggle {
+    min-height: 44px; /* Apple's recommended touch target size */
+    min-width: 44px;
+  }
+
+  /* Remove hover effects on touch devices */
+  .service-card:hover,
+  .btn:hover,
+  .nav-link:hover {
+    transform: none;
+  }
+
+  /* Increase tap targets */
+  .slider-nav-btn {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .slider-dot {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* ==========================================================================
+   Dark Mode Responsive Adjustments
+   ========================================================================== */
+@media (max-width: 768px) {
+  [data-theme="dark"] .nav-menu {
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(20px);
+  }
+
+  [data-theme="dark"] .hero-gradient {
+    opacity: 0.05;
+  }
+
+  [data-theme="dark"] .service-card {
+    border-color: var(--border-dark);
+  }
+}
+
+/* ==========================================================================
+   Container Queries (Future-proofing)
+   ========================================================================== */
+@supports (container-type: inline-size) {
+  .services-grid {
+    container-type: inline-size;
+  }
+
+  @container (max-width: 600px) {
+    .service-card {
+      padding: var(--space-md);
+    }
+  }
+}
+
+/* ==========================================================================
+   Focus Management for Different Screen Sizes
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* Ensure focus is visible on mobile */
+  *:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 2px;
+  }
+
+  /* Adjust focus rings for touch */
+  .btn:focus-visible,
+  .nav-link:focus-visible {
+    outline-width: 2px;
+  }
+}
+
+/* ==========================================================================
+   Performance Optimizations for Mobile
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* Disable expensive effects on mobile */
+  .hero-pattern {
+    display: none;
+  }
+
+  /* Simplify animations on mobile */
+  .hero-shape-1,
+  .hero-shape-2,
+  .hero-shape-3 {
+    display: none;
+  }
+
+  /* Optimize images for mobile */
+  img {
+    image-rendering: optimizeQuality;
+  }
+}

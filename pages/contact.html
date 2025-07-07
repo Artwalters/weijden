@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="nl" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Neem contact op met Weijden Multicare - Telefoon: +31 6 15372259 | Email: info@weijdenmulticare.nl">
+    <title>Contact - Weijden Multicare</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <img src="../assets/images/lightmode_big.svg" alt="Weijden Multicare" class="loader-logo-image light-logo">
+                <img src="../assets/images/darkmode_big.svg" alt="Weijden Multicare" class="loader-logo-image dark-logo">
+            </div>
+            <div class="loader-bar"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="../index.html" class="nav-logo">
+                <img src="../assets/images/lightmode_big.svg" alt="Weijden Multicare" class="logo-image light-logo">
+                <img src="../assets/images/darkmode_big.svg" alt="Weijden Multicare" class="logo-image dark-logo">
+            </a>
+            
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="diensten.html" class="nav-link">Diensten</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="wie-zijn-we.html" class="nav-link">Wie wij zijn</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="vacatures.html" class="nav-link">Vacatures</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link active">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title">Contact</h1>
+                <p class="page-subtitle">Neem contact op voor een vrijblijvende offerte</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section contact-section">
+            <div class="container">
+                <div class="contact-grid">
+                    <!-- Contact Form -->
+                    <div class="contact-form-wrapper">
+                        <h2 class="form-title">Stuur ons een bericht</h2>
+                        <p class="form-subtitle">Vul het formulier in en we nemen zo snel mogelijk contact met u op</p>
+                        
+                        <form class="contact-form" id="contactForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name" class="form-label">Naam *</label>
+                                    <input type="text" id="name" name="name" class="form-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email" class="form-label">E-mail *</label>
+                                    <input type="email" id="email" name="email" class="form-input" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="phone" class="form-label">Telefoon</label>
+                                    <input type="tel" id="phone" name="phone" class="form-input">
+                                </div>
+                                <div class="form-group">
+                                    <label for="subject" class="form-label">Onderwerp</label>
+                                    <select id="subject" name="subject" class="form-input">
+                                        <option value="">Selecteer een onderwerp</option>
+                                        <option value="sloop">Sloopwerkzaamheden</option>
+                                        <option value="ontruiming">Ontruimingen</option>
+                                        <option value="graaf">Graafwerkzaamheden</option>
+                                        <option value="offerte">Offerte aanvragen</option>
+                                        <option value="anders">Anders</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message" class="form-label">Bericht *</label>
+                                <textarea id="message" name="message" class="form-input form-textarea" rows="6" placeholder="Beschrijf uw project of vraag..." required></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" name="privacy" required>
+                                    <span class="checkmark"></span>
+                                    Ik ga akkoord met de verwerking van mijn gegevens
+                                </label>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary form-submit">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                    <path d="M2 8L18 2L12 18L10 10L2 8Z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                                Bericht versturen
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <!-- Contact Info -->
+                    <div class="contact-info">
+                        <h2 class="info-title">Contactgegevens</h2>
+                        <p class="info-subtitle">We staan altijd voor u klaar</p>
+                        
+                        <div class="contact-cards">
+                            <div class="contact-card">
+                                <div class="contact-icon">
+                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                        <path d="M4.8 8C4.8 6.23269 6.23269 4.8 8 4.8H11.6468C12.3635 4.8 13.0149 5.24069 13.3247 5.92603L15.1373 9.81194C15.4215 10.4232 15.3242 11.1402 14.8872 11.6532L12.4694 14.4016C14.1646 17.7884 16.6867 20.3091 20.0735 22.0046L22.8207 19.587C23.3339 19.1502 24.051 19.0529 24.6625 19.3366L28.5487 21.1493C29.234 21.459 29.6747 22.1104 29.6747 22.8272V26.474C29.6747 28.2413 28.2421 29.6739 26.4747 29.6739C13.8315 29.6739 3.67363 19.5161 3.67363 6.87283" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <h3 class="contact-card-title">Telefoon</h3>
+                                <p class="contact-card-info">
+                                    <a href="tel:+31615372259">+31 6 15372259</a>
+                                </p>
+                                <p class="contact-card-desc">Ma-Vr: 07:00 - 18:00<br>Za: 08:00 - 16:00</p>
+                            </div>
+                            
+                            <div class="contact-card">
+                                <div class="contact-icon">
+                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                        <rect x="4" y="8" width="24" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M4 10L16 18L28 10" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <h3 class="contact-card-title">E-mail</h3>
+                                <p class="contact-card-info">
+                                    <a href="mailto:info@weijdenmulticare.nl">info@weijdenmulticare.nl</a>
+                                </p>
+                                <p class="contact-card-desc">We reageren binnen 24 uur</p>
+                            </div>
+                            
+                            <div class="contact-card">
+                                <div class="contact-icon">
+                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                        <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M16 8V16L22 20" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <h3 class="contact-card-title">Werkdagen</h3>
+                                <p class="contact-card-info">Maandag - Zaterdag</p>
+                                <p class="contact-card-desc">Zondag op afspraak voor noodgevallen</p>
+                            </div>
+                            
+                            <div class="contact-card">
+                                <div class="contact-icon">
+                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                        <path d="M16 4C20.4183 4 24 7.58172 24 12C24 17.3333 16 28 16 28C16 28 8 17.3333 8 12C8 7.58172 11.5817 4 16 4Z" stroke="currentColor" stroke-width="2"/>
+                                        <circle cx="16" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                                <h3 class="contact-card-title">Werkgebied</h3>
+                                <p class="contact-card-info">Limburg & omgeving</p>
+                                <p class="contact-card-desc">Voor projecten buiten dit gebied nemen we graag contact op</p>
+                            </div>
+                        </div>
+                        
+                        <div class="social-links">
+                            <h3>Volg ons</h3>
+                            <div class="social-buttons">
+                                <a href="https://www.linkedin.com/in/sander-weijden-93a302302/" target="_blank" class="social-btn">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8V8Z" stroke="currentColor" stroke-width="2"/>
+                                        <rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="2"/>
+                                        <circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2"/>
+                                    </svg>
+                                    LinkedIn
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="section faq-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Veelgestelde vragen</h2>
+                    <p class="section-subtitle">Antwoorden op de meest gestelde vragen</p>
+                </div>
+                
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3 class="faq-question">Hoe snel kunnen jullie beginnen?</h3>
+                        <p class="faq-answer">
+                            Afhankelijk van de planning kunnen we vaak binnen een week beginnen. 
+                            Voor spoedeisende klussen nemen we direct contact op om de mogelijkheden te bespreken.
+                        </p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">Zijn jullie verzekerd?</h3>
+                        <p class="faq-answer">
+                            Ja, wij zijn volledig verzekerd en gecertificeerd. We beschikken over een 
+                            uitgebreide aansprakelijkheidsverzekering en zijn NEN3140 gecertificeerd.
+                        </p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">Leveren jullie een garantie?</h3>
+                        <p class="faq-answer">
+                            Wij staan voor kwaliteit en geven daarom garantie op al onze werkzaamheden. 
+                            De garantieperiode verschilt per type werk en wordt vooraf afgesproken.
+                        </p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">Kunnen jullie ook in het weekend werken?</h3>
+                        <p class="faq-answer">
+                            Ja, op zaterdag werken we regulier. Voor zondag en avondwerk kunnen we 
+                            op verzoek een afspraak maken, afhankelijk van het type werkzaamheden.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="../assets/images/lightmode_big.svg" alt="Weijden Multicare" class="footer-logo-image light-logo">
+                        <img src="../assets/images/darkmode_big.svg" alt="Weijden Multicare" class="footer-logo-image dark-logo">
+                    </div>
+                    <p class="footer-desc">Uw partner in veiligheid en betrouwbaarheid sinds 2018</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-title">Diensten</h4>
+                        <ul class="footer-list">
+                            <li><a href="diensten.html#sloop">Sloopwerkzaamheden</a></li>
+                            <li><a href="diensten.html#ontruiming">Ontruimingen</a></li>
+                            <li><a href="diensten.html#graaf">Graafwerkzaamheden</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-title">Bedrijf</h4>
+                        <ul class="footer-list">
+                            <li><a href="wie-zijn-we.html">Wie wij zijn</a></li>
+                            <li><a href="vacatures.html">Vacatures</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4 class="footer-title">Contact</h4>
+                        <ul class="footer-list footer-contact">
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M2.4 4C2.4 3.11635 3.11635 2.4 4 2.4H5.82339C6.18173 2.4 6.50745 2.62034 6.66233 2.96301L7.56864 4.90597C7.71077 5.21162 7.66209 5.5701 7.44361 5.8266L6.23471 7.20081C7.08229 8.89418 8.5367 10.3486 10.2301 11.1962L11.6039 9.98695C11.8606 9.76864 12.219 9.71999 12.525 9.86219L14.468 10.7686C14.8107 10.9235 15.0311 11.2493 15.0311 11.6077V13.4311C15.0311 14.3148 14.3148 15.0311 13.4311 15.0311" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                                <a href="tel:+31615372259">+31 6 15372259</a>
+                            </li>
+                            <li>
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <rect x="2" y="4" width="12" height="9" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                                    <path d="M2 5L8 9L14 5" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                                <a href="mailto:info@weijdenmulticare.nl">info@weijdenmulticare.nl</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Weijden Multicare. Alle rechten voorbehouden.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Page Specific Styles -->
+    <style>
+        .page-hero {
+            padding: 120px 0 60px;
+            background: linear-gradient(135deg, var(--bg-accent) 0%, var(--bg-secondary) 100%);
+            text-align: center;
+            margin-top: 80px;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: var(--space-3xl);
+            margin-top: var(--space-2xl);
+        }
+        
+        .contact-form-wrapper {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            padding: var(--space-2xl);
+        }
+        
+        .form-title {
+            font-size: var(--font-size-2xl);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .form-subtitle {
+            color: var(--text-color-secondary);
+            margin-bottom: var(--space-xl);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+        }
+        
+        .form-group {
+            margin-bottom: var(--space-lg);
+        }
+        
+        .form-label {
+            display: block;
+            font-weight: var(--font-medium);
+            margin-bottom: var(--space-sm);
+            color: var(--text-color);
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: var(--space-md);
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-md);
+            background: var(--bg-primary);
+            color: var(--text-color);
+            font-size: var(--font-size-base);
+            transition: all var(--transition-base);
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(65, 163, 143, 0.1);
+        }
+        
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .checkbox-wrapper {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            cursor: pointer;
+            font-size: var(--font-size-sm);
+        }
+        
+        .checkbox-wrapper input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+        }
+        
+        .form-submit {
+            width: 100%;
+            margin-top: var(--space-md);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-xl);
+        }
+        
+        .info-title {
+            font-size: var(--font-size-2xl);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .info-subtitle {
+            color: var(--text-color-secondary);
+        }
+        
+        .contact-cards {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-lg);
+        }
+        
+        .contact-card {
+            background: var(--bg-secondary);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            text-align: center;
+        }
+        
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto var(--space-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary);
+            border-radius: var(--radius-full);
+            color: white;
+        }
+        
+        .contact-card-title {
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .contact-card-info {
+            font-weight: var(--font-medium);
+            margin-bottom: var(--space-sm);
+        }
+        
+        .contact-card-info a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .contact-card-desc {
+            font-size: var(--font-size-sm);
+            color: var(--text-color-secondary);
+        }
+        
+        .social-links {
+            text-align: center;
+        }
+        
+        .social-links h3 {
+            margin-bottom: var(--space-md);
+        }
+        
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-md);
+        }
+        
+        .social-btn {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-sm) var(--space-lg);
+            background: var(--primary);
+            color: white;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: var(--font-medium);
+            transition: all var(--transition-base);
+        }
+        
+        .social-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .faq-section {
+            background: var(--bg-accent);
+        }
+        
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-2xl);
+        }
+        
+        .faq-item {
+            background: var(--bg-primary);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+        }
+        
+        .faq-question {
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--space-md);
+            color: var(--primary);
+        }
+        
+        .faq-answer {
+            color: var(--text-color-secondary);
+            font-size: var(--font-size-sm);
+            line-height: 1.6;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-xl);
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            
+            .contact-form-wrapper {
+                order: 2;
+            }
+            
+            .contact-info {
+                order: 1;
+            }
+            
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <!-- Scripts -->
+    <script src="../js/main.js"></script>
+    <script src="../js/page-transitions.js"></script>
+    <script src="../js/menu.js"></script>
+    <script src="../js/dark-mode.js"></script>
+</body>
+</html>
