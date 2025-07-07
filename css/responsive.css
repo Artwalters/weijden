@@ -88,25 +88,7 @@
     font-size: var(--font-size-base);
   }
 
-  /* Navigation mobile */
-  .nav {
-    height: 60px;
-    padding: 0 var(--space-md);
-  }
-
-  .header {
-    top: 0;
-    margin-bottom: 0;
-  }
-  
-
-  .nav-logo {
-    font-size: var(--font-size-lg);
-  }
-  
-  .logo-image {
-    height: 30px;
-  }
+  /* Navigation styles handled by menu.css */
 
   /* Services grid mobile */
   .services-grid {
@@ -448,7 +430,6 @@
    ========================================================================== */
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   /* Optimize for high DPI displays */
-  .nav-logo,
   .footer-logo {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -521,13 +502,7 @@
     font-size: clamp(1.5rem, 6vw, 2rem);
   }
 
-  .nav {
-    height: 60px;
-  }
-
-  .header {
-    margin-bottom: 60px;
-  }
+  /* Old navigation references removed - using menu.css */
 
   .page-hero {
     padding: 80px 0 30px;
@@ -570,10 +545,7 @@
    Dark Mode Responsive Adjustments
    ========================================================================== */
 @media (max-width: 768px) {
-  [data-theme="dark"] .nav-menu {
-    background: rgba(10, 10, 10, 0.95);
-    backdrop-filter: blur(20px);
-  }
+  /* Dark theme mobile menu styles handled by menu.css */
 
   [data-theme="dark"] .hero-gradient {
     opacity: 0.05;
@@ -626,8 +598,14 @@
     overflow-scrolling: touch;
   }
 
-  /* Reduce GPU usage */
-  * {
+  /* GPU acceleration for specific elements - excluding fixed positioned elements */
+  .service-card,
+  .btn,
+  .hero-shape-1,
+  .hero-shape-2,
+  .hero-shape-3,
+  .about-shape-1,
+  .about-shape-2 {
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
     -webkit-backface-visibility: hidden;

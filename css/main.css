@@ -125,6 +125,16 @@
   padding: 0;
 }
 
+.test{
+  position: absolute;
+  z-index: 1000;
+  color: red;
+  width: 400px;
+  height: 500px;
+  left: 0px;
+  top: 0px;
+}
+
 html {
   font-size: 16px;
   scroll-behavior: smooth;
@@ -254,186 +264,19 @@ a:hover {
   box-shadow: var(--shadow-lg);
 }
 
-/* ==========================================================================
-   Navigation Header
-   ========================================================================== */
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: var(--bg-primary);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border-color);
-  z-index: var(--z-sticky);
-  transition: all var(--transition-base);
-}
-
-.header.scrolled {
-  background-color: rgba(var(--bg-primary), 0.95);
-  box-shadow: var(--shadow-md);
-}
-
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 80px;
-}
-
-.nav-logo {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  transition: transform var(--transition-base);
-}
-
-.nav-logo:hover {
-  transform: scale(1.05);
-}
-
-.logo-image {
-  height: 40px;
-  width: auto;
-  transition: opacity var(--transition-base);
-}
-
-/* Light mode logo (default) */
-.logo-image.light-logo {
-  display: block;
-}
-
-.logo-image.dark-logo {
-  display: none;
-}
-
-/* Dark mode logo switching */
-[data-theme="dark"] .logo-image.light-logo {
-  display: none;
-}
-
-[data-theme="dark"] .logo-image.dark-logo {
-  display: block;
-}
-
-.logo-text {
-  color: var(--text-color);
-}
-
-.logo-accent {
-  color: var(--primary);
-  margin-left: var(--space-xs);
-}
-
-.nav-list {
-  display: flex;
-  align-items: center;
-  gap: var(--space-xl);
-  list-style: none;
-}
-
-.nav-link {
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-medium);
-  color: var(--text-color);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  position: relative;
-  transition: color var(--transition-base);
-  padding: var(--space-sm) var(--space-md);
-  border-radius: var(--radius-sm);
-  display: block;
-  text-decoration: none;
-}
-
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background-color: var(--primary);
-  transition: all var(--transition-base);
-  transform: translateX(-50%);
-}
-
-.nav-link:hover,
-.nav-link.active {
-  color: var(--primary);
-  background-color: rgba(65, 163, 143, 0.05);
-}
-
-.nav-link:hover::after,
-.nav-link.active::after {
-  width: 80%;
-}
-
-/* Ensure proper touch targets */
-.nav-item {
-  position: relative;
-}
-
-/* Fix hover issues on touch devices */
-@media (hover: hover) {
-  .nav-link:hover {
-    background-color: rgba(65, 163, 143, 0.08);
-  }
-}
-
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: var(--space-md);
-}
-
-/* Theme Toggle */
-.theme-toggle {
-  width: 40px;
-  height: 40px;
-  border: none;
-  background-color: transparent;
-  color: var(--text-color);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius-full);
-  transition: all var(--transition-base);
-}
-
-.theme-toggle:hover {
-  background-color: var(--bg-accent);
-}
-
-.theme-toggle svg {
-  width: 20px;
-  height: 20px;
-}
-
-.moon-icon {
-  display: none;
-}
-
-[data-theme="dark"] .sun-icon {
-  display: none;
-}
-
-[data-theme="dark"] .moon-icon {
-  display: block;
-}
+/* Navigation section removed - using new menu.css system */
 
 
 /* ==========================================================================
    Hero Section
    ========================================================================== */
 .hero {
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   position: relative;
   overflow: hidden;
-  margin-top: 80px;
+  margin-top: 0;
   box-sizing: border-box;
 }
 
@@ -885,7 +728,6 @@ a:hover {
 
 .footer-contact li {
   display: flex;
-  align-items: center;
   gap: var(--space-sm);
 }
 

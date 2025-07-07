@@ -3,81 +3,23 @@
    Specific fixes for mobile styling issues
    ========================================================================== */
 
-/* Mobile Navigation Fixes */
+/* Mobile Fixes */
 @media (max-width: 768px) {
-  /* Fix navigation positioning */
-  .header {
-    position: -webkit-sticky !important;
-    position: sticky !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    width: 100% !important;
-    height: 60px !important;
-    background-color: var(--bg-primary) !important;
-    z-index: 999999 !important;
-    margin: 0 !important;
-    transform: none !important;
-    -webkit-transform: none !important;
-    -moz-transform: none !important;
-    -ms-transform: none !important;
-    -o-transform: none !important;
-    border-bottom: 1px solid var(--border-color) !important;
-    backdrop-filter: blur(10px) !important;
-    contain: layout style !important;
-  }
-  
-  .nav {
-    height: 60px !important;
-    align-items: center !important;
-    position: relative !important;
-    margin: 0 !important;
-    padding: 0 var(--space-md) !important;
-  }
-  
-  /* Fix main content spacing */
+  /* Fix main content spacing - Updated for new menu */
   .main-content {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
+    margin-top: 0;
+    padding-top: 0;
   }
   
   .hero {
-    margin-top: 0 !important;
-    padding-top: 60px !important;
-    min-height: 100vh !important;
-    position: relative !important;
-    box-sizing: border-box !important;
+    margin-top: 0;
+    padding-top: 0;
+    height: 100vh;
+    position: relative;
+    box-sizing: border-box;
   }
   
-  /* Fix logo size */
-  .logo-image {
-    height: 28px !important;
-    width: auto;
-  }
-  
-  
-  /* Loader fixes for mobile */
-  .loader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .loader-logo-image {
-    height: 60px !important;
-    width: auto;
-  }
-  
-  .loader-bar {
-    width: 150px;
-    height: 3px;
-  }
-  
+
   /* Button fixes */
   .btn {
     min-height: 44px;
@@ -85,9 +27,9 @@
     padding: var(--space-sm) var(--space-md);
   }
   
-  /* Hero section mobile */
+  /* Hero section mobile - Updated for new menu */
   .hero-container {
-    padding: calc(60px + var(--space-xl)) var(--space-md) var(--space-xl);
+    padding: var(--space-xl) var(--space-md);
     grid-template-columns: 1fr !important;
     gap: var(--space-lg) !important;
   }
@@ -122,17 +64,17 @@
     height: 25px !important;
   }
   
-  /* Page hero mobile */
+  /* Page hero mobile - Updated for new menu */
   .page-hero {
-    padding: 80px 0 40px;
-    margin-top: 60px;
+    padding: 40px 0;
+    margin-top: 0;
   }
   
   .page-title {
     font-size: clamp(1.5rem, 6vw, 2rem);
   }
   
-  /* Fix scroll behavior */
+  /* Fix scroll behavior - Updated for new menu */
   html {
     scroll-padding-top: 70px;
   }
@@ -146,7 +88,6 @@
   /* Fix overflow issues */
   html, body {
     overflow-x: hidden;
-    position: static !important;
     transform: none !important;
     -webkit-transform: none !important;
     -moz-transform: none !important;
@@ -165,25 +106,6 @@
     -webkit-tap-highlight-color: transparent;
   }
   
-  /* Override any animations that move the header */
-  .header {
-    animation: none !important;
-    transition: background-color 0.3s ease !important;
-    -webkit-transform: none !important;
-    -moz-transform: none !important;
-    -ms-transform: none !important;
-    -o-transform: none !important;
-  }
-  
-  /* Ensure header stays at top during page animations */
-  .header.scrolled {
-    top: 0 !important;
-    transform: none !important;
-    -webkit-transform: none !important;
-    -moz-transform: none !important;
-    -ms-transform: none !important;
-    -o-transform: none !important;
-  }
   
   /* Disable heavy animations on mobile */
   .hero-shape-1,
@@ -192,96 +114,3 @@
     display: none !important;
   }
 }
-
-/* Loader specific animations */
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.7;
-    transform: scale(0.95);
-  }
-}
-
-@keyframes loading {
-  0% {
-    left: -100%;
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    left: 100%;
-    opacity: 0;
-  }
-}
-
-/* Ensure loader is always visible initially */
-.loader {
-  display: flex !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-.loader.hidden {
-  display: none !important;
-}
-
-/* Override GSAP animations on mobile that might affect header */
-@media (max-width: 768px) {
-  .header {
-    transform: translateY(0) !important;
-    -webkit-transform: translateY(0) !important;
-    -moz-transform: translateY(0) !important;
-    -ms-transform: translateY(0) !important;
-    -o-transform: translateY(0) !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    top: 0 !important;
-    position: fixed !important;
-  }
-  
-  /* Disable GSAP transform on header during page load */
-  body .header {
-    transform: none !important;
-    -webkit-transform: none !important;
-    -moz-transform: none !important;
-    -ms-transform: none !important;
-    -o-transform: none !important;
-    y: 0 !important;
-    x: 0 !important;
-    will-change: auto !important;
-  }
-}
-
-/* Prevent header hiding on scroll for mobile */
-@media (max-width: 768px) {
-  .header-hidden {
-    transform: translateY(0) !important;
-    -webkit-transform: translateY(0) !important;
-    -moz-transform: translateY(0) !important;
-    -ms-transform: translateY(0) !important;
-    -o-transform: translateY(0) !important;
-    top: 0 !important;
-  }
-  
-  .header {
-    transition: none !important;
-  }
-}
-
-/* Dark mode specific mobile fixes */
-@media (max-width: 768px) {
-  [data-theme="dark"] .header {
-    background-color: var(--bg-dark);
-    border-bottom-color: var(--border-dark);
-  }
-  
-  [data-theme="dark"] .nav-menu {
-    background-color: var(--bg-dark);
-  }
-}
-

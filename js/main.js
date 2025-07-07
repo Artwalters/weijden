@@ -451,7 +451,7 @@ class WeijdenMulticare {
     if (type === 'error') {
       notification.style.background = '#dc3545';
     } else if (type === 'success') {
-      notification.style.background = var('--primary');
+      notification.style.background = 'var(--primary)';
     }
     
     notification.textContent = message;

@@ -11,61 +11,140 @@
     <link rel="stylesheet" href="../css/animations.css">
     <link rel="stylesheet" href="../css/responsive.css">
     <link rel="stylesheet" href="../css/mobile-fixes.css">
+    <link rel="stylesheet" href="../css/menu.css">
     
     <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </head>
 <body>
+    <!-- Navigation Header -->
+    <header class="main-header" id="main-header">
+        <div class="header-container">
+            <!-- Logo -->
+            <div class="header-logo">
+                <a href="../index.html" class="logo-link">
+                    <img src="../assets/images/lightmode_big.svg" alt="Weijden Multicare" class="logo-image light-logo">
+                    <img src="../assets/images/darkmode_big.svg" alt="Weijden Multicare" class="logo-image dark-logo">
+                </a>
+            </div>
 
-    <!-- Navigation -->
-    <header class="header" id="header">
-        <nav class="nav container">
-            <a href="../index.html" class="nav-logo">
-                <img src="../assets/images/lightmode_big.svg" alt="Weijden Multicare" class="logo-image light-logo">
-                <img src="../assets/images/darkmode_big.svg" alt="Weijden Multicare" class="logo-image dark-logo">
-            </a>
-            
-            <div class="nav-menu" id="nav-menu">
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav" id="desktop-nav">
                 <ul class="nav-list">
                     <li class="nav-item">
-                        <a href="../index.html" class="nav-link">Home</a>
+                        <a href="../index.html" class="nav-link">
+                            <span class="nav-text">Home</span>
+                            <span class="nav-indicator"></span>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a href="diensten.html" class="nav-link">Diensten</a>
+                        <a href="diensten.html" class="nav-link">
+                            <span class="nav-text">Diensten</span>
+                            <span class="nav-indicator"></span>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a href="wie-zijn-we.html" class="nav-link">Over ons</a>
+                        <a href="wie-zijn-we.html" class="nav-link">
+                            <span class="nav-text">Over Ons</span>
+                            <span class="nav-indicator"></span>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a href="vacatures.html" class="nav-link">Vacatures</a>
+                        <a href="vacatures.html" class="nav-link">
+                            <span class="nav-text">Vacatures</span>
+                            <span class="nav-indicator"></span>
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a href="contact.html" class="nav-link active">Contact</a>
+                        <a href="contact.html" class="nav-link nav-link--cta active">
+                            <span class="nav-text">Contact</span>
+                            <span class="nav-indicator"></span>
+                        </a>
                     </li>
                 </ul>
-            </div>
-            
-            <div class="nav-actions">
-                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-                    <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                    <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                </button>
-                
-            </div>
-        </nav>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu" aria-expanded="false">
+                <span class="menu-line menu-line-1"></span>
+                <span class="menu-line menu-line-2"></span>
+                <span class="menu-line menu-line-3"></span>
+            </button>
+
+            <!-- Theme Toggle -->
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                <svg class="theme-icon theme-icon--light" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <circle cx="10" cy="10" r="4" stroke="currentColor" stroke-width="2"/>
+                    <path d="M10 2V4M10 16V18M18 10H16M4 10H2M15.66 4.34L14.24 5.76M5.76 14.24L4.34 15.66M15.66 15.66L14.24 14.24M5.76 5.76L4.34 4.34" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <svg class="theme-icon theme-icon--dark" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M17.293 13.293A8 8 0 0 1 6.707 2.707a8.001 8.001 0 1 0 10.586 10.586z" stroke="currentColor" stroke-width="2"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+            <nav class="mobile-nav">
+                <ul class="mobile-nav-list">
+                    <li class="mobile-nav-item">
+                        <a href="../index.html" class="mobile-nav-link">
+                            <span class="mobile-nav-text">Home</span>
+                            <span class="mobile-nav-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M3 9L12 2L21 9V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V9Z" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="mobile-nav-item">
+                        <a href="diensten.html" class="mobile-nav-link">
+                            <span class="mobile-nav-text">Diensten</span>
+                            <span class="mobile-nav-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <rect x="6" y="6" width="12" height="12" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M4 10L12 2L20 10" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="mobile-nav-item">
+                        <a href="wie-zijn-we.html" class="mobile-nav-link">
+                            <span class="mobile-nav-text">Over Ons</span>
+                            <span class="mobile-nav-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="2"/>
+                                    <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="mobile-nav-item">
+                        <a href="vacatures.html" class="mobile-nav-link">
+                            <span class="mobile-nav-text">Vacatures</span>
+                            <span class="mobile-nav-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <rect x="2" y="7" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M16 21V5C16 4.46957 15.7893 3.96086 15.4142 3.58579C15.0391 3.21071 14.5304 3 14 3H10C9.46957 3 8.96086 3.21071 8.58579 3.58579C8.21071 3.96086 8 4.46957 8 5V21" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="mobile-nav-item">
+                        <a href="contact.html" class="mobile-nav-link mobile-nav-link--cta active">
+                            <span class="mobile-nav-text">Contact</span>
+                            <span class="mobile-nav-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2"/>
+                                    <polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <!-- Main Content -->
