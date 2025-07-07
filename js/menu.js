@@ -125,17 +125,10 @@ class ModernMenu {
       }
     });
 
-    // Close menu when scrolling
-    let scrollTimeout;
+    // Close menu when scrolling - immediate close
     window.addEventListener('scroll', () => {
       if (this.isMenuOpen) {
-        // Clear previous timeout
-        clearTimeout(scrollTimeout);
-        
-        // Set a small delay to avoid closing on minimal scroll
-        scrollTimeout = setTimeout(() => {
-          this.closeMobileMenu();
-        }, 150);
+        this.closeMobileMenu();
       }
     });
   }
