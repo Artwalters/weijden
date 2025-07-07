@@ -30,14 +30,6 @@
   --text-tertiary: #999999;
   --border-light: #e0e0e0;
   
-  /* Dark Theme Colors */
-  --bg-dark: #1f1e1e;
-  --bg-dark-subtle: #262626;
-  --bg-dark-accent: #585857;
-  --text-dark-primary: #ffffff;
-  --text-dark-secondary: #f0f0f0;
-  --text-dark-tertiary: #cccccc;
-  --border-dark: #666666;
   
   /* Current Theme (Default Light) */
   --bg-primary: var(--bg-light);
@@ -141,23 +133,6 @@ body {
   padding-top: 0;
 }
 
-/* ==========================================================================
-   4. DARK THEME STYLES
-   ========================================================================== */
-[data-theme="dark"] {
-  --bg-primary: var(--bg-dark);
-  --bg-secondary: var(--bg-dark-subtle);
-  --bg-accent: var(--bg-dark-accent);
-  --text-color: var(--text-dark-primary);
-  --text-color-secondary: var(--text-dark-secondary);
-  --text-color-tertiary: var(--text-dark-tertiary);
-  --border-color: var(--border-dark);
-  
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.4);
-  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.5);
-}
 
 /* ==========================================================================
    5. TYPOGRAPHY
@@ -285,20 +260,12 @@ a:hover {
   transform: translateY(0);
 }
 
-[data-theme="dark"] .main-header {
-  background: var(--bg-primary);
-  border-bottom: 1px solid var(--border-color);
-}
 
 .main-header.scrolled {
   background: rgba(255, 255, 255, 0.98);
   box-shadow: 0 4px 32px rgba(0, 0, 0, 0.08);
 }
 
-[data-theme="dark"] .main-header.scrolled {
-  background: rgba(15, 23, 42, 0.98);
-  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.2);
-}
 
 .main-header.hidden {
   transform: translateY(-100%);
@@ -337,24 +304,9 @@ a:hover {
   transition: opacity 0.3s ease;
 }
 
-.light-logo {
-  opacity: 1;
-}
 
-.dark-logo {
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
 
-[data-theme="dark"] .light-logo {
-  opacity: 0;
-}
 
-[data-theme="dark"] .dark-logo {
-  opacity: 1;
-}
 
 /* Desktop Navigation */
 .desktop-nav {
@@ -443,53 +395,8 @@ a:hover {
   display: none;
 }
 
-/* Theme Toggle */
-.theme-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border: none;
-  border-radius: 12px;
-  background: rgba(var(--text-primary-rgb), 0.08);
-  color: var(--text-primary);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin-left: 1rem;
-  position: relative;
-  overflow: hidden;
-}
 
-.theme-toggle:hover {
-  background: rgba(var(--text-primary-rgb), 0.12);
-  transform: scale(1.05);
-}
 
-.theme-icon {
-  position: absolute;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.theme-icon--light {
-  opacity: 1;
-  transform: rotate(0deg) scale(1);
-}
-
-.theme-icon--dark {
-  opacity: 0;
-  transform: rotate(180deg) scale(0.8);
-}
-
-[data-theme="dark"] .theme-icon--light {
-  opacity: 0;
-  transform: rotate(-180deg) scale(0.8);
-}
-
-[data-theme="dark"] .theme-icon--dark {
-  opacity: 1;
-  transform: rotate(0deg) scale(1);
-}
 
 /* Mobile Menu Button */
 .mobile-menu-btn {
@@ -535,12 +442,13 @@ a:hover {
 /* Mobile Menu Overlay */
 .mobile-menu-overlay {
   position: fixed;
-  top: 60px;
+  top: 0;
   left: 0;
   right: 0;
-  height: auto;
-  background: transparent;
-  z-index: 1040;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(20px);
+  z-index: 1049;
   opacity: 0;
   visibility: hidden;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -552,27 +460,15 @@ a:hover {
 }
 
 .mobile-nav {
-  position: relative;
-  background: white;
+  position: absolute;
+  top: 80px;
+  left: 0;
+  right: 0;
+  background: var(--bg-primary);
   border-radius: 0 0 24px 24px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
   transform: translateY(-100%);
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  margin: 0;
-}
-
-/* Keep mobile menu white in both themes */
-[data-theme="dark"] .mobile-nav {
-  background: white;
-}
-
-/* Keep mobile menu text dark in both themes */
-[data-theme="dark"] .mobile-nav-link {
-  color: #504f4e;
-}
-
-[data-theme="dark"] .mobile-nav-icon {
-  color: #504f4e;
 }
 
 .mobile-menu-overlay.active .mobile-nav {
@@ -693,11 +589,6 @@ a:hover {
   opacity: 0.1;
 }
 
-/* Hide gradient in dark mode - use solid background instead */
-[data-theme="dark"] .hero-gradient {
-  display: none;
-}
-
 .hero-pattern {
   position: absolute;
   top: 0;
@@ -707,11 +598,6 @@ a:hover {
   opacity: 0.03;
   background-image: 
     repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.1) 35px, rgba(255,255,255,.1) 70px);
-}
-
-/* Hide pattern in dark mode - use solid background instead */
-[data-theme="dark"] .hero-pattern {
-  display: none;
 }
 
 .hero-container {
@@ -1071,23 +957,8 @@ a:hover {
   transition: opacity var(--transition-base);
 }
 
-/* Light mode footer logo (default) */
-.footer-logo-image.light-logo {
-  display: block;
-}
 
-.footer-logo-image.dark-logo {
-  display: none;
-}
 
-/* Dark mode footer logo switching */
-[data-theme="dark"] .footer-logo-image.light-logo {
-  display: none;
-}
-
-[data-theme="dark"] .footer-logo-image.dark-logo {
-  display: block;
-}
 
 .footer-desc {
   color: var(--text-color-secondary);
@@ -1178,17 +1049,14 @@ a:hover {
     display: flex;
   }
 
-  .theme-toggle {
-    margin-left: 0.5rem;
-    width: 40px;
-    height: 40px;
-  }
 
   .logo-image {
     height: 36px;
   }
 
-  /* Mobile nav positioning handled by overlay */
+  .mobile-nav {
+    top: 70px;
+  }
 
   /* Mobile spacing adjustments */
   .hero {
@@ -1744,10 +1612,6 @@ body.mobile-menu-open {
   will-change: transform, background-color;
 }
 
-.theme-icon {
-  will-change: transform, opacity;
-}
-
 /* GPU acceleration for smooth animations */
 .gpu-accelerated {
   transform: translateZ(0);
@@ -1773,7 +1637,6 @@ body.mobile-menu-open {
 /* Focus states for accessibility */
 .nav-link:focus,
 .mobile-nav-link:focus,
-.theme-toggle:focus,
 .mobile-menu-btn:focus {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
@@ -1837,7 +1700,6 @@ body.mobile-menu-open {
 
 /* Print styles */
 @media print {
-  .theme-toggle,
   .mobile-menu-btn,
   .mobile-menu-overlay {
     display: none !important;
