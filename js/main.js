@@ -18,6 +18,7 @@ class WeijdenMulticare {
     this.initializeComponents();
     this.setupSmoothScroll();
     this.setupFormHandling();
+    this.setupPartnersSlider();
     this.setupPerformanceOptimizations();
     
     this.isInitialized = true;
@@ -477,6 +478,56 @@ class WeijdenMulticare {
       top: scrollTop,
       behavior: 'smooth'
     });
+  }
+
+  setupPartnersSlider() {
+    const slides = document.getElementsByClassName('partners-slides');
+    
+    for (let i = 0; i < slides.length; ++i) {
+      // Target wrapper element
+      const target = slides[i];
+      // Loop duration in seconds
+      const duration = parseInt(target.dataset.duration) * 1000 || 15000;
+      // Number of logos
+      const childNum = target.firstElementChild.children.length;
+      // Logo width calculation
+      const logoWidth = ((100 / childNum) * 100 / 100).toFixed(2);
+      // Set logo width
+      target.style.setProperty('--logo-width', `${logoWidth}%`);
+
+      // Start time
+      let startTime = 0;
+      // Elapsed time
+      let elapsed = 0;
+      // Progress (0-1)
+      let progress = 0;
+
+      const loop = (currentTime) => {
+        if (!startTime) {
+          startTime = currentTime;
+        }
+        // Current elapsed time
+        elapsed = currentTime - startTime;
+        // Current progress
+        progress = Math.min(1, elapsed / duration);
+
+        // Reset when progress reaches 100% (position at 50%)
+        if (progress >= 1) {
+          startTime = 0;
+          elapsed = 0;
+          progress = 0;
+        }
+
+        // Update slide position (right to left)
+        target.style.transform = `translate3d(-${progress * 50}%, 0, 0)`;
+
+        // Request next frame
+        window.requestAnimationFrame(loop);
+      }
+
+      // Start the loop
+      window.requestAnimationFrame(loop);
+    }
   }
 }
 
