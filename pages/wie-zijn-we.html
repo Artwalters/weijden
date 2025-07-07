@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Leer meer over Weijden Multicare - Jong, energiek team opgericht in 2018 door Sander Weijden">
-    <title>Wie wij zijn - Weijden Multicare</title>
+    <title>Over ons - Weijden Multicare</title>
     
     <!-- CSS -->
     <link rel="stylesheet" href="../css/main.css">
@@ -44,7 +44,7 @@
                         <a href="diensten.html" class="nav-link">Diensten</a>
                     </li>
                     <li class="nav-item">
-                        <a href="wie-zijn-we.html" class="nav-link active">Wie wij zijn</a>
+                        <a href="wie-zijn-we.html" class="nav-link active">Over ons</a>
                     </li>
                     <li class="nav-item">
                         <a href="vacatures.html" class="nav-link">Vacatures</a>
@@ -87,7 +87,7 @@
         <!-- Page Hero -->
         <section class="page-hero">
             <div class="container">
-                <h1 class="page-title">Wie wij zijn</h1>
+                <h1 class="page-title">Over ons</h1>
                 <p class="page-subtitle">Leer ons jonge en enthousiaste team kennen</p>
             </div>
         </section>
@@ -109,15 +109,20 @@
                             wij benaderen elke opdracht met dezelfde toewijding en oog voor detail.
                         </p>
                     </div>
-                    <div class="about-image">
-                        <div class="image-placeholder">
-                            <svg width="200" height="150" viewBox="0 0 200 150" fill="none">
-                                <rect width="200" height="150" fill="var(--bg-accent)"/>
-                                <path d="M50 60C50 47.85 59.85 38 72 38H128C140.15 38 150 47.85 150 60V110H50V60Z" fill="var(--primary)" opacity="0.2"/>
-                                <circle cx="100" cy="70" r="15" fill="var(--primary)" opacity="0.4"/>
-                                <path d="M70 100L100 90L130 100V110H70V100Z" fill="var(--primary)" opacity="0.3"/>
-                            </svg>
-                            <span>Team foto</span>
+                    <div class="about-visual">
+                        <div class="about-graphic">
+                            <div class="graphic-shape-1"></div>
+                            <div class="graphic-shape-2"></div>
+                            <div class="graphic-shape-3"></div>
+                            <div class="company-icon">
+                                <svg width="100" height="100" viewBox="0 0 100 100" fill="none">
+                                    <path d="M25 40L50 15L75 40V80C75 82.7614 72.7614 85 70 85H30C27.2386 85 25 82.7614 25 80V40Z" stroke="currentColor" stroke-width="3"/>
+                                    <path d="M35 60H65" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M35 70H65" stroke="currentColor" stroke-width="2"/>
+                                    <circle cx="50" cy="45" r="5" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M40 25L50 15L60 25" stroke="currentColor" stroke-width="2"/>
+                                </svg>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -321,7 +326,7 @@
                     <div class="footer-column">
                         <h4 class="footer-title">Bedrijf</h4>
                         <ul class="footer-list">
-                            <li><a href="wie-zijn-we.html">Wie wij zijn</a></li>
+                            <li><a href="wie-zijn-we.html">Over ons</a></li>
                             <li><a href="vacatures.html">Vacatures</a></li>
                             <li><a href="contact.html">Contact</a></li>
                         </ul>
@@ -387,17 +392,68 @@
             margin-bottom: var(--space-lg);
         }
         
-        .image-placeholder {
-            background: var(--bg-accent);
-            border-radius: var(--radius-lg);
-            padding: var(--space-xl);
-            text-align: center;
+        .about-visual {
+            position: relative;
+            height: 400px;
             display: flex;
-            flex-direction: column;
             align-items: center;
-            gap: var(--space-md);
-            color: var(--text-color-secondary);
-            font-size: var(--font-size-sm);
+            justify-content: center;
+        }
+
+        .about-graphic {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .graphic-shape-1,
+        .graphic-shape-2,
+        .graphic-shape-3 {
+            position: absolute;
+            border-radius: var(--radius-xl);
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            opacity: 0.1;
+        }
+
+        .graphic-shape-1 {
+            width: 180px;
+            height: 180px;
+            top: 20px;
+            right: 30px;
+            transform: rotate(25deg);
+        }
+
+        .graphic-shape-2 {
+            width: 120px;
+            height: 120px;
+            bottom: 40px;
+            left: 20px;
+            transform: rotate(-15deg);
+        }
+
+        .graphic-shape-3 {
+            width: 80px;
+            height: 80px;
+            top: 60px;
+            left: 60px;
+            transform: rotate(45deg);
+        }
+
+        .company-icon {
+            width: 150px;
+            height: 150px;
+            background: var(--bg-primary);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            box-shadow: var(--shadow-xl);
+            z-index: 1;
+            position: relative;
         }
         
         .values-grid {
@@ -565,8 +621,34 @@
                 gap: var(--space-xl);
             }
             
-            .about-image {
+            .about-visual {
                 order: -1;
+                height: 250px;
+            }
+
+            .company-icon {
+                width: 100px;
+                height: 100px;
+            }
+
+            .graphic-shape-1 {
+                width: 120px;
+                height: 120px;
+            }
+
+            .graphic-shape-2 {
+                width: 80px;
+                height: 80px;
+            }
+
+            .graphic-shape-3 {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .company-icon svg {
+                width: 80px;
+                height: 80px;
             }
             
             .timeline::before {

@@ -12,10 +12,20 @@ class PageTransitions {
   }
 
   init() {
+    // Hide all content initially for smooth loading
+    this.hideContentOnLoad();
     this.initGSAP();
     this.setupPageTransitions();
     this.setupScrollAnimations();
     this.hideLoader();
+  }
+
+  hideContentOnLoad() {
+    // Only hide content if GSAP is available, otherwise rely on CSS
+    if (typeof gsap !== 'undefined') {
+      gsap.set('.header', { opacity: 0, y: -80 });
+      gsap.set('.main-content', { opacity: 0, y: 30 });
+    }
   }
 
   initGSAP() {
@@ -51,16 +61,17 @@ class PageTransitions {
       this.animatePageIn();
     };
 
-    // Always show loader for exactly 1.5 seconds
+    // Show loader for 1.5 seconds, then smoothly transition
     setTimeout(() => {
-      // Animate loader out
+      // Animate loader out slower for better timing
       if (typeof gsap !== 'undefined') {
         gsap.to(this.loader, {
           opacity: 0,
-          duration: 0.4,
+          duration: 0.6,
           ease: "power2.inOut",
           onComplete: () => {
             this.loader.style.display = 'none';
+            // Start page animation immediately after loader disappears
             this.animatePageIn();
           }
         });
@@ -70,20 +81,29 @@ class PageTransitions {
         setTimeout(() => {
           this.loader.style.display = 'none';
           this.animatePageIn();
-        }, 300);
+        }, 400);
       }
-    }, 1500); // Fixed 1.5 second duration
+    }, 1500);
+
+    // Emergency fallback - force hide loader after 3 seconds
+    setTimeout(() => {
+      if (this.loader && this.loader.style.display !== 'none') {
+        this.loader.style.display = 'none';
+        this.animatePageIn();
+      }
+    }, 3000);
   }
 
   animatePageIn() {
     if (typeof gsap === 'undefined') return;
 
-    // Set initial state for all content
+    // Ensure page starts completely hidden/white
     gsap.set('.header', { y: -80, opacity: 0 });
-    gsap.set('.main-content', { opacity: 0, y: 20 });
+    gsap.set('.main-content', { opacity: 0, y: 30 });
+    gsap.set('body', { backgroundColor: 'var(--bg-primary)' });
 
-    // Create smooth entrance timeline with delays
-    const tl = gsap.timeline({ delay: 0.2 });
+    // Start animations right after loader disappears for seamless transition
+    const tl = gsap.timeline({ delay: 0.1 });
 
     // Step 1: Header slides in smoothly
     tl.to('.header', {
@@ -246,6 +266,12 @@ class PageTransitions {
       return;
     }
 
+    // Disable heavy animations on mobile for better performance
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+      return; // Skip scroll animations on mobile
+    }
+
     // Service cards animation
     gsap.utils.toArray('.service-card').forEach(card => {
       gsap.from(card, {
@@ -370,9 +396,13 @@ class PageTransitions {
       });
     }
 
-    // Refresh ScrollTrigger on resize
+    // Refresh ScrollTrigger on resize (throttled for performance)
+    let resizeTimer;
     window.addEventListener('resize', () => {
-      ScrollTrigger.refresh();
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 250);
     });
   }
 
