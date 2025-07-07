@@ -15,6 +15,8 @@
   /* Brand Colors */
   --primary: #41a38f;
   --primary-light: #4ab69a;
+  --primary-dark: #367a6a;
+  --primary-rgb: 65, 163, 143;
   --secondary: #504f4e;
   --secondary-light: #585857;
   
@@ -23,6 +25,7 @@
   --bg-light-subtle: #f8f9fa;
   --bg-light-accent: #f0f2f4;
   --text-primary: #504f4e;
+  --text-primary-rgb: 80, 79, 78;
   --text-secondary: #585857;
   --text-tertiary: #999999;
   --border-light: #e0e0e0;
@@ -135,6 +138,7 @@ body {
   background-color: var(--bg-primary);
   transition: background-color var(--transition-base), color var(--transition-base);
   overflow-x: hidden;
+  padding-top: 0;
 }
 
 /* ==========================================================================
@@ -650,10 +654,7 @@ a:hover {
   color: white;
 }
 
-/* Body spacing for fixed menu */
-body {
-  padding-top: 0;
-}
+/* Body spacing handled in base styles section */
 
 /* ==========================================================================
    8. HERO SECTION
@@ -783,10 +784,7 @@ body {
   transform: rotate(30deg);
 }
 
-.page-hero {
-  margin-top: 0;
-  padding-top: 60px;
-}
+/* Page hero styles moved to responsive section */
 
 /* ==========================================================================
    9. MAIN CONTENT SECTIONS
@@ -1338,10 +1336,10 @@ body {
     justify-content: center;
   }
 
-  /* Page hero mobile */
+  /* Page hero - base and mobile styles */
   .page-hero {
-    padding: 40px 0;
     margin-top: 0;
+    padding: 40px 0;
   }
 
   .page-title {
@@ -1374,11 +1372,11 @@ body {
     padding: var(--space-2xl) 0;
   }
 
-  /* Disable heavy animations on mobile */
+  /* Hide hero shapes on mobile for performance */
   .hero-shape-1,
   .hero-shape-2,
   .hero-shape-3 {
-    display: none !important;
+    display: none;
   }
 }
 
@@ -1495,6 +1493,11 @@ body {
 @media (min-width: 1025px) {
   .container {
     max-width: 1200px;
+  }
+
+  .page-hero {
+    padding-top: 60px;
+    padding-bottom: 40px;
   }
 
   .service-card:hover {
