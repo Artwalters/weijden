@@ -78,57 +78,83 @@ class PageTransitions {
   animatePageIn() {
     if (typeof gsap === 'undefined') return;
 
-    // Animate main content elements
-    const tl = gsap.timeline();
+    // Set initial state for all content
+    gsap.set('.header', { y: -80, opacity: 0 });
+    gsap.set('.main-content', { opacity: 0, y: 20 });
 
-    // Header animation
-    tl.from('.header', {
-      y: -100,
-      opacity: 0,
+    // Create smooth entrance timeline with delays
+    const tl = gsap.timeline({ delay: 0.2 });
+
+    // Step 1: Header slides in smoothly
+    tl.to('.header', {
+      y: 0,
+      opacity: 1,
       duration: 0.8,
       ease: "power3.out"
-    });
+    })
+    // Step 2: Main content fades in gently
+    .to('.main-content', {
+      opacity: 1,
+      y: 0,
+      duration: 0.7,
+      ease: "power2.out"
+    }, "-=0.4");
 
-    // Hero section animation
+    // Step 3: Hero section elements animate in sequence
     if (document.querySelector('.hero')) {
       tl.from('.hero-title span', {
-        y: 60,
+        y: 40,
         opacity: 0,
         duration: 0.8,
-        stagger: 0.2,
-        ease: "power3.out"
-      }, "-=0.4")
+        stagger: 0.15,
+        ease: "power2.out"
+      }, "-=0.3")
       .from('.hero-subtitle', {
+        y: 20,
+        opacity: 0,
+        duration: 0.6,
+        ease: "power2.out"
+      }, "-=0.4")
+      .from('.hero-cta .btn', {
+        y: 20,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: "power2.out"
+      }, "-=0.3")
+      .from('.hero-visual > div', {
+        scale: 0.8,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.15,
+        ease: "back.out(1.2)"
+      }, "-=0.5");
+    }
+
+    // Step 4: Page title animation for other pages (gentler)
+    if (document.querySelector('.page-title')) {
+      tl.from('.page-title', {
         y: 30,
         opacity: 0,
-        duration: 0.6
-      }, "-=0.2")
-      .from('.hero-cta .btn', {
+        duration: 0.8,
+        ease: "power2.out"
+      }, "-=0.5")
+      .from('.page-subtitle', {
+        y: 20,
+        opacity: 0,
+        duration: 0.6,
+        ease: "power2.out"
+      }, "-=0.6");
+    }
+
+    // Step 5: Service cards or other content (gentle stagger)
+    if (document.querySelector('.service-card, .services-grid .service-card')) {
+      tl.from('.service-card', {
         y: 30,
         opacity: 0,
         duration: 0.6,
-        stagger: 0.1
-      }, "-=0.2")
-      .from('.hero-visual > div', {
-        scale: 0,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.2,
-        ease: "back.out(1.7)"
-      }, "-=0.4");
-    }
-
-    // Page title animation for other pages
-    if (document.querySelector('.page-title')) {
-      tl.from('.page-title', {
-        y: 50,
-        opacity: 0,
-        duration: 0.8
-      }, "-=0.6")
-      .from('.page-subtitle', {
-        y: 30,
-        opacity: 0,
-        duration: 0.6
+        stagger: 0.1,
+        ease: "power2.out"
       }, "-=0.4");
     }
   }
@@ -166,7 +192,12 @@ class PageTransitions {
     this.isTransitioning = true;
 
     if (typeof gsap !== 'undefined') {
-      // Animate current page out
+      // Show loader first
+      this.loader.style.display = 'flex';
+      this.loader.style.opacity = '0';
+      this.loader.style.visibility = 'visible';
+
+      // Smooth transition timeline
       const tl = gsap.timeline({
         onComplete: () => {
           if (pushState) {
@@ -176,27 +207,37 @@ class PageTransitions {
         }
       });
 
+      // Step 1: Fade out content smoothly
       tl.to('.main-content', {
         opacity: 0,
-        y: -30,
-        duration: 0.4,
-        ease: "power2.in"
+        y: -20,
+        duration: 0.5,
+        ease: "power2.inOut"
       })
+      // Step 2: Slide header out
       .to('.header', {
         y: -100,
-        duration: 0.3,
-        ease: "power2.in"
+        opacity: 0.7,
+        duration: 0.4,
+        ease: "power2.inOut"
+      }, "-=0.3")
+      // Step 3: Fade in loader smoothly
+      .to(this.loader, {
+        opacity: 1,
+        duration: 0.4,
+        ease: "power2.out"
       }, "-=0.2");
 
     } else {
       // Fallback without GSAP
-      document.body.style.opacity = '0.5';
+      this.loader.style.display = 'flex';
+      document.body.style.opacity = '0.7';
       setTimeout(() => {
         if (pushState) {
           window.history.pushState({}, '', url);
         }
         window.location.href = url;
-      }, 200);
+      }, 300);
     }
   }
 
