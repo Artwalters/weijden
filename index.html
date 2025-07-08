@@ -300,10 +300,30 @@
                         </a>
                     </div>
                     <div class="about-visual">
-                        <div class="about-shape-1"></div>
-                        <div class="about-shape-2"></div>
                         <div class="about-icon">
                             <img src="assets/images/lightmode_big.svg" alt="Weijden Multicare Logo" class="about-logo">
+                        </div>
+                        <div class="about-circle-container">
+                            <div class="about-circle">
+                                <div class="about-circle__card">
+                                    <img src="assets/images/bouw1.jpg" alt="Project 1" />
+                                </div>
+                                <div class="about-circle__card">
+                                    <img src="assets/images/bouw2.jpg" alt="Project 2" />
+                                </div>
+                                <div class="about-circle__card">
+                                    <img src="assets/images/bouw3.jpg" alt="Project 3" />
+                                </div>
+                                <div class="about-circle__card">
+                                    <img src="assets/images/businesscar.jpg" alt="Bedrijfsauto" />
+                                </div>
+                                <div class="about-circle__card">
+                                    <img src="assets/images/teamphoto.jpg" alt="Team foto" />
+                                </div>
+                                <div class="about-circle__card">
+                                    <img src="assets/images/teamphoto2.jpg" alt="Team foto 2" />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -527,8 +547,11 @@
                 // Start animatie
                 animateCartwheel();
                 
-                // Scroll listener voor beide platforms
+                // Scroll listener met boost tijdens scrollen
                 let ticking = false;
+                let isScrolling = false;
+                let scrollTimeout;
+                
                 function handleScroll() {
                     if (!ticking) {
                         requestAnimationFrame(() => {
@@ -536,15 +559,33 @@
                             const scrollDelta = currentScrollY - lastScrollY;
                             
                             if (Math.abs(scrollDelta) > 0.5) {
+                                isScrolling = true;
+                                
                                 // Bepaal richting: positief = naar beneden, negatief = naar boven
                                 scrollDirection = scrollDelta > 0 ? 1 : -1;
                                 
-                                // Bereken snelheid gebaseerd op scroll snelheid
-                                const scrollSpeed = Math.min(Math.abs(scrollDelta) / 20, 1.5);
-                                currentSpeed = baseSpeed * scrollDirection * (1 + scrollSpeed);
-                            } else {
-                                // Geleidelijk terug naar basis snelheid
-                                currentSpeed += (baseSpeed * scrollDirection - currentSpeed) * 0.1;
+                                // Bereken scroll intensiteit voor boost effect
+                                const scrollIntensity = Math.abs(scrollDelta);
+                                let speedMultiplier = 1;
+                                
+                                // Progressive boost alleen tijdens scrollen
+                                if (scrollIntensity > 15) {
+                                    speedMultiplier = 4;
+                                } else if (scrollIntensity > 8) {
+                                    speedMultiplier = 2.5;
+                                } else if (scrollIntensity > 3) {
+                                    speedMultiplier = 1.5;
+                                }
+                                
+                                // Smooth speed update tijdens scrollen
+                                const targetSpeed = baseSpeed * scrollDirection * speedMultiplier;
+                                currentSpeed += (targetSpeed - currentSpeed) * 0.3; // Smooth overgang naar boost
+                                
+                                // Reset de timeout voor scroll stop detectie
+                                clearTimeout(scrollTimeout);
+                                scrollTimeout = setTimeout(() => {
+                                    isScrolling = false;
+                                }, 200); // 200ms na laatste scroll event
                             }
                             
                             lastScrollY = currentScrollY;
@@ -553,6 +594,19 @@
                         ticking = true;
                     }
                 }
+                
+                // Terugkeer naar basis snelheid wanneer niet aan het scrollen
+                function smoothReturn() {
+                    if (!isScrolling) {
+                        // Geleidelijke terugkeer naar basis snelheid
+                        const targetSpeed = baseSpeed * scrollDirection;
+                        currentSpeed += (targetSpeed - currentSpeed) * 0.05; // Zeer langzame terugkeer
+                    }
+                    requestAnimationFrame(smoothReturn);
+                }
+                
+                // Start smooth return systeem
+                smoothReturn();
                 
                 // Voeg scroll listener toe
                 window.addEventListener('scroll', handleScroll, { passive: true });
@@ -641,11 +695,133 @@
             }
         }
 
+        // About Circle setup met rotatie
+        function initializeAboutCircle() {
+            const aboutCircle = document.querySelector('.about-circle');
+            const aboutCards = document.querySelectorAll('.about-circle__card');
+            
+            if (!aboutCircle || aboutCards.length === 0) {
+                return;
+            }
+            
+            function setupAboutCircle() {
+                const isMobile = window.innerWidth <= 768;
+                const radius = isMobile ? 100 : 180; // Aangepaste radius voor perfecte centering
+                const center = isMobile ? 150 : 250; // Center van de container (300px/2 mobile, 500px/2 desktop)
+                const total = aboutCards.length;
+                const slice = (2 * Math.PI) / total;
+
+                aboutCards.forEach((card, i) => {
+                    const angle = i * slice;
+                    const x = center + radius * Math.sin(angle);
+                    const y = center - radius * Math.cos(angle);
+                    
+                    // Bereken rotatie om naar het centrum te wijzen
+                    const rotationAngle = (angle * 180) / Math.PI;
+                    
+                    // Verschillende offset voor mobile/desktop
+                    const offset = isMobile ? 35 : 75; // 35 voor 70px mobile, 75 voor 150px desktop
+
+                    card.style.left = (x - offset) + 'px';
+                    card.style.top = (y - offset) + 'px';
+                    card.style.transform = `rotate(${rotationAngle}deg)`;
+                });
+            }
+            
+            setupAboutCircle();
+            
+            // Continue rotatie voor about circle
+            let aboutCurrentRotation = 0;
+            let aboutBaseSpeed = 0.05; // Zelfde snelheid als cartwheel
+            let aboutCurrentSpeed = aboutBaseSpeed;
+            let aboutLastScrollY = window.scrollY;
+            let aboutScrollDirection = 1;
+            
+            // Continue rotatie functie
+            function animateAboutCircle() {
+                aboutCurrentRotation += aboutCurrentSpeed;
+                aboutCircle.style.transform = `rotate(${aboutCurrentRotation}deg)`;
+                requestAnimationFrame(animateAboutCircle);
+            }
+            
+            // Start animatie
+            animateAboutCircle();
+            
+            // Scroll listener voor about circle
+            let aboutTicking = false;
+            let aboutIsScrolling = false;
+            let aboutScrollTimeout;
+            
+            function handleAboutScroll() {
+                if (!aboutTicking) {
+                    requestAnimationFrame(() => {
+                        const currentScrollY = window.scrollY;
+                        const scrollDelta = currentScrollY - aboutLastScrollY;
+                        
+                        if (Math.abs(scrollDelta) > 0.5) {
+                            aboutIsScrolling = true;
+                            
+                            // Bepaal richting: positief = naar beneden, negatief = naar boven
+                            aboutScrollDirection = scrollDelta > 0 ? 1 : -1;
+                            
+                            // Bereken scroll intensiteit voor boost effect
+                            const scrollIntensity = Math.abs(scrollDelta);
+                            let speedMultiplier = 1;
+                            
+                            // Progressive boost alleen tijdens scrollen
+                            if (scrollIntensity > 15) {
+                                speedMultiplier = 3;
+                            } else if (scrollIntensity > 8) {
+                                speedMultiplier = 2;
+                            } else if (scrollIntensity > 3) {
+                                speedMultiplier = 1.5;
+                            }
+                            
+                            // Smooth speed update tijdens scrollen
+                            const targetSpeed = aboutBaseSpeed * aboutScrollDirection * speedMultiplier;
+                            aboutCurrentSpeed += (targetSpeed - aboutCurrentSpeed) * 0.2;
+                            
+                            // Reset de timeout voor scroll stop detectie
+                            clearTimeout(aboutScrollTimeout);
+                            aboutScrollTimeout = setTimeout(() => {
+                                aboutIsScrolling = false;
+                            }, 200);
+                        }
+                        
+                        aboutLastScrollY = currentScrollY;
+                        aboutTicking = false;
+                    });
+                    aboutTicking = true;
+                }
+            }
+            
+            // Terugkeer naar basis snelheid wanneer niet aan het scrollen
+            function aboutSmoothReturn() {
+                if (!aboutIsScrolling) {
+                    // Geleidelijke terugkeer naar basis snelheid
+                    const targetSpeed = aboutBaseSpeed * aboutScrollDirection;
+                    aboutCurrentSpeed += (targetSpeed - aboutCurrentSpeed) * 0.03; // Nog langzamere terugkeer
+                }
+                requestAnimationFrame(aboutSmoothReturn);
+            }
+            
+            // Start smooth return systeem
+            aboutSmoothReturn();
+            
+            // Voeg scroll listener toe
+            window.addEventListener('scroll', handleAboutScroll, { passive: true });
+            
+            console.log('About circle setup with rotation completed');
+        }
+
         // Multiple initialization attempts
         document.addEventListener('DOMContentLoaded', () => {
             console.log('DOM loaded');
             
-            // Try immediate initialization
+            // Initialize about circle (doesn't need GSAP)
+            initializeAboutCircle();
+            
+            // Try immediate initialization for cartwheel
             if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
                 initializeCartwheel();
             } else {
@@ -665,6 +841,12 @@
         // Fallback: try on window load
         window.addEventListener('load', () => {
             console.log('Window loaded');
+            
+            // Reinitialize about circle if needed
+            if (!document.querySelector('.about-circle__card[style*="left"]')) {
+                initializeAboutCircle();
+            }
+            
             if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
                 // Only initialize if not already done
                 if (!document.querySelector('.cartwheel__card[style*="transform"]')) {
