@@ -448,22 +448,45 @@
     <script src="js/main.js"></script>
     <script src="js/menu.js"></script>
     <script>
-        // Cartwheel functionality - Enhanced for GitHub Pages
-        document.addEventListener('DOMContentLoaded', () => {
-            // Wacht tot GSAP geladen is
-            if (typeof gsap !== 'undefined') {
+        // Cartwheel functionality - Enhanced for GitHub Pages with fallbacks
+        function initializeCartwheel() {
+            console.log('Initializing cartwheel...');
+            
+            // Check if GSAP is available
+            if (typeof gsap === 'undefined') {
+                console.error('GSAP not loaded');
+                return;
+            }
+            
+            if (typeof ScrollTrigger === 'undefined') {
+                console.error('ScrollTrigger not loaded');
+                return;
+            }
+            
+            try {
                 gsap.registerPlugin(ScrollTrigger);
+                console.log('GSAP and ScrollTrigger registered');
                 
                 let cartwheel = document.querySelector('.cartwheel');
                 let cards = gsap.utils.toArray('.cartwheel__card');
                 let popup = document.querySelector('.photo-popup');
                 let closeBtn = document.querySelector('.close-hint');
 
-                if (!cartwheel || cards.length === 0) return;
+                if (!cartwheel) {
+                    console.error('Cartwheel element not found');
+                    return;
+                }
+                
+                if (cards.length === 0) {
+                    console.error('No cartwheel cards found');
+                    return;
+                }
+                
+                console.log(`Found ${cards.length} cartwheel cards`);
 
                 // Positioneer foto's in cirkel
                 function setupCartwheel() {
-                    let radius = cartwheel.offsetWidth / 2 - 180; // 180 is halve breedte van card
+                    let radius = cartwheel.offsetWidth / 2 - 180;
                     let center = cartwheel.offsetWidth / 2;
                     let total = cards.length;
                     let slice = (2 * Math.PI) / total;
@@ -481,6 +504,7 @@
                             y: y
                         });
                     });
+                    console.log('Cartwheel setup completed');
                 }
 
                 // Initialiseer setup
@@ -495,34 +519,35 @@
                         start: "top top",
                         end: "bottom top",
                         scrub: 2,
-                        invalidateOnRefresh: true
+                        invalidateOnRefresh: true,
+                        onUpdate: () => console.log('ScrollTrigger updating')
                     }
                 });
+                console.log('ScrollTrigger animation created');
 
                 // Foto popup functionaliteit
-                cards.forEach((card) => {
+                cards.forEach((card, index) => {
                     card.addEventListener('click', (e) => {
                         e.stopPropagation();
                         let image = card.querySelector('img');
                         
-                        // Clone de afbeelding
-                        let clonedImage = image.cloneNode(true);
-                        
-                        // Reset popup en voeg nieuwe afbeelding toe
-                        popup.innerHTML = '';
-                        popup.appendChild(closeBtn);
-                        popup.appendChild(clonedImage);
-                        
-                        // Toon popup
-                        popup.classList.add('active');
-                        document.body.style.overflow = 'hidden';
+                        if (popup && closeBtn && image) {
+                            let clonedImage = image.cloneNode(true);
+                            popup.innerHTML = '';
+                            popup.appendChild(closeBtn);
+                            popup.appendChild(clonedImage);
+                            popup.classList.add('active');
+                            document.body.style.overflow = 'hidden';
+                        }
                     });
                 });
 
                 // Sluit popup
                 function closePopup() {
-                    popup.classList.remove('active');
-                    document.body.style.overflow = 'auto';
+                    if (popup) {
+                        popup.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    }
                 }
 
                 if (popup && closeBtn) {
@@ -532,7 +557,7 @@
 
                 // Keyboard support
                 document.addEventListener('keydown', (e) => {
-                    if (e.key === 'Escape' && popup.classList.contains('active')) {
+                    if (e.key === 'Escape' && popup && popup.classList.contains('active')) {
                         closePopup();
                     }
                 });
@@ -540,7 +565,9 @@
                 // Herpositioneer bij resize
                 window.addEventListener('resize', () => {
                     setupCartwheel();
-                    ScrollTrigger.refresh();
+                    if (typeof ScrollTrigger !== 'undefined') {
+                        ScrollTrigger.refresh();
+                    }
                 });
 
                 // Smooth hover effects
@@ -563,6 +590,43 @@
                         });
                     });
                 });
+                
+                console.log('Cartwheel initialization completed successfully');
+                
+            } catch (error) {
+                console.error('Error initializing cartwheel:', error);
+            }
+        }
+
+        // Multiple initialization attempts
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('DOM loaded');
+            
+            // Try immediate initialization
+            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                initializeCartwheel();
+            } else {
+                console.log('GSAP not ready, waiting...');
+                
+                // Fallback: wait for scripts to load
+                setTimeout(() => {
+                    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                        initializeCartwheel();
+                    } else {
+                        console.error('GSAP still not available after timeout');
+                    }
+                }, 1000);
+            }
+        });
+
+        // Fallback: try on window load
+        window.addEventListener('load', () => {
+            console.log('Window loaded');
+            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                // Only initialize if not already done
+                if (!document.querySelector('.cartwheel__card[style*="transform"]')) {
+                    initializeCartwheel();
+                }
             }
         });
     </script>
