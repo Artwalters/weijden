@@ -411,16 +411,16 @@
         
         .service-header {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
-            text-align: center;
-            gap: var(--space-md);
+            text-align: left;
+            gap: var(--space-lg);
             margin-bottom: var(--space-lg);
         }
         
         .service-icon {
-            width: 80px;
-            height: 80px;
+            width: 48px;
+            height: 48px;
             background: linear-gradient(135deg, var(--primary), var(--primary-light));
             border-radius: var(--radius-full);
             display: flex;
@@ -428,6 +428,11 @@
             justify-content: center;
             color: white;
             flex-shrink: 0;
+        }
+        
+        .service-icon svg {
+            width: 24px;
+            height: 24px;
         }
         
         .service-title {
@@ -479,15 +484,22 @@
                 gap: var(--space-xl);
             }
             
-            /* Service header already centered on desktop */
+            .service-header {
+                flex-direction: column;
+                text-align: center;
+            }
             
             .service-icon {
-                width: 60px;
-                height: 60px;
+                width: 48px;
+                height: 48px;
             }
             
             .service-title {
                 font-size: var(--font-size-xl);
+            }
+            
+            .service-description {
+                text-align: center;
             }
         }
     </style>
