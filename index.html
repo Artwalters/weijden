@@ -632,7 +632,7 @@
 
                 // Eenvoudige continue rotatie met scroll-richting
                 let currentRotation = 0;
-                let baseSpeed = 0.05;
+                let baseSpeed = window.innerWidth <= 768 ? 0.08 : 0.03; // Langzamer op desktop, iets langzamer op mobile
                 let currentSpeed = baseSpeed;
                 let lastScrollY = window.scrollY;
                 let scrollDirection = 1;
@@ -800,6 +800,10 @@
                 window.addEventListener('resize', () => {
                     setupCartwheel();
                     
+                    // Update speeds based on new screen size
+                    baseSpeed = window.innerWidth <= 768 ? 0.08 : 0.03;
+                    currentSpeed = baseSpeed;
+                    
                     // Kill alle bestaande ScrollTriggers
                     if (typeof ScrollTrigger !== 'undefined') {
                         ScrollTrigger.getAll().forEach(trigger => trigger.kill());
@@ -879,7 +883,7 @@
             
             // Continue rotatie voor about circle
             let aboutCurrentRotation = 0;
-            let aboutBaseSpeed = 0.05; // Zelfde snelheid als cartwheel
+            let aboutBaseSpeed = window.innerWidth <= 768 ? 0.15 : 0.08; // 3x sneller op mobile, sneller op desktop
             let aboutCurrentSpeed = aboutBaseSpeed;
             let aboutLastScrollY = window.scrollY;
             let aboutScrollDirection = 1;
@@ -957,6 +961,14 @@
             
             // Voeg scroll listener toe
             window.addEventListener('scroll', handleAboutScroll, { passive: true });
+            
+            // Handle window resize for about circle
+            window.addEventListener('resize', () => {
+                setupAboutCircle();
+                // Update about circle speed based on new screen size
+                aboutBaseSpeed = window.innerWidth <= 768 ? 0.15 : 0.08;
+                aboutCurrentSpeed = aboutBaseSpeed;
+            });
             
             console.log('About circle setup with rotation completed');
         }
