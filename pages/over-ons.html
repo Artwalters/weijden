@@ -887,9 +887,8 @@
                 grid-column: 1;
                 width: 60px;
                 height: 60px;
-                position: relative;
-                left: 0;
-                transform: none;
+                position: absolute;
+                left: 30px;
                 order: 1;
             }
             
@@ -900,6 +899,7 @@
                 margin-left: 0;
                 margin-right: 0;
                 max-width: none;
+                transform: translate(50px, 0px);
             }
             
             .timeline-item:nth-child(odd) .timeline-content,
@@ -909,6 +909,13 @@
                 margin-left: 0;
                 margin-right: 0;
                 max-width: none;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-marker,
+            .timeline-item:nth-child(even) .timeline-marker {
+                order: 1;
+                position: absolute;
+                left: 30px;
             }
             
             .values-grid {
@@ -1148,7 +1155,7 @@
             console.log('About circle setup with rotation completed');
         }
 
-        // Timeline GSAP ScrollTrigger Animation - Responsive
+        // Timeline GSAP ScrollTrigger Animation - Optimized for smooth scrolling
         function initializeTimelineAnimation() {
             console.log('Initializing timeline animation...');
             
@@ -1166,6 +1173,12 @@
             try {
                 gsap.registerPlugin(ScrollTrigger);
                 
+                // Configure ScrollTrigger for better performance and less scroll interference
+                ScrollTrigger.config({
+                    autoRefreshEvents: "visibilitychange,DOMContentLoaded,load",
+                    ignoreMobileResize: true
+                });
+                
                 const timelineItems = document.querySelectorAll('.timeline-item');
                 
                 if (timelineItems.length === 0) {
@@ -1173,127 +1186,106 @@
                     return;
                 }
                 
-                // Responsive animation values
+                // Responsive animation values - simplified for better performance
                 const isMobile = window.innerWidth <= 768;
                 const animationValues = {
-                    yStart: isMobile ? 15 : 20,
-                    xSlide: isMobile ? 10 : 15,
-                    scale: isMobile ? 0.99 : 0.98,
-                    textYStart: isMobile ? 8 : 10,
-                    duration: isMobile ? 0.8 : 1.2,
-                    markerDuration: isMobile ? 0.6 : 0.8,
-                    contentDuration: isMobile ? 0.7 : 1.0,
-                    textDuration: isMobile ? 0.4 : 0.6,
-                    stagger: isMobile ? 0.05 : 0.1
+                    yStart: isMobile ? 12 : 16,
+                    xSlide: isMobile ? 8 : 12,
+                    duration: isMobile ? 0.6 : 0.8,
+                    stagger: isMobile ? 0.1 : 0.15
                 };
                 
-                // Set initial state - responsive and subtle
+                // Set initial state - more subtle to prevent scroll interference
                 gsap.set(timelineItems, {
                     opacity: 0,
-                    y: animationValues.yStart,
-                    scale: animationValues.scale
+                    y: animationValues.yStart
                 });
                 
-                // Create a timeline for each item with responsive, subtle animations
+                // Create optimized animations with less complexity
                 timelineItems.forEach((item, index) => {
                     const tl = gsap.timeline({
                         scrollTrigger: {
                             trigger: item,
-                            start: isMobile ? "top 90%" : "top 85%",
-                            end: isMobile ? "bottom 40%" : "bottom 30%",
+                            start: isMobile ? "top 95%" : "top 90%",
+                            end: isMobile ? "bottom 60%" : "bottom 50%",
                             toggleActions: "play none none reverse",
-                            markers: false
+                            markers: false,
+                            fastScrollEnd: true,
+                            preventOverlaps: true,
+                            refreshPriority: -1
                         }
                     });
                     
-                    // Main item animation - responsive fade and rise
+                    // Simplified main item animation
                     tl.to(item, {
                         opacity: 1,
                         y: 0,
-                        scale: 1,
                         duration: animationValues.duration,
-                        ease: "power3.out"
+                        ease: "power2.out"
                     });
                     
-                    // Timeline marker animation - responsive scale with delay
+                    // Simplified content animation without blur for better performance
+                    const contentElement = item.querySelector('.timeline-content');
+                    if (contentElement) {
+                        const slideDirection = isMobile ? -animationValues.xSlide : (index % 2 === 0 ? -animationValues.xSlide : animationValues.xSlide);
+                        const finalXPosition = isMobile ? 50 : 0; // Keep 50px offset on mobile
+                        
+                        tl.fromTo(contentElement,
+                            {
+                                x: slideDirection + finalXPosition,
+                                opacity: 0
+                            },
+                            {
+                                x: finalXPosition,
+                                opacity: 1,
+                                duration: animationValues.duration * 0.8,
+                                ease: "power2.out"
+                            },
+                            `-=${animationValues.duration * 0.5}`
+                        );
+                    }
+                    
+                    // Simplified marker animation
                     const markerElement = item.querySelector('.timeline-marker');
                     if (markerElement) {
                         tl.fromTo(markerElement, 
                             {
-                                scale: isMobile ? 0.95 : 0.9,
+                                scale: 0.95,
                                 opacity: 0
                             },
                             {
                                 scale: 1,
                                 opacity: 1,
-                                duration: animationValues.markerDuration,
+                                duration: animationValues.duration * 0.6,
                                 ease: "power2.out"
                             }, 
-                            `-=${animationValues.markerDuration}`
+                            `-=${animationValues.duration * 0.4}`
                         );
-                    }
-                    
-                    // Content animation - responsive slide with blur effect
-                    const contentElement = item.querySelector('.timeline-content');
-                    if (contentElement) {
-                        // On mobile, all content slides from left since layout is single column
-                        const slideDirection = isMobile ? -animationValues.xSlide : (index % 2 === 0 ? -animationValues.xSlide : animationValues.xSlide);
-                        
-                        tl.fromTo(contentElement,
-                            {
-                                x: slideDirection,
-                                opacity: 0,
-                                filter: isMobile ? "blur(1px)" : "blur(2px)"
-                            },
-                            {
-                                x: 0,
-                                opacity: 1,
-                                filter: "blur(0px)",
-                                duration: animationValues.contentDuration,
-                                ease: "power3.out"
-                            },
-                            `-=${animationValues.contentDuration}`
-                        );
-                        
-                        // Content text stagger animation - responsive
-                        const contentText = contentElement.querySelectorAll('h3, p');
-                        if (contentText.length > 0) {
-                            tl.fromTo(contentText,
-                                {
-                                    y: animationValues.textYStart,
-                                    opacity: 0
-                                },
-                                {
-                                    y: 0,
-                                    opacity: 1,
-                                    duration: animationValues.textDuration,
-                                    stagger: animationValues.stagger,
-                                    ease: "power2.out"
-                                },
-                                `-=${animationValues.textDuration}`
-                            );
-                        }
                     }
                 });
                 
-                console.log('Timeline animation setup completed with responsive values');
+                console.log('Timeline animation setup completed with optimized ScrollTrigger');
                 
             } catch (error) {
                 console.error('Error setting up timeline animation:', error);
             }
         }
         
-        // Responsive timeline animation refresh on window resize
+        // Optimized timeline animation refresh on window resize
         function refreshTimelineAnimation() {
-            // Kill existing ScrollTriggers
+            // Kill existing ScrollTriggers more efficiently
             if (typeof ScrollTrigger !== 'undefined') {
-                ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+                ScrollTrigger.killAll();
+                ScrollTrigger.refresh();
             }
             
-            // Reinitialize with new responsive values
+            // Reinitialize with new responsive values after a longer delay
             setTimeout(() => {
                 initializeTimelineAnimation();
-            }, 100);
+                if (typeof ScrollTrigger !== 'undefined') {
+                    ScrollTrigger.refresh();
+                }
+            }, 200);
         }
 
         // Initialize about circle when DOM is ready
@@ -1306,13 +1298,14 @@
             }, 100);
         });
         
-        // Add resize event listener for responsive timeline animation
+        // Add optimized resize event listener with better debouncing
+        let resizeTimeout;
         window.addEventListener('resize', () => {
-            clearTimeout(window.resizeTimeout);
-            window.resizeTimeout = setTimeout(() => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
                 refreshTimelineAnimation();
-            }, 250);
-        });
+            }, 300);
+        }, { passive: true });
     </script>
 </body>
 </html>
