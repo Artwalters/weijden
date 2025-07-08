@@ -510,42 +510,53 @@
                 // Initialiseer setup
                 setupCartwheel();
 
-                // Scroll-triggered rotatie animatie
-                const isMobile = window.innerWidth <= 768;
+                // Eenvoudige continue rotatie met scroll-richting
+                let currentRotation = 0;
+                let baseSpeed = 0.05;
+                let currentSpeed = baseSpeed;
+                let lastScrollY = window.scrollY;
+                let scrollDirection = 1;
                 
-                if (isMobile) {
-                    // Mobile: gebruik passieve scroll listener (interfereert niet met scroll)
-                    let ticking = false;
-                    window.addEventListener('scroll', () => {
-                        if (!ticking) {
-                            requestAnimationFrame(() => {
-                                const scrolled = window.scrollY;
-                                const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-                                const scrollProgress = Math.min(scrolled / (maxScroll * 0.3), 1); // Animeer over eerste 30% van pagina
-                                const rotation = scrollProgress * 90;
-                                
-                                gsap.set(cartwheel, { rotate: rotation });
-                                ticking = false;
-                            });
-                            ticking = true;
-                        }
-                    }, { passive: true });
-                    console.log('Mobile scroll listener created (passive)');
-                } else {
-                    // Desktop: gebruik ScrollTrigger voor betere controle
-                    gsap.to(cartwheel, {
-                        rotate: 90,
-                        ease: "none",
-                        scrollTrigger: {
-                            trigger: ".hero",
-                            start: "top top",
-                            end: "bottom top",
-                            scrub: 2,
-                            invalidateOnRefresh: true
-                        }
-                    });
-                    console.log('Desktop ScrollTrigger animation created');
+                // Continue rotatie functie
+                function animateCartwheel() {
+                    currentRotation += currentSpeed;
+                    cartwheel.style.transform = `rotate(${currentRotation}deg)`;
+                    requestAnimationFrame(animateCartwheel);
                 }
+                
+                // Start animatie
+                animateCartwheel();
+                
+                // Scroll listener voor beide platforms
+                let ticking = false;
+                function handleScroll() {
+                    if (!ticking) {
+                        requestAnimationFrame(() => {
+                            const currentScrollY = window.scrollY;
+                            const scrollDelta = currentScrollY - lastScrollY;
+                            
+                            if (Math.abs(scrollDelta) > 0.5) {
+                                // Bepaal richting: positief = naar beneden, negatief = naar boven
+                                scrollDirection = scrollDelta > 0 ? 1 : -1;
+                                
+                                // Bereken snelheid gebaseerd op scroll snelheid
+                                const scrollSpeed = Math.min(Math.abs(scrollDelta) / 20, 1.5);
+                                currentSpeed = baseSpeed * scrollDirection * (1 + scrollSpeed);
+                            } else {
+                                // Geleidelijk terug naar basis snelheid
+                                currentSpeed += (baseSpeed * scrollDirection - currentSpeed) * 0.1;
+                            }
+                            
+                            lastScrollY = currentScrollY;
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }
+                
+                // Voeg scroll listener toe
+                window.addEventListener('scroll', handleScroll, { passive: true });
+                console.log('Cartwheel continuous rotation with scroll direction enabled');
 
                 // Foto popup functionaliteit
                 cards.forEach((card, index) => {
@@ -593,27 +604,8 @@
                         ScrollTrigger.getAll().forEach(trigger => trigger.kill());
                     }
                     
-                    // Herinitialiseer animatie op basis van nieuwe schermgrootte
-                    const isMobileResize = window.innerWidth <= 768;
-                    
-                    if (isMobileResize) {
-                        // Geen nieuwe ScrollTrigger - passieve listener is al actief
-                        console.log('Resize: Mobile mode - using existing passive scroll listener');
-                    } else {
-                        // Desktop: maak nieuwe ScrollTrigger
-                        gsap.to(cartwheel, {
-                            rotate: 90,
-                            ease: "none",
-                            scrollTrigger: {
-                                trigger: ".hero",
-                                start: "top top",
-                                end: "bottom top",
-                                scrub: 2,
-                                invalidateOnRefresh: true
-                            }
-                        });
-                        console.log('Resize: Desktop ScrollTrigger recreated');
-                    }
+                    // Continue rotatie blijft actief, alleen scroll detection wordt gereset
+                    console.log('Resize: Cartwheel repositioned, continuous rotation continues');
                 });
 
                 // Smooth hover effects - alleen op desktop voor betere mobile performance
