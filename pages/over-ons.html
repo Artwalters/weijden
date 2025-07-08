@@ -40,7 +40,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="wie-zijn-we.html" class="nav-link active">
+                        <a href="over-ons.html" class="nav-link active">
                             <span class="nav-text">Over Ons</span>
                             <span class="nav-indicator"></span>
                         </a>
@@ -99,7 +99,7 @@
                     </a>
                 </li>
                 <li class="mobile-nav-item">
-                    <a href="wie-zijn-we.html" class="mobile-nav-link active">
+                    <a href="over-ons.html" class="mobile-nav-link active">
                         <span class="mobile-nav-text">Over Ons</span>
                         <span class="mobile-nav-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -288,23 +288,21 @@
                     <p class="section-subtitle">Jong, energiek team met netwerk van ervaren specialisten</p>
                 </div>
                 
-                <div class="team-grid">
-                    <div class="team-member">
-                        <div class="member-image">
-                            <div class="image-placeholder">
-                                <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
-                                    <circle cx="60" cy="60" r="60" fill="var(--bg-accent)"/>
-                                    <circle cx="60" cy="45" r="15" fill="var(--primary)" opacity="0.4"/>
-                                    <path d="M30 90C30 75 42 65 60 65C78 65 90 75 90 90" fill="var(--primary)" opacity="0.3"/>
-                                </svg>
+                <div class="team-photo-container">
+                    <div class="team-clipbox">
+                        <div class="team-dragger" draggable="false">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                <path d="M9 18L15 12L9 6" stroke="var(--primary)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="team-img-container">
+                            <div class="team-primary-img">
+                                <img src="../assets/images/teamphoto.jpg" alt="Ons team" draggable="false">
+                            </div>
+                            <div class="team-secondary-img">
+                                <img src="../assets/images/teamphoto2.jpg" alt="Ons team - grappige foto" draggable="false">
                             </div>
                         </div>
-                        <h3 class="member-name">Sander Weijden</h3>
-                        <p class="member-role">Oprichter & Eigenaar</p>
-                        <p class="member-desc">
-                            Met jarenlange ervaring in de bouwsector richtte Sander 
-                            Weijden Multicare op vanuit zijn passie voor vakwerk en klanttevredenheid.
-                        </p>
                     </div>
                 </div>
                 
@@ -412,7 +410,7 @@
                     <div class="footer-column">
                         <h4 class="footer-title">Bedrijf</h4>
                         <ul class="footer-list">
-                            <li><a href="wie-zijn-we.html">Over ons</a></li>
+                            <li><a href="over-ons.html">Over ons</a></li>
                             <li><a href="vacatures.html">Vacatures</a></li>
                             <li><a href="contact.html">Contact</a></li>
                         </ul>
@@ -625,37 +623,102 @@
             color: var(--primary);
         }
         
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--space-xl);
+        .team-photo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             margin-top: var(--space-2xl);
             margin-bottom: var(--space-3xl);
         }
         
-        .team-member {
-            text-align: center;
-            padding: var(--space-xl);
+        .team-clipbox {
+            display: block;
+            position: relative;
+            height: 500px;
+            width: 100%;
+            max-width: 800px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+            overflow: hidden;
         }
         
-        .member-image {
-            margin-bottom: var(--space-lg);
+        .team-img-container {
+            height: 100%;
+            width: 100%;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            position: relative;
         }
         
-        .member-name {
-            font-size: var(--font-size-xl);
-            margin-bottom: var(--space-xs);
+        .team-primary-img, .team-secondary-img {
+            position: absolute;
+            overflow: hidden;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
         }
         
-        .member-role {
-            color: var(--primary);
-            font-weight: var(--font-semibold);
-            margin-bottom: var(--space-md);
+        .team-primary-img img, .team-secondary-img img {
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            object-fit: cover;
         }
         
-        .member-desc {
-            color: var(--text-color-secondary);
-            font-size: var(--font-size-sm);
+        .team-primary-img {
+            z-index: 100;
+            clip-path: inset(0 50% 0 0);
+        }
+        
+        .team-secondary-img {
+            z-index: 50;
+        }
+        
+        .team-dragger {
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            border: 3px solid var(--primary);
+            background-color: rgba(255, 255, 255, 0.9);
+            position: absolute;
+            top: calc(50% - 30px);
+            left: calc(50% - 30px);
+            cursor: ew-resize;
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .team-dragger.no-transition {
+            transition: none;
+        }
+        
+        .team-dragger:hover {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            transform: translateX(-50%) scale(1.1);
+            box-shadow: 0 6px 20px rgba(65, 163, 143, 0.3);
+        }
+        
+        .team-dragger:hover svg path {
+            stroke: #ffffff;
+        }
+        
+        .team-dragger.dragger--active {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            transform: translateX(-50%);
+            box-shadow: 0 8px 25px rgba(65, 163, 143, 0.4);
+        }
+        
+        .team-dragger.dragger--active svg path {
+            stroke: #ffffff;
         }
         
         /* Partners styling now uses main CSS styling from styles.css */
@@ -720,11 +783,113 @@
             .values-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .team-clipbox {
+                height: 350px;
+            }
+            
+            .team-dragger {
+                height: 50px;
+                width: 50px;
+                top: calc(50% - 25px);
+                left: calc(50% - 25px);
+                transform: translateX(-50%);
+            }
         }
     </style>
 
     <!-- Scripts -->
     <script src="../js/main.js"></script>
     <script src="../js/menu.js"></script>
+    
+    <script>
+        // Team photo drag slider functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const clipbox = document.querySelector('.team-clipbox');
+            const dragger = document.querySelector('.team-dragger');
+            const primaryImg = document.querySelector('.team-primary-img');
+            
+            if (!clipbox || !dragger || !primaryImg) return;
+            
+            let drag = false;
+            
+            const getClipboxDimensions = () => ({
+                width: clipbox.getBoundingClientRect().width,
+                left: clipbox.getBoundingClientRect().left
+            });
+            
+            const handleStartDrag = (e) => {
+                e.preventDefault();
+                drag = true;
+                dragger.classList.add('dragger--active');
+                dragger.classList.add('no-transition');
+                dragger.style.pointerEvents = 'none';
+                document.body.style.userSelect = 'none';
+            };
+            
+            const handleStopDrag = () => {
+                drag = false;
+                dragger.style.pointerEvents = 'auto';
+                dragger.classList.remove('dragger--active');
+                dragger.classList.remove('no-transition');
+                clipbox.style.cursor = 'auto';
+                document.body.style.userSelect = 'auto';
+            };
+            
+            const handleImgReveal = (e) => {
+                if (!drag) return;
+                
+                e.preventDefault();
+                const clipboxDimensions = getClipboxDimensions();
+                
+                let offsetX;
+                if (e.type === 'mousemove') {
+                    offsetX = e.clientX - clipboxDimensions.left;
+                } else if (e.type === 'touchmove') {
+                    offsetX = e.touches[0].clientX - clipboxDimensions.left;
+                }
+                
+                // Constrain within bounds
+                if (offsetX >= 0 && offsetX <= clipboxDimensions.width) {
+                    clipbox.style.cursor = 'ew-resize';
+                    dragger.style.left = offsetX + 'px';
+                    
+                    // Calculate percentage for clip-path
+                    const percentage = (offsetX / clipboxDimensions.width) * 100;
+                    const rightClip = 100 - percentage;
+                    primaryImg.style.clipPath = `inset(0 ${rightClip}% 0 0)`;
+                }
+            };
+            
+            // Mouse events
+            dragger.addEventListener('mousedown', handleStartDrag);
+            document.addEventListener('mouseup', handleStopDrag);
+            document.addEventListener('mousemove', handleImgReveal);
+            
+            // Touch events
+            dragger.addEventListener('touchstart', handleStartDrag);
+            document.addEventListener('touchend', handleStopDrag);
+            document.addEventListener('touchmove', handleImgReveal);
+            
+            // Prevent context menu on drag
+            dragger.addEventListener('contextmenu', (e) => e.preventDefault());
+            
+            // Handle window resize
+            window.addEventListener('resize', () => {
+                if (!drag) {
+                    const clipboxDimensions = getClipboxDimensions();
+                    const draggerLeft = parseFloat(dragger.style.left) || clipboxDimensions.width / 2;
+                    const newPosition = Math.min(draggerLeft, clipboxDimensions.width);
+                    
+                    dragger.style.left = newPosition + 'px';
+                    
+                    // Update clip-path based on new position
+                    const percentage = (newPosition / clipboxDimensions.width) * 100;
+                    const rightClip = 100 - percentage;
+                    primaryImg.style.clipPath = `inset(0 ${rightClip}% 0 0)`;
+                }
+            });
+        });
+    </script>
 </body>
 </html>
