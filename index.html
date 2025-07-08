@@ -510,24 +510,27 @@
                 // Initialiseer setup
                 setupCartwheel();
 
-                // Scroll-triggered rotatie animatie - alleen op desktop
-                if (window.innerWidth > 768) {
-                    gsap.to(cartwheel, {
-                        rotate: 90,
-                        ease: "none",
-                        scrollTrigger: {
-                            trigger: ".hero",
-                            start: "top top",
-                            end: "bottom top",
-                            scrub: 2,
-                            invalidateOnRefresh: true,
-                            onUpdate: () => console.log('ScrollTrigger updating')
+                // Scroll-triggered rotatie animatie - optimized voor mobile
+                const isMobile = window.innerWidth <= 768;
+                const scrubValue = isMobile ? 5 : 2; // Tragere scrub op mobile voor vloeiendere scroll
+                
+                gsap.to(cartwheel, {
+                    rotate: 90,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: ".hero",
+                        start: "top top",
+                        end: "bottom top",
+                        scrub: scrubValue,
+                        invalidateOnRefresh: true,
+                        anticipatePin: isMobile ? 0 : 1,
+                        refreshPriority: isMobile ? -1 : 0,
+                        onUpdate: () => {
+                            if (!isMobile) console.log('ScrollTrigger updating');
                         }
-                    });
-                    console.log('ScrollTrigger animation created for desktop');
-                } else {
-                    console.log('ScrollTrigger disabled on mobile');
-                }
+                    }
+                });
+                console.log(`ScrollTrigger animation created with scrub: ${scrubValue} (${isMobile ? 'mobile' : 'desktop'})`)
 
                 // Foto popup functionaliteit
                 cards.forEach((card, index) => {
@@ -573,25 +576,24 @@
                         // Kill alle bestaande ScrollTriggers
                         ScrollTrigger.getAll().forEach(trigger => trigger.kill());
                         
-                        // Alleen opnieuw maken op desktop
-                        if (window.innerWidth > 768) {
-                            gsap.to(cartwheel, {
-                                rotate: 90,
-                                ease: "none",
-                                scrollTrigger: {
-                                    trigger: ".hero",
-                                    start: "top top",
-                                    end: "bottom top",
-                                    scrub: 2,
-                                    invalidateOnRefresh: true
-                                }
-                            });
-                            console.log('ScrollTrigger recreated for desktop after resize');
-                        } else {
-                            // Reset rotation op mobile
-                            gsap.set(cartwheel, { rotate: 0 });
-                            console.log('ScrollTrigger disabled and rotation reset for mobile');
-                        }
+                        // Maak opnieuw met juiste instellingen voor schermgrootte
+                        const isMobileResize = window.innerWidth <= 768;
+                        const scrubValueResize = isMobileResize ? 5 : 2;
+                        
+                        gsap.to(cartwheel, {
+                            rotate: 90,
+                            ease: "none",
+                            scrollTrigger: {
+                                trigger: ".hero",
+                                start: "top top",
+                                end: "bottom top",
+                                scrub: scrubValueResize,
+                                invalidateOnRefresh: true,
+                                anticipatePin: isMobileResize ? 0 : 1,
+                                refreshPriority: isMobileResize ? -1 : 0
+                            }
+                        });
+                        console.log(`ScrollTrigger recreated after resize with scrub: ${scrubValueResize} (${isMobileResize ? 'mobile' : 'desktop'})`);
                     }
                 });
 
