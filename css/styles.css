@@ -1377,6 +1377,64 @@ a:hover {
 }
 
 /* ==========================================================================
+   10. STATISTICS SECTION
+   ========================================================================== */
+.statistics {
+  background: var(--bg-secondary);
+  padding: var(--space-fluid-3xl) 0;
+}
+
+.statistics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr)); /* 300px */
+  gap: var(--space-fluid-xl);
+  margin-top: var(--space-2xl);
+}
+
+.statistic-card {
+  background: var(--bg-primary);
+  padding: var(--space-2xl);
+  border-radius: var(--radius-xl);
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  transition: all var(--transition-base);
+  border: 1px solid var(--border-color);
+}
+
+.statistic-card:hover {
+  transform: translateY(-0.3125rem); /* -5px */
+  box-shadow: var(--shadow-xl);
+}
+
+.statistic-icon {
+  width: 5rem; /* 80px */
+  height: 5rem; /* 80px */
+  margin: 0 auto var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-accent);
+  border-radius: var(--radius-full);
+  color: var(--primary);
+}
+
+.statistic-number {
+  font-size: var(--font-fluid-4xl);
+  font-weight: var(--font-weight-heavy);
+  color: var(--primary);
+  margin-bottom: var(--space-sm);
+  font-family: var(--font-heavy);
+  line-height: 1;
+}
+
+.statistic-label {
+  font-size: var(--font-fluid-lg);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-color-secondary);
+  font-family: var(--font-medium);
+}
+
+/* ==========================================================================
    11. RESPONSIVE DESIGN
    ========================================================================== */
 /* Mobile Navigation */
@@ -1405,6 +1463,29 @@ a:hover {
 
   .mobile-nav {
     top: 4.375rem; /* 70px */
+  }
+
+  /* Statistics mobile styling */
+  .statistics-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+  
+  .statistic-card {
+    padding: var(--space-xl);
+  }
+  
+  .statistic-icon {
+    width: 4rem; /* 64px */
+    height: 4rem; /* 64px */
+  }
+  
+  .statistic-number {
+    font-size: var(--font-size-4xl);
+  }
+  
+  .statistic-label {
+    font-size: var(--font-size-lg);
   }
 }
 

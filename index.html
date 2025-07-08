@@ -418,6 +418,41 @@
             </div>
         </section>
 
+        <!-- Statistics Section -->
+        <section class="statistics section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Onze prestaties</h2>
+                    <p class="section-subtitle">Jarenlange ervaring en betrouwbare samenwerkingen</p>
+                </div>
+                
+                <div class="statistics-grid">
+                    <div class="statistic-card">
+                        <div class="statistic-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <path d="M8 40V24L24 8L40 24V40H28V28H20V40H8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M20 16L24 12L28 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="statistic-number" data-target="7665">0</div>
+                        <div class="statistic-label">Klussen voltooid</div>
+                    </div>
+                    
+                    <div class="statistic-card">
+                        <div class="statistic-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <path d="M17 21V19C17 16.2386 19.2386 14 22 14H26C28.7614 14 31 16.2386 31 19V21" stroke="currentColor" stroke-width="2"/>
+                                <path d="M12 21H36C37.1046 21 38 21.8954 38 23V37C38 38.1046 37.1046 39 36 39H12C10.8954 39 10 38.1046 10 37V23C10 21.8954 10.8954 21 12 21Z" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="24" cy="30" r="3" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="statistic-number" data-target="147">0</div>
+                        <div class="statistic-label">Betrouwbare partners</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- CTA Section -->
         <section class="cta section">
             <div class="container">
@@ -1123,6 +1158,79 @@
                     initializeCartwheel();
                 }
             }
+        });
+
+        // Counter Animation functionality
+        function initializeCounterAnimations() {
+            console.log('Initializing counter animations...');
+            
+            const statisticNumbers = document.querySelectorAll('.statistic-number');
+            
+            if (statisticNumbers.length === 0) {
+                console.log('No statistic numbers found');
+                return;
+            }
+            
+            // Counter animation function
+            function animateCounter(element, target, duration = 2000) {
+                const startValue = 0;
+                const increment = target / (duration / 16); // 60fps
+                let currentValue = startValue;
+                
+                const updateCounter = () => {
+                    currentValue += increment;
+                    
+                    if (currentValue >= target) {
+                        element.textContent = target.toLocaleString('nl-NL');
+                        return;
+                    }
+                    
+                    element.textContent = Math.floor(currentValue).toLocaleString('nl-NL');
+                    requestAnimationFrame(updateCounter);
+                };
+                
+                updateCounter();
+            }
+            
+            // Create intersection observer for scroll trigger
+            const observerOptions = {
+                threshold: 0.5,
+                rootMargin: '0px 0px -100px 0px'
+            };
+            
+            const counterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const element = entry.target;
+                        const target = parseInt(element.dataset.target);
+                        
+                        // Start animation with slight delay for staggered effect
+                        const delay = Array.from(statisticNumbers).indexOf(element) * 200;
+                        
+                        setTimeout(() => {
+                            animateCounter(element, target);
+                        }, delay);
+                        
+                        // Stop observing this element
+                        counterObserver.unobserve(element);
+                    }
+                });
+            }, observerOptions);
+            
+            // Start observing all statistic numbers
+            statisticNumbers.forEach(number => {
+                counterObserver.observe(number);
+            });
+            
+            console.log('Counter animations initialized');
+        }
+
+        // Initialize counter animations when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            // Small delay to ensure other animations are initialized first
+            setTimeout(() => {
+                initializeCounterAnimations();
+            }, 500);
         });
     </script>
 </body>
