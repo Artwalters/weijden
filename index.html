@@ -510,27 +510,42 @@
                 // Initialiseer setup
                 setupCartwheel();
 
-                // Scroll-triggered rotatie animatie - optimized voor mobile
+                // Scroll-triggered rotatie animatie
                 const isMobile = window.innerWidth <= 768;
-                const scrubValue = isMobile ? 5 : 2; // Tragere scrub op mobile voor vloeiendere scroll
                 
-                gsap.to(cartwheel, {
-                    rotate: 90,
-                    ease: "none",
-                    scrollTrigger: {
-                        trigger: ".hero",
-                        start: "top top",
-                        end: "bottom top",
-                        scrub: scrubValue,
-                        invalidateOnRefresh: true,
-                        anticipatePin: isMobile ? 0 : 1,
-                        refreshPriority: isMobile ? -1 : 0,
-                        onUpdate: () => {
-                            if (!isMobile) console.log('ScrollTrigger updating');
+                if (isMobile) {
+                    // Mobile: gebruik passieve scroll listener (interfereert niet met scroll)
+                    let ticking = false;
+                    window.addEventListener('scroll', () => {
+                        if (!ticking) {
+                            requestAnimationFrame(() => {
+                                const scrolled = window.scrollY;
+                                const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+                                const scrollProgress = Math.min(scrolled / (maxScroll * 0.3), 1); // Animeer over eerste 30% van pagina
+                                const rotation = scrollProgress * 90;
+                                
+                                gsap.set(cartwheel, { rotate: rotation });
+                                ticking = false;
+                            });
+                            ticking = true;
                         }
-                    }
-                });
-                console.log(`ScrollTrigger animation created with scrub: ${scrubValue} (${isMobile ? 'mobile' : 'desktop'})`)
+                    }, { passive: true });
+                    console.log('Mobile scroll listener created (passive)');
+                } else {
+                    // Desktop: gebruik ScrollTrigger voor betere controle
+                    gsap.to(cartwheel, {
+                        rotate: 90,
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: ".hero",
+                            start: "top top",
+                            end: "bottom top",
+                            scrub: 2,
+                            invalidateOnRefresh: true
+                        }
+                    });
+                    console.log('Desktop ScrollTrigger animation created');
+                }
 
                 // Foto popup functionaliteit
                 cards.forEach((card, index) => {
@@ -572,14 +587,20 @@
                 // Herpositioneer bij resize
                 window.addEventListener('resize', () => {
                     setupCartwheel();
+                    
+                    // Kill alle bestaande ScrollTriggers
                     if (typeof ScrollTrigger !== 'undefined') {
-                        // Kill alle bestaande ScrollTriggers
                         ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-                        
-                        // Maak opnieuw met juiste instellingen voor schermgrootte
-                        const isMobileResize = window.innerWidth <= 768;
-                        const scrubValueResize = isMobileResize ? 5 : 2;
-                        
+                    }
+                    
+                    // Herinitialiseer animatie op basis van nieuwe schermgrootte
+                    const isMobileResize = window.innerWidth <= 768;
+                    
+                    if (isMobileResize) {
+                        // Geen nieuwe ScrollTrigger - passieve listener is al actief
+                        console.log('Resize: Mobile mode - using existing passive scroll listener');
+                    } else {
+                        // Desktop: maak nieuwe ScrollTrigger
                         gsap.to(cartwheel, {
                             rotate: 90,
                             ease: "none",
@@ -587,13 +608,11 @@
                                 trigger: ".hero",
                                 start: "top top",
                                 end: "bottom top",
-                                scrub: scrubValueResize,
-                                invalidateOnRefresh: true,
-                                anticipatePin: isMobileResize ? 0 : 1,
-                                refreshPriority: isMobileResize ? -1 : 0
+                                scrub: 2,
+                                invalidateOnRefresh: true
                             }
                         });
-                        console.log(`ScrollTrigger recreated after resize with scrub: ${scrubValueResize} (${isMobileResize ? 'mobile' : 'desktop'})`);
+                        console.log('Resize: Desktop ScrollTrigger recreated');
                     }
                 });
 
