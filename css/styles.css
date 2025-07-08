@@ -1421,14 +1421,72 @@ a:hover {
 }
 
 @media (max-width: 47em) {
-    .about-visual {
-        height: 26.625rem;
-        order: -1;
-    }
+  .mobile-nav {
+    top: 0rem;
+    height: auto;
+    border-radius: 0 0 24px 24px;
+    padding-top: 5rem; /* Space for navbar */
+  }
+
+  /* Cartwheel mobile adjustments - gebruik iPad mini layout */
+  .hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    justify-items: center;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    margin-top: 10rem;
+    text-align: center;
+    max-width: 100%;
+  }
 
   .hero-visual {
     display: flex;
     justify-content: center;
+  }
+
+  .cartwheel-container {
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: 180vw;
+    height: 180vw;
+    max-width: none;
+    max-height: none;
+    min-width: none;
+    min-height: none;
+    z-index: 1;
+  }
+
+  .cartwheel__card {
+    width: 144px;
+    height: 144px;
+    border-width: 2px;
+  }
+
+  /* About section mobile adjustments */
+  .about-visual {
+    height: 26.625rem;
+    order: -1;
+  }
+
+  /* Mobile spacing adjustments */
+  .hero {
+    padding-top: 0;
+    height: 100vh;
+    position: relative;
+    box-sizing: border-box;
+  }
+
+  .hero-container {
+    padding: var(--space-xl) var(--space-md);
+    grid-template-columns: 1fr !important;
+    gap: var(--space-lg) !important;
   }
 
   .cartwheel-container {
