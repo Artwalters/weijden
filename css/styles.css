@@ -771,11 +771,13 @@ a:hover {
   object-fit: cover;
   pointer-events: none;
   transition: transform 0.4s ease;
-  transform: rotate(90deg);
 }
 
-.cartwheel__card img {
-  transform: rotate(90deg);
+/* Desktop styling - restore original rotation */
+@media (min-width: 48.0625em) { /* 769px+ */
+  .cartwheel__card img {
+    transform: rotate(90deg);
+  }
 }
 
 /* Photo popup */
@@ -1405,6 +1407,11 @@ a:hover {
   .about-circle__card {
     width: 70px;
     height: 70px;
+  }
+
+  /* Cartwheel mobile scaling aanpassing */
+  .hero .cartwheel__card {
+    transform: scale(1.2) rotate(-30deg);
   }
 
   /* About section mobile positioning */
