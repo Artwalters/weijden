@@ -236,7 +236,7 @@
 
     <!-- Photo popup -->
     <div class="photo-popup">
-        <div class="close-hint">×</div>
+        <button class="photo-popup-close" aria-label="Sluiten">×</button>
     </div>
 
     <!-- Main Content -->
@@ -590,7 +590,7 @@
                 let cartwheel = document.querySelector('.cartwheel');
                 let cards = gsap.utils.toArray('.cartwheel__card');
                 let popup = document.querySelector('.photo-popup');
-                let closeBtn = document.querySelector('.close-hint');
+                let closeBtn = document.querySelector('.photo-popup-close');
 
                 if (!cartwheel) {
                     console.error('Cartwheel element not found');
@@ -712,7 +712,7 @@
                 window.addEventListener('scroll', handleScroll, { passive: true });
                 console.log('Cartwheel continuous rotation with scroll direction enabled');
 
-                // Foto popup functionaliteit
+                // Foto popup functionaliteit met GSAP animaties
                 cards.forEach((card, index) => {
                     card.addEventListener('click', (e) => {
                         e.stopPropagation();
@@ -723,28 +723,75 @@
                             popup.innerHTML = '';
                             popup.appendChild(closeBtn);
                             popup.appendChild(clonedImage);
-                            popup.classList.add('active');
+                            
+                            // Set initial states
+                            gsap.set(popup, { opacity: 0, visibility: 'visible' });
+                            gsap.set(clonedImage, { scale: 0.8 });
+                            gsap.set(closeBtn, { scale: 0.8 });
+                            
+                            // Animate in
+                            const tl = gsap.timeline();
+                            tl.to(popup, {
+                                opacity: 1,
+                                duration: 0.4,
+                                ease: "power2.out"
+                            })
+                            .to(clonedImage, {
+                                scale: 1,
+                                duration: 0.5,
+                                ease: "power3.out"
+                            }, "-=0.3")
+                            .to(closeBtn, {
+                                scale: 1,
+                                duration: 0.3,
+                                ease: "power2.out"
+                            }, "-=0.2");
+                            
                             document.body.style.overflow = 'hidden';
                         }
                     });
                 });
 
-                // Sluit popup
+                // Sluit popup met GSAP animatie
                 function closePopup() {
                     if (popup) {
-                        popup.classList.remove('active');
-                        document.body.style.overflow = 'auto';
+                        const popupImage = popup.querySelector('img');
+                        
+                        const tl = gsap.timeline({
+                            onComplete: () => {
+                                popup.style.visibility = 'hidden';
+                                document.body.style.overflow = 'auto';
+                            }
+                        });
+                        
+                        tl.to(closeBtn, {
+                            scale: 0.8,
+                            duration: 0.2,
+                            ease: "power2.in"
+                        })
+                        .to(popupImage, {
+                            scale: 0.8,
+                            duration: 0.3,
+                            ease: "power2.in"
+                        }, "-=0.1")
+                        .to(popup, {
+                            opacity: 0,
+                            duration: 0.3,
+                            ease: "power2.in"
+                        }, "-=0.2");
                     }
                 }
 
                 if (popup && closeBtn) {
-                    popup.addEventListener('click', closePopup);
+                    popup.addEventListener('click', (e) => {
+                        if (e.target === popup) closePopup();
+                    });
                     closeBtn.addEventListener('click', closePopup);
                 }
 
                 // Keyboard support
                 document.addEventListener('keydown', (e) => {
-                    if (e.key === 'Escape' && popup && popup.classList.contains('active')) {
+                    if (e.key === 'Escape' && popup && popup.style.visibility === 'visible') {
                         closePopup();
                     }
                 });
@@ -914,12 +961,118 @@
             console.log('About circle setup with rotation completed');
         }
 
+        // Partners scroll-based animation - similar to circles
+        function initializePartnersAnimation() {
+            console.log('Initializing partners scroll animation...');
+            
+            const partnersSlider = document.querySelector('.partners-slides');
+            
+            if (!partnersSlider) {
+                console.log('Partners slider not found');
+                return;
+            }
+            
+            // Continue horizontal scrolling animation
+            let partnersCurrentPosition = 0;
+            let partnersBaseSpeed = 0.5; // Base speed for horizontal movement
+            let partnersCurrentSpeed = partnersBaseSpeed;
+            let partnersLastScrollY = window.scrollY;
+            let partnersScrollDirection = 1;
+            
+            // Continue horizontal animation function
+            function animatePartners() {
+                partnersCurrentPosition += partnersCurrentSpeed;
+                // Use transform instead of left for better performance
+                partnersSlider.style.transform = `translateX(-${partnersCurrentPosition}px)`;
+                
+                // Reset position when it goes too far (infinite loop)
+                const sliderWidth = partnersSlider.scrollWidth / 2; // Half because we have duplicate slides
+                if (partnersCurrentPosition >= sliderWidth) {
+                    partnersCurrentPosition = 0;
+                }
+                
+                requestAnimationFrame(animatePartners);
+            }
+            
+            // Start animation
+            animatePartners();
+            
+            // Scroll listener with boost tijdens scrollen
+            let partnersTicking = false;
+            let partnersIsScrolling = false;
+            let partnersScrollTimeout;
+            
+            function handlePartnersScroll() {
+                if (!partnersTicking) {
+                    requestAnimationFrame(() => {
+                        const currentScrollY = window.scrollY;
+                        const scrollDelta = currentScrollY - partnersLastScrollY;
+                        
+                        if (Math.abs(scrollDelta) > 0.5) {
+                            partnersIsScrolling = true;
+                            
+                            // Bepaal richting: positief = naar beneden, negatief = naar boven
+                            partnersScrollDirection = scrollDelta > 0 ? 1 : -1;
+                            
+                            // Bereken scroll intensiteit voor boost effect
+                            const scrollIntensity = Math.abs(scrollDelta);
+                            let speedMultiplier = 1;
+                            
+                            // Progressive boost alleen tijdens scrollen
+                            if (scrollIntensity > 15) {
+                                speedMultiplier = 3;
+                            } else if (scrollIntensity > 8) {
+                                speedMultiplier = 2;
+                            } else if (scrollIntensity > 3) {
+                                speedMultiplier = 1.5;
+                            }
+                            
+                            // Smooth speed update tijdens scrollen
+                            const targetSpeed = partnersBaseSpeed * partnersScrollDirection * speedMultiplier;
+                            partnersCurrentSpeed += (targetSpeed - partnersCurrentSpeed) * 0.2;
+                            
+                            // Reset de timeout voor scroll stop detectie
+                            clearTimeout(partnersScrollTimeout);
+                            partnersScrollTimeout = setTimeout(() => {
+                                partnersIsScrolling = false;
+                            }, 200);
+                        }
+                        
+                        partnersLastScrollY = currentScrollY;
+                        partnersTicking = false;
+                    });
+                    partnersTicking = true;
+                }
+            }
+            
+            // Terugkeer naar basis snelheid wanneer niet aan het scrollen
+            function partnersSmoothReturn() {
+                if (!partnersIsScrolling) {
+                    // Geleidelijke terugkeer naar basis snelheid
+                    const targetSpeed = partnersBaseSpeed * partnersScrollDirection;
+                    partnersCurrentSpeed += (targetSpeed - partnersCurrentSpeed) * 0.03;
+                }
+                requestAnimationFrame(partnersSmoothReturn);
+            }
+            
+            // Start smooth return systeem
+            partnersSmoothReturn();
+            
+            // Voeg scroll listener toe
+            window.addEventListener('scroll', handlePartnersScroll, { passive: true });
+            
+            console.log('Partners scroll animation initialized');
+        }
+
         // Multiple initialization attempts
         document.addEventListener('DOMContentLoaded', () => {
             console.log('DOM loaded');
             
             // Initialize about circle (doesn't need GSAP)
             initializeAboutCircle();
+            
+            // Initialize partners animation (doesn't need GSAP)
+            initializePartnersAnimation();
             
             // Try immediate initialization for cartwheel
             if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
@@ -945,6 +1098,11 @@
             // Reinitialize about circle if needed
             if (!document.querySelector('.about-circle__card[style*="left"]')) {
                 initializeAboutCircle();
+            }
+            
+            // Reinitialize partners animation if needed
+            if (!document.querySelector('.partners-slides[style*="transform"]')) {
+                initializePartnersAnimation();
             }
             
             if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
