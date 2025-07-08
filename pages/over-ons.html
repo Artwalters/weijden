@@ -159,7 +159,7 @@
         <section class="section about-intro">
             <div class="container">
                 <div class="about-grid">
-                    <div class="about-content">
+                    <div class="about-text-content">
                         <h2 class="section-title">Welkom bij Weijden Multicare!</h2>
                         <p class="intro-text">
                             Opgericht in 2018 door Sander Weijden, zijn wij een jong en energiek bedrijf 
@@ -173,18 +173,29 @@
                         </p>
                     </div>
                     <div class="about-visual">
-                        <div class="about-graphic">
-                            <div class="graphic-shape-1"></div>
-                            <div class="graphic-shape-2"></div>
-                            <div class="graphic-shape-3"></div>
-                            <div class="company-icon">
-                                <svg width="100" height="100" viewBox="0 0 100 100" fill="none">
-                                    <path d="M25 40L50 15L75 40V80C75 82.7614 72.7614 85 70 85H30C27.2386 85 25 82.7614 25 80V40Z" stroke="currentColor" stroke-width="3"/>
-                                    <path d="M35 60H65" stroke="currentColor" stroke-width="2"/>
-                                    <path d="M35 70H65" stroke="currentColor" stroke-width="2"/>
-                                    <circle cx="50" cy="45" r="5" stroke="currentColor" stroke-width="2"/>
-                                    <path d="M40 25L50 15L60 25" stroke="currentColor" stroke-width="2"/>
-                                </svg>
+                        <div class="about-icon">
+                            <img src="../assets/images/lightmode_big.svg" alt="Weijden Multicare Logo" class="about-logo">
+                        </div>
+                        <div class="about-circle-container">
+                            <div class="about-circle">
+                                <div class="about-circle__card">
+                                    <img src="../assets/images/bouw1.jpg" alt="Project 1" />
+                                </div>
+                                <div class="about-circle__card">
+                                    <img src="../assets/images/bouw2.jpg" alt="Project 2" />
+                                </div>
+                                <div class="about-circle__card">
+                                    <img src="../assets/images/bouw3.jpg" alt="Project 3" />
+                                </div>
+                                <div class="about-circle__card">
+                                    <img src="../assets/images/businesscar.jpg" alt="Bedrijfsauto" />
+                                </div>
+                                <div class="about-circle__card">
+                                    <img src="../assets/images/teamphoto.jpg" alt="Team foto" />
+                                </div>
+                                <div class="about-circle__card">
+                                    <img src="../assets/images/teamphoto2.jpg" alt="Team foto 2" />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -470,9 +481,52 @@
         
         .about-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr;
+            grid-template-columns: 1.2fr 1fr;
             gap: var(--space-3xl);
             align-items: center;
+        }
+        
+        .about-text-content {
+            /* Text content styling */
+        }
+        
+        /* Mobile responsive adjustments */
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-xl);
+                text-align: center;
+            }
+            
+            .about-text-content {
+                order: 1;
+            }
+            
+            .about-visual {
+                order: 2;
+                height: 380px;
+                margin-top: var(--space-lg);
+                padding: var(--space-md);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .about-grid {
+                gap: var(--space-md);
+            }
+            
+            .about-visual {
+                height: 380px;
+                padding: var(--space-sm);
+            }
+            
+            .intro-text {
+                font-size: var(--font-size-base);
+            }
+            
+            .section-title {
+                font-size: var(--font-size-2xl);
+            }
         }
         
         .intro-text {
@@ -488,6 +542,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: var(--space-lg);
+            overflow: visible;
         }
 
         .about-graphic {
@@ -607,24 +663,38 @@
         .timeline-item {
             position: relative;
             margin-bottom: var(--space-3xl);
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            gap: var(--space-xl);
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
             align-items: center;
         }
         
-        .timeline-item:nth-child(even) .timeline-content {
-            grid-column: 1;
-            text-align: left;
+        .timeline-item:nth-child(odd) {
+            justify-content: flex-start;
+        }
+        
+        .timeline-item:nth-child(even) {
+            justify-content: flex-end;
         }
         
         .timeline-item:nth-child(odd) .timeline-content {
-            grid-column: 3;
+            order: 2;
             text-align: left;
+            margin-left: var(--space-lg);
+            max-width: 300px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            order: 1;
+            text-align: left;
+            margin-right: var(--space-lg);
+            max-width: 300px;
         }
         
         .timeline-marker {
-            grid-column: 2;
+            order: 1;
             width: 80px;
             height: 80px;
             background: var(--primary);
@@ -636,6 +706,20 @@
             font-weight: var(--font-bold);
             font-size: var(--font-size-sm);
             z-index: 1;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item:nth-child(even) .timeline-marker {
+            order: 2;
+        }
+        
+        .timeline-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
         }
         
         .timeline-content h3 {
@@ -786,19 +870,45 @@
             }
             
             .timeline-item {
+                display: grid;
                 grid-template-columns: auto 1fr;
                 gap: var(--space-lg);
+                justify-content: flex-start;
+                align-items: flex-start;
+                margin-bottom: var(--space-xl);
+            }
+            
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                justify-content: flex-start;
             }
             
             .timeline-marker {
                 grid-column: 1;
                 width: 60px;
                 height: 60px;
+                position: relative;
+                left: 0;
+                transform: none;
+                order: 1;
             }
             
             .timeline-content {
-                grid-column: 2 !important;
-                text-align: left !important;
+                grid-column: 2;
+                text-align: left;
+                order: 2;
+                margin-left: 0;
+                margin-right: 0;
+                max-width: none;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content,
+            .timeline-item:nth-child(even) .timeline-content {
+                order: 2;
+                text-align: left;
+                margin-left: 0;
+                margin-right: 0;
+                max-width: none;
             }
             
             .values-grid {
@@ -911,6 +1021,297 @@
                     primaryImg.style.clipPath = `inset(0 ${rightClip}% 0 0)`;
                 }
             });
+        });
+
+        // About Circle Animation functionality
+        function initializeAboutCircle() {
+            console.log('Initializing about circle...');
+            
+            const aboutCircle = document.querySelector('.about-circle');
+            const aboutCards = document.querySelectorAll('.about-circle__card');
+            
+            if (!aboutCircle || aboutCards.length === 0) {
+                console.log('About circle elements not found');
+                return;
+            }
+            
+            function setupAboutCircle() {
+                const isMobile = window.innerWidth <= 768;
+                const radius = isMobile ? 100 : 180; // Aangepaste radius voor perfecte centering
+                const center = isMobile ? 150 : 250; // Center van de container (300px/2 mobile, 500px/2 desktop)
+                const total = aboutCards.length;
+                const slice = (2 * Math.PI) / total;
+
+                aboutCards.forEach((card, i) => {
+                    const angle = i * slice;
+                    const x = center + radius * Math.sin(angle);
+                    const y = center - radius * Math.cos(angle);
+                    
+                    // Bereken rotatie om naar het centrum te wijzen
+                    const rotationAngle = (angle * 180) / Math.PI;
+                    
+                    // Verschillende offset voor mobile/desktop
+                    const offset = isMobile ? 35 : 75; // 35 voor 70px mobile, 75 voor 150px desktop
+
+                    card.style.left = (x - offset) + 'px';
+                    card.style.top = (y - offset) + 'px';
+                    card.style.transform = `rotate(${rotationAngle}deg)`;
+                });
+            }
+            
+            setupAboutCircle();
+            
+            // Continue rotatie voor about circle
+            let aboutCurrentRotation = 0;
+            let aboutBaseSpeed = 0.05; // Zelfde snelheid als cartwheel
+            let aboutCurrentSpeed = aboutBaseSpeed;
+            let aboutLastScrollY = window.scrollY;
+            let aboutScrollDirection = 1;
+            
+            // Continue rotatie functie
+            function animateAboutCircle() {
+                aboutCurrentRotation += aboutCurrentSpeed;
+                aboutCircle.style.transform = `rotate(${aboutCurrentRotation}deg)`;
+                requestAnimationFrame(animateAboutCircle);
+            }
+            
+            // Start animatie
+            animateAboutCircle();
+            
+            // Scroll listener voor about circle
+            let aboutTicking = false;
+            let aboutIsScrolling = false;
+            let aboutScrollTimeout;
+            
+            function handleAboutScroll() {
+                if (!aboutTicking) {
+                    requestAnimationFrame(() => {
+                        const currentScrollY = window.scrollY;
+                        const scrollDelta = currentScrollY - aboutLastScrollY;
+                        
+                        if (Math.abs(scrollDelta) > 0.5) {
+                            aboutIsScrolling = true;
+                            
+                            // Bepaal richting: positief = naar beneden, negatief = naar boven
+                            aboutScrollDirection = scrollDelta > 0 ? 1 : -1;
+                            
+                            // Bereken scroll intensiteit voor boost effect
+                            const scrollIntensity = Math.abs(scrollDelta);
+                            let speedMultiplier = 1;
+                            
+                            // Progressive boost alleen tijdens scrollen
+                            if (scrollIntensity > 15) {
+                                speedMultiplier = 3;
+                            } else if (scrollIntensity > 8) {
+                                speedMultiplier = 2;
+                            } else if (scrollIntensity > 3) {
+                                speedMultiplier = 1.5;
+                            }
+                            
+                            // Smooth speed update tijdens scrollen
+                            const targetSpeed = aboutBaseSpeed * aboutScrollDirection * speedMultiplier;
+                            aboutCurrentSpeed += (targetSpeed - aboutCurrentSpeed) * 0.2;
+                            
+                            // Reset de timeout voor scroll stop detectie
+                            clearTimeout(aboutScrollTimeout);
+                            aboutScrollTimeout = setTimeout(() => {
+                                aboutIsScrolling = false;
+                            }, 200);
+                        }
+                        
+                        aboutLastScrollY = currentScrollY;
+                        aboutTicking = false;
+                    });
+                    aboutTicking = true;
+                }
+            }
+            
+            // Terugkeer naar basis snelheid wanneer niet aan het scrollen
+            function aboutSmoothReturn() {
+                if (!aboutIsScrolling) {
+                    // Geleidelijke terugkeer naar basis snelheid
+                    const targetSpeed = aboutBaseSpeed * aboutScrollDirection;
+                    aboutCurrentSpeed += (targetSpeed - aboutCurrentSpeed) * 0.03; // Nog langzamere terugkeer
+                }
+                requestAnimationFrame(aboutSmoothReturn);
+            }
+            
+            // Start smooth return systeem
+            aboutSmoothReturn();
+            
+            // Voeg scroll listener toe
+            window.addEventListener('scroll', handleAboutScroll, { passive: true });
+            
+            // Handle window resize
+            window.addEventListener('resize', setupAboutCircle);
+            
+            console.log('About circle setup with rotation completed');
+        }
+
+        // Timeline GSAP ScrollTrigger Animation - Responsive
+        function initializeTimelineAnimation() {
+            console.log('Initializing timeline animation...');
+            
+            // Check if GSAP is available
+            if (typeof gsap === 'undefined') {
+                console.error('GSAP not loaded for timeline animation');
+                return;
+            }
+            
+            if (typeof ScrollTrigger === 'undefined') {
+                console.error('ScrollTrigger not loaded for timeline animation');
+                return;
+            }
+            
+            try {
+                gsap.registerPlugin(ScrollTrigger);
+                
+                const timelineItems = document.querySelectorAll('.timeline-item');
+                
+                if (timelineItems.length === 0) {
+                    console.log('No timeline items found');
+                    return;
+                }
+                
+                // Responsive animation values
+                const isMobile = window.innerWidth <= 768;
+                const animationValues = {
+                    yStart: isMobile ? 15 : 20,
+                    xSlide: isMobile ? 10 : 15,
+                    scale: isMobile ? 0.99 : 0.98,
+                    textYStart: isMobile ? 8 : 10,
+                    duration: isMobile ? 0.8 : 1.2,
+                    markerDuration: isMobile ? 0.6 : 0.8,
+                    contentDuration: isMobile ? 0.7 : 1.0,
+                    textDuration: isMobile ? 0.4 : 0.6,
+                    stagger: isMobile ? 0.05 : 0.1
+                };
+                
+                // Set initial state - responsive and subtle
+                gsap.set(timelineItems, {
+                    opacity: 0,
+                    y: animationValues.yStart,
+                    scale: animationValues.scale
+                });
+                
+                // Create a timeline for each item with responsive, subtle animations
+                timelineItems.forEach((item, index) => {
+                    const tl = gsap.timeline({
+                        scrollTrigger: {
+                            trigger: item,
+                            start: isMobile ? "top 90%" : "top 85%",
+                            end: isMobile ? "bottom 40%" : "bottom 30%",
+                            toggleActions: "play none none reverse",
+                            markers: false
+                        }
+                    });
+                    
+                    // Main item animation - responsive fade and rise
+                    tl.to(item, {
+                        opacity: 1,
+                        y: 0,
+                        scale: 1,
+                        duration: animationValues.duration,
+                        ease: "power3.out"
+                    });
+                    
+                    // Timeline marker animation - responsive scale with delay
+                    const markerElement = item.querySelector('.timeline-marker');
+                    if (markerElement) {
+                        tl.fromTo(markerElement, 
+                            {
+                                scale: isMobile ? 0.95 : 0.9,
+                                opacity: 0
+                            },
+                            {
+                                scale: 1,
+                                opacity: 1,
+                                duration: animationValues.markerDuration,
+                                ease: "power2.out"
+                            }, 
+                            `-=${animationValues.markerDuration}`
+                        );
+                    }
+                    
+                    // Content animation - responsive slide with blur effect
+                    const contentElement = item.querySelector('.timeline-content');
+                    if (contentElement) {
+                        // On mobile, all content slides from left since layout is single column
+                        const slideDirection = isMobile ? -animationValues.xSlide : (index % 2 === 0 ? -animationValues.xSlide : animationValues.xSlide);
+                        
+                        tl.fromTo(contentElement,
+                            {
+                                x: slideDirection,
+                                opacity: 0,
+                                filter: isMobile ? "blur(1px)" : "blur(2px)"
+                            },
+                            {
+                                x: 0,
+                                opacity: 1,
+                                filter: "blur(0px)",
+                                duration: animationValues.contentDuration,
+                                ease: "power3.out"
+                            },
+                            `-=${animationValues.contentDuration}`
+                        );
+                        
+                        // Content text stagger animation - responsive
+                        const contentText = contentElement.querySelectorAll('h3, p');
+                        if (contentText.length > 0) {
+                            tl.fromTo(contentText,
+                                {
+                                    y: animationValues.textYStart,
+                                    opacity: 0
+                                },
+                                {
+                                    y: 0,
+                                    opacity: 1,
+                                    duration: animationValues.textDuration,
+                                    stagger: animationValues.stagger,
+                                    ease: "power2.out"
+                                },
+                                `-=${animationValues.textDuration}`
+                            );
+                        }
+                    }
+                });
+                
+                console.log('Timeline animation setup completed with responsive values');
+                
+            } catch (error) {
+                console.error('Error setting up timeline animation:', error);
+            }
+        }
+        
+        // Responsive timeline animation refresh on window resize
+        function refreshTimelineAnimation() {
+            // Kill existing ScrollTriggers
+            if (typeof ScrollTrigger !== 'undefined') {
+                ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+            }
+            
+            // Reinitialize with new responsive values
+            setTimeout(() => {
+                initializeTimelineAnimation();
+            }, 100);
+        }
+
+        // Initialize about circle when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeAboutCircle();
+            
+            // Wait a bit for GSAP to load, then initialize timeline animation
+            setTimeout(() => {
+                initializeTimelineAnimation();
+            }, 100);
+        });
+        
+        // Add resize event listener for responsive timeline animation
+        window.addEventListener('resize', () => {
+            clearTimeout(window.resizeTimeout);
+            window.resizeTimeout = setTimeout(() => {
+                refreshTimelineAnimation();
+            }, 250);
         });
     </script>
 </body>
