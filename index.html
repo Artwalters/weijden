@@ -510,20 +510,24 @@
                 // Initialiseer setup
                 setupCartwheel();
 
-                // Scroll-triggered rotatie animatie
-                gsap.to(cartwheel, {
-                    rotate: 90,
-                    ease: "none",
-                    scrollTrigger: {
-                        trigger: ".hero",
-                        start: "top top",
-                        end: "bottom top",
-                        scrub: 2,
-                        invalidateOnRefresh: true,
-                        onUpdate: () => console.log('ScrollTrigger updating')
-                    }
-                });
-                console.log('ScrollTrigger animation created');
+                // Scroll-triggered rotatie animatie - alleen op desktop
+                if (window.innerWidth > 768) {
+                    gsap.to(cartwheel, {
+                        rotate: 90,
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: ".hero",
+                            start: "top top",
+                            end: "bottom top",
+                            scrub: 2,
+                            invalidateOnRefresh: true,
+                            onUpdate: () => console.log('ScrollTrigger updating')
+                        }
+                    });
+                    console.log('ScrollTrigger animation created for desktop');
+                } else {
+                    console.log('ScrollTrigger disabled on mobile');
+                }
 
                 // Foto popup functionaliteit
                 cards.forEach((card, index) => {
@@ -566,30 +570,56 @@
                 window.addEventListener('resize', () => {
                     setupCartwheel();
                     if (typeof ScrollTrigger !== 'undefined') {
-                        ScrollTrigger.refresh();
+                        // Kill alle bestaande ScrollTriggers
+                        ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+                        
+                        // Alleen opnieuw maken op desktop
+                        if (window.innerWidth > 768) {
+                            gsap.to(cartwheel, {
+                                rotate: 90,
+                                ease: "none",
+                                scrollTrigger: {
+                                    trigger: ".hero",
+                                    start: "top top",
+                                    end: "bottom top",
+                                    scrub: 2,
+                                    invalidateOnRefresh: true
+                                }
+                            });
+                            console.log('ScrollTrigger recreated for desktop after resize');
+                        } else {
+                            // Reset rotation op mobile
+                            gsap.set(cartwheel, { rotate: 0 });
+                            console.log('ScrollTrigger disabled and rotation reset for mobile');
+                        }
                     }
                 });
 
-                // Smooth hover effects
-                cards.forEach((card) => {
-                    card.addEventListener('mouseenter', () => {
-                        gsap.to(card, {
-                            scale: 1.15,
-                            zIndex: 20,
-                            duration: 0.3,
-                            ease: "power2.out"
+                // Smooth hover effects - alleen op desktop voor betere mobile performance
+                if (window.innerWidth > 768) {
+                    cards.forEach((card) => {
+                        card.addEventListener('mouseenter', () => {
+                            gsap.to(card, {
+                                scale: 1.15,
+                                zIndex: 20,
+                                duration: 0.3,
+                                ease: "power2.out"
+                            });
                         });
-                    });
 
-                    card.addEventListener('mouseleave', () => {
-                        gsap.to(card, {
-                            scale: 1,
-                            zIndex: 1,
-                            duration: 0.3,
-                            ease: "power2.out"
+                        card.addEventListener('mouseleave', () => {
+                            gsap.to(card, {
+                                scale: 1,
+                                zIndex: 1,
+                                duration: 0.3,
+                                ease: "power2.out"
+                            });
                         });
                     });
-                });
+                    console.log('Hover effects enabled for desktop');
+                } else {
+                    console.log('Hover effects disabled for mobile performance');
+                }
                 
                 console.log('Cartwheel initialization completed successfully');
                 
