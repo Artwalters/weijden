@@ -899,7 +899,7 @@
                 margin-left: 0;
                 margin-right: 0;
                 max-width: none;
-                transform: translate(50px, 0px);
+                transform: translate(80px, 0px);
             }
             
             .timeline-item:nth-child(odd) .timeline-content,
@@ -1160,11 +1160,27 @@
             console.log('About circle setup with rotation completed');
         }
 
-        // Timeline GSAP ScrollTrigger Animation - Optimized for smooth scrolling
+        // Timeline GSAP ScrollTrigger Animation - Disabled on mobile to prevent scroll issues
         function initializeTimelineAnimation() {
             console.log('Initializing timeline animation...');
             
-            // Check if GSAP is available
+            const isMobile = window.innerWidth <= 768;
+            
+            // Skip ScrollTrigger animations on mobile to prevent scroll interference
+            if (isMobile) {
+                console.log('Mobile detected - skipping ScrollTrigger animations for smooth scrolling');
+                
+                // Just make sure all timeline elements are visible on mobile
+                const timelineItems = document.querySelectorAll('.timeline-item');
+                timelineItems.forEach(item => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                });
+                
+                return;
+            }
+            
+            // Check if GSAP is available (desktop only)
             if (typeof gsap === 'undefined') {
                 console.error('GSAP not loaded for timeline animation');
                 return;
@@ -1178,7 +1194,7 @@
             try {
                 gsap.registerPlugin(ScrollTrigger);
                 
-                // Configure ScrollTrigger for better performance and less scroll interference
+                // Configure ScrollTrigger for desktop only
                 ScrollTrigger.config({
                     autoRefreshEvents: "visibilitychange,DOMContentLoaded,load",
                     ignoreMobileResize: true
@@ -1191,28 +1207,27 @@
                     return;
                 }
                 
-                // Responsive animation values - simplified for better performance
-                const isMobile = window.innerWidth <= 768;
+                // Desktop animation values only
                 const animationValues = {
-                    yStart: isMobile ? 12 : 16,
-                    xSlide: isMobile ? 8 : 12,
-                    duration: isMobile ? 0.6 : 0.8,
-                    stagger: isMobile ? 0.1 : 0.15
+                    yStart: 16,
+                    xSlide: 12,
+                    duration: 0.8,
+                    stagger: 0.15
                 };
                 
-                // Set initial state - more subtle to prevent scroll interference
+                // Set initial state for desktop
                 gsap.set(timelineItems, {
                     opacity: 0,
                     y: animationValues.yStart
                 });
                 
-                // Create optimized animations with less complexity
+                // Create desktop animations only
                 timelineItems.forEach((item, index) => {
                     const tl = gsap.timeline({
                         scrollTrigger: {
                             trigger: item,
-                            start: isMobile ? "top 95%" : "top 90%",
-                            end: isMobile ? "bottom 60%" : "bottom 50%",
+                            start: "top 90%",
+                            end: "bottom 50%",
                             toggleActions: "play none none reverse",
                             markers: false,
                             fastScrollEnd: true,
@@ -1221,7 +1236,7 @@
                         }
                     });
                     
-                    // Simplified main item animation
+                    // Main item animation
                     tl.to(item, {
                         opacity: 1,
                         y: 0,
@@ -1229,19 +1244,18 @@
                         ease: "power2.out"
                     });
                     
-                    // Simplified content animation without blur for better performance
+                    // Content animation for desktop
                     const contentElement = item.querySelector('.timeline-content');
                     if (contentElement) {
-                        const slideDirection = isMobile ? -animationValues.xSlide : (index % 2 === 0 ? -animationValues.xSlide : animationValues.xSlide);
-                        const finalXPosition = isMobile ? 50 : 0; // Keep 50px offset on mobile
+                        const slideDirection = index % 2 === 0 ? -animationValues.xSlide : animationValues.xSlide;
                         
                         tl.fromTo(contentElement,
                             {
-                                x: slideDirection + finalXPosition,
+                                x: slideDirection,
                                 opacity: 0
                             },
                             {
-                                x: finalXPosition,
+                                x: 0,
                                 opacity: 1,
                                 duration: animationValues.duration * 0.8,
                                 ease: "power2.out"
@@ -1250,7 +1264,7 @@
                         );
                     }
                     
-                    // Simplified marker animation
+                    // Marker animation for desktop
                     const markerElement = item.querySelector('.timeline-marker');
                     if (markerElement) {
                         tl.fromTo(markerElement, 
@@ -1269,7 +1283,7 @@
                     }
                 });
                 
-                console.log('Timeline animation setup completed with optimized ScrollTrigger');
+                console.log('Timeline animation setup completed for desktop only');
                 
             } catch (error) {
                 console.error('Error setting up timeline animation:', error);
@@ -1278,8 +1292,10 @@
         
         // Optimized timeline animation refresh on window resize
         function refreshTimelineAnimation() {
-            // Kill existing ScrollTriggers more efficiently
-            if (typeof ScrollTrigger !== 'undefined') {
+            const isMobile = window.innerWidth <= 768;
+            
+            // Kill existing ScrollTriggers only if not mobile
+            if (!isMobile && typeof ScrollTrigger !== 'undefined') {
                 ScrollTrigger.killAll();
                 ScrollTrigger.refresh();
             }
@@ -1287,7 +1303,7 @@
             // Reinitialize with new responsive values after a longer delay
             setTimeout(() => {
                 initializeTimelineAnimation();
-                if (typeof ScrollTrigger !== 'undefined') {
+                if (!isMobile && typeof ScrollTrigger !== 'undefined') {
                     ScrollTrigger.refresh();
                 }
             }, 200);
