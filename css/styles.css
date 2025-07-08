@@ -874,7 +874,7 @@ a:hover {
   background-color: var(--bg-secondary);
   border-radius: var(--radius-lg);
   padding: var(--space-xl);
-  text-align: center;
+  text-align: left;
   transition: all var(--transition-base);
   border: 0.0625rem solid transparent; /* 1px */
   position: relative;
@@ -894,15 +894,20 @@ a:hover {
 }
 
 .service-icon {
-  width: clamp(3.75rem, 5vw, 6.25rem); /* Fluid size: 60px to 100px */
-  height: clamp(3.75rem, 5vw, 6.25rem); /* Fluid size: 60px to 100px */
-  margin: 0 auto var(--space-fluid-lg);
+  width: 3rem; /* 48px */
+  height: 3rem; /* 48px */
+  margin: 0 0 var(--space-fluid-lg) 0;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: var(--bg-accent);
   border-radius: var(--radius-full);
   color: var(--primary);
+}
+
+.service-icon svg {
+  width: 1.5rem; /* 24px */
+  height: 1.5rem; /* 24px */
 }
 
 .service-title {
@@ -919,7 +924,7 @@ a:hover {
 .service-link {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: var(--space-xs);
   font-size: var(--font-size-sm);
   font-weight: var(--font-medium);
@@ -1632,8 +1637,8 @@ a:hover {
   }
 
   .service-icon {
-    width: 3.75rem; /* 60px */
-    height: 3.75rem; /* 60px */
+    width: 2.5rem; /* 40px */
+    height: 2.5rem; /* 40px */
   }
 
   /* About section mobile */
