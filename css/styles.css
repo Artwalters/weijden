@@ -1148,11 +1148,15 @@ a:hover {
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
   color: white;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .cta-content {
   max-width: clamp(25rem, 60vw, 43.75rem); /* Fluid: 400px to 700px */
   margin: 0 auto;
+  position: relative;
+  z-index: 10;
 }
 
 .cta-title {

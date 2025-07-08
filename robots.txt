@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://artwalters.github.io/weijden/sitemap.xml
+
+# Disallow specific files/directories
+Disallow: /node_modules/
+Disallow: /*.md$
+Disallow: /package*.json
+Disallow: /start-dev.*
+
+# Allow important directories
+Allow: /css/
+Allow: /js/
+Allow: /assets/
+Allow: /pages/
+
+# Crawl delay (optional)
+Crawl-delay: 1
