@@ -158,13 +158,55 @@
             </div>
             
             <div class="hero-visual">
-                <div class="hero-shape-1"></div>
-                <div class="hero-shape-2"></div>
-                <div class="hero-shape-3"></div>
+                <div class="cartwheel-container">
+                    <div class="cartwheel">
+                        <div class="cartwheel__card">
+                            <img src="assets/images/bouw1.jpg" alt="Bouwproject 1" />
+                        </div>
+                        <div class="cartwheel__card">
+                            <img src="assets/images/bouw2.jpg" alt="Bouwproject 2" />
+                        </div>
+                        <div class="cartwheel__card">
+                            <img src="assets/images/bouw3.jpg" alt="Bouwproject 3" />
+                        </div>
+                        <div class="cartwheel__card">
+                            <img src="assets/images/bouw4.jpg" alt="Bouwproject 4" />
+                        </div>
+                        <div class="cartwheel__card">
+                            <img src="assets/images/bouw5.jpg" alt="Bouwproject 5" />
+                        </div>
+                        <div class="cartwheel__card">
+                            <img src="assets/images/businesscar.jpg" alt="Bedrijfsauto" />
+                        </div>
+                        <div class="cartwheel__card">
+                            <img src="assets/images/teamphoto.jpg" alt="Team foto" />
+                        </div>
+                        <div class="cartwheel__card">
+                            <img src="assets/images/teamphoto2.jpg" alt="Team foto 2" />
+                        </div>
+                        <div class="cartwheel__card">
+                            <img src="assets/images/bouw1.jpg" alt="Bouwproject extra 1" />
+                        </div>
+                        <div class="cartwheel__card">
+                            <img src="assets/images/bouw3.jpg" alt="Bouwproject extra 2" />
+                        </div>
+                        <div class="cartwheel__card">
+                            <img src="assets/images/bouw5.jpg" alt="Bouwproject extra 3" />
+                        </div>
+                        <div class="cartwheel__card">
+                            <img src="assets/images/businesscar.jpg" alt="Bedrijfsauto extra" />
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         
     </section>
+
+    <!-- Photo popup -->
+    <div class="photo-popup">
+        <div class="close-hint">×</div>
+    </div>
 
     <!-- Main Content -->
     <main class="main-content">
@@ -405,5 +447,124 @@
     <!-- Scripts -->
     <script src="js/main.js"></script>
     <script src="js/menu.js"></script>
+    <script>
+        // Cartwheel functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            // Wacht tot GSAP geladen is
+            if (typeof gsap !== 'undefined') {
+                gsap.registerPlugin(ScrollTrigger);
+                
+                let cartwheel = document.querySelector('.cartwheel');
+                let cards = gsap.utils.toArray('.cartwheel__card');
+                let popup = document.querySelector('.photo-popup');
+                let closeBtn = document.querySelector('.close-hint');
+
+                if (!cartwheel || cards.length === 0) return;
+
+                // Positioneer foto's in cirkel
+                function setupCartwheel() {
+                    let radius = cartwheel.offsetWidth / 2 - 180; // 180 is halve breedte van card
+                    let center = cartwheel.offsetWidth / 2;
+                    let total = cards.length;
+                    let slice = (2 * Math.PI) / total;
+
+                    cards.forEach((card, i) => {
+                        let angle = i * slice;
+                        let x = center + radius * Math.sin(angle);
+                        let y = center - radius * Math.cos(angle);
+
+                        gsap.set(card, {
+                            rotation: (angle * 180) / Math.PI,
+                            xPercent: -50,
+                            yPercent: -50,
+                            x: x,
+                            y: y
+                        });
+                    });
+                }
+
+                // Initialiseer setup
+                setupCartwheel();
+
+                // Scroll-triggered rotatie animatie
+                gsap.to(cartwheel, {
+                    rotate: 90,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: ".hero",
+                        start: "top top",
+                        end: "bottom top",
+                        scrub: 2,
+                        invalidateOnRefresh: true
+                    }
+                });
+
+                // Foto popup functionaliteit
+                cards.forEach((card) => {
+                    card.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        let image = card.querySelector('img');
+                        
+                        // Clone de afbeelding
+                        let clonedImage = image.cloneNode(true);
+                        
+                        // Reset popup en voeg nieuwe afbeelding toe
+                        popup.innerHTML = '';
+                        popup.appendChild(closeBtn);
+                        popup.appendChild(clonedImage);
+                        
+                        // Toon popup
+                        popup.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    });
+                });
+
+                // Sluit popup
+                function closePopup() {
+                    popup.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+
+                if (popup && closeBtn) {
+                    popup.addEventListener('click', closePopup);
+                    closeBtn.addEventListener('click', closePopup);
+                }
+
+                // Keyboard support
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && popup.classList.contains('active')) {
+                        closePopup();
+                    }
+                });
+
+                // Herpositioneer bij resize
+                window.addEventListener('resize', () => {
+                    setupCartwheel();
+                    ScrollTrigger.refresh();
+                });
+
+                // Smooth hover effects
+                cards.forEach((card) => {
+                    card.addEventListener('mouseenter', () => {
+                        gsap.to(card, {
+                            scale: 1.15,
+                            zIndex: 20,
+                            duration: 0.3,
+                            ease: "power2.out"
+                        });
+                    });
+
+                    card.addEventListener('mouseleave', () => {
+                        gsap.to(card, {
+                            scale: 1,
+                            zIndex: 1,
+                            duration: 0.3,
+                            ease: "power2.out"
+                        });
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>
