@@ -1303,11 +1303,10 @@ a:hover {
    ========================================================================== */
 /* Universal page hero styling for all subpages */
 .page-hero {
-  padding: 7.5rem 0 3.75rem; /* 120px 0 60px */
+  padding: 7rem 0 7rem; /* 112px 0 112px */
   /* background: var(--bg-primary); */
   position: relative;
   text-align: center;
-  margin-top: 5rem; /* 80px */
 }
 
 .page-hero::before {
@@ -1912,7 +1911,7 @@ a:hover {
   }
 
   .page-hero {
-    padding-top: 3.75rem; /* 60px */
+    padding-top: 5.75rem; /* 92px */
     padding-bottom: 2.5rem; /* 40px */
   }
 

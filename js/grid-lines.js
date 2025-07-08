@@ -2,8 +2,9 @@
 // Adapted from p5.js diagonal lines sketch
 
 class GridLinesAnimation {
-    constructor(containerId) {
+    constructor(containerId, type = 'cta') {
         this.containerId = containerId;
+        this.type = type; // 'cta' or 'hero'
         this.gridLines = [];
         this.spacing = 60;
         this.canvas = null;
@@ -33,15 +34,25 @@ class GridLinesAnimation {
                 this.canvas.style('position', 'absolute');
                 this.canvas.style('top', '0');
                 this.canvas.style('left', '0');
-                this.canvas.style('z-index', '0');
+                // Set z-index based on type
+                if (this.type === 'cta') {
+                    this.canvas.style('z-index', '0');
+                } else {
+                    this.canvas.style('z-index', '-1');
+                }
                 this.canvas.style('pointer-events', 'none');
                 this.createGrid(p);
                 this.isInitialized = true;
             };
 
             p.draw = () => {
-                // Use CSS primary color values (turquoise #41a38f)
-                p.background(65, 163, 143); // Primary green color
+                if (this.type === 'cta') {
+                    // Use CSS primary color values (turquoise #41a38f)
+                    p.background(65, 163, 143); // Primary green color
+                } else if (this.type === 'hero') {
+                    // Light green background for hero sections
+                    p.background(220, 240, 235); // Even lighter green
+                }
                 
                 for (let gridLine of this.gridLines) {
                     // Calculate distance from mouse to line
@@ -54,15 +65,26 @@ class GridLinesAnimation {
                     
                     // Calculate color intensity based on distance
                     let maxDistance = 200;
-                    let alpha = 15; // Very subtle base transparency
+                    let alpha, strokeColor;
                     
-                    if (distance < maxDistance) {
-                        let influence = p.map(distance, 0, maxDistance, 1, 0);
-                        alpha = p.map(influence, 0, 1, 15, 80); // Subtle effect
+                    if (this.type === 'cta') {
+                        alpha = 15; // Very subtle base transparency
+                        if (distance < maxDistance) {
+                            let influence = p.map(distance, 0, maxDistance, 1, 0);
+                            alpha = p.map(influence, 0, 1, 15, 80); // Subtle effect
+                        }
+                        strokeColor = [120, 200, 180, alpha]; // Lighter turquoise
+                    } else if (this.type === 'hero') {
+                        alpha = 8; // Even more subtle for hero
+                        if (distance < maxDistance) {
+                            let influence = p.map(distance, 0, maxDistance, 1, 0);
+                            alpha = p.map(influence, 0, 1, 8, 40); // Very subtle effect
+                        }
+                        strokeColor = [120, 180, 160, alpha]; // Subtle green lines
                     }
                     
-                    // Draw line with lighter green color (lighter than #41a38f)
-                    p.stroke(120, 200, 180, alpha); // Lighter turquoise
+                    // Draw line
+                    p.stroke(...strokeColor);
                     p.strokeWeight(1);
                     p.line(gridLine.originalX1, gridLine.originalY1, 
                            gridLine.originalX2, gridLine.originalY2);
@@ -127,7 +149,7 @@ class GridLinesAnimation {
     }
 }
 
-// Auto-initialize for CTA sections when DOM is loaded
+// Auto-initialize for CTA and Hero sections when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Wait a bit to ensure p5.js is loaded if it's being loaded
     setTimeout(() => {
@@ -154,7 +176,34 @@ document.addEventListener('DOMContentLoaded', function() {
             section.insertBefore(canvasDiv, section.firstChild);
             
             // Initialize animation
-            const animation = new GridLinesAnimation(canvasId);
+            const animation = new GridLinesAnimation(canvasId, 'cta');
+            animation.init();
+        });
+
+        // Find all hero sections and add light green animation
+        const heroSections = document.querySelectorAll('.hero, .page-hero');
+        heroSections.forEach((section, index) => {
+            // Create unique canvas container
+            const canvasId = `hero-canvas-${index}`;
+            const canvasDiv = document.createElement('div');
+            canvasDiv.id = canvasId;
+            canvasDiv.style.position = 'absolute';
+            canvasDiv.style.top = '0';
+            canvasDiv.style.left = '0';
+            canvasDiv.style.width = '100%';
+            canvasDiv.style.height = '100%';
+            canvasDiv.style.pointerEvents = 'none';
+            canvasDiv.style.zIndex = '-1';
+            
+            // Make sure section is relatively positioned
+            section.style.position = 'relative';
+            section.style.overflow = 'hidden';
+            
+            // Insert canvas container
+            section.insertBefore(canvasDiv, section.firstChild);
+            
+            // Initialize animation with hero type
+            const animation = new GridLinesAnimation(canvasId, 'hero');
             animation.init();
         });
     }, 100);
