@@ -576,7 +576,7 @@ a:hover {
   font-weight: var(--font-weight-medium);
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  min-width: 72px;
+  min-width: 85px;
   position: relative;
   overflow: hidden;
 }
@@ -614,7 +614,7 @@ a:hover {
 }
 
 .language-current .lang-flag {
-  font-size: 0.875rem;
+  font-size: 1rem;
 }
 
 .language-current .lang-text {
@@ -643,7 +643,7 @@ a:hover {
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: var(--radius-md);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
-  min-width: 120px;
+  min-width: 140px;
   opacity: 0;
   visibility: hidden;
   transform: translateY(-12px) scale(0.95);
@@ -741,7 +741,7 @@ a:hover {
 }
 
 .language-btn .lang-flag {
-  font-size: 0.875rem;
+  font-size: 1rem;
 }
 
 .language-btn .lang-text {
@@ -779,6 +779,15 @@ a:hover {
   
   .mobile-actions .language-current .lang-text {
     display: none;
+  }
+  
+  /* Desktop vlaggen blijven zichtbaar */
+  .nav-right .language-current .lang-flag {
+    display: inline;
+  }
+  
+  .nav-right .language-btn .lang-flag {
+    display: inline;
   }
   
   .mobile-actions .language-dropdown-icon {
