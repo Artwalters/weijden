@@ -1,5 +1,14 @@
 // Translations for Weijden Multicare website
 const translations = {
+    // Common elements
+    common: {
+        menu: {
+            nl: "Menu",
+            en: "Menu", 
+            de: "Menü"
+        }
+    },
+    
     // Navigation
     nav: {
         home: {
@@ -685,6 +694,25 @@ const translations = {
             nl: "Bedrijven die vertrouwen op onze service",
             en: "Companies that trust our service",
             de: "Unternehmen, die unserem Service vertrauen"
+        },
+        
+        // Values Section
+        reliability_title: {
+            nl: "Betrouwbaarheid",
+            en: "Reliability",
+            de: "Zuverlässigkeit"
+        },
+        reliability_description: {
+            nl: "Op ons kunt u rekenen. We houden ons aan afspraken en communiceren helder over verwachtingen en voortgang.",
+            en: "You can count on us. We keep our promises and communicate clearly about expectations and progress.",
+            de: "Auf uns können Sie sich verlassen. Wir halten unsere Vereinbarungen ein und kommunizieren klar über Erwartungen und Fortschritt."
+        },
+        
+        // Timeline markers
+        now_marker: {
+            nl: "Nu",
+            en: "Now", 
+            de: "Jetzt"
         }
     },
 
@@ -945,6 +973,11 @@ const translations = {
             nl: "Zondag op afspraak voor noodgevallen",
             en: "Sunday by appointment for emergencies",
             de: "Sonntag nach Terminvereinbarung für Notfälle"
+        },
+        linkedin_button: {
+            nl: "LinkedIn",
+            en: "LinkedIn",
+            de: "LinkedIn"
         }
     },
 
