@@ -58,46 +58,98 @@
                 </a>
             </div>
 
-            <!-- Desktop Navigation -->
-            <nav class="desktop-nav" id="desktop-nav">
-                <ul class="nav-list">
-                    <li class="nav-item">
-                        <a href="index.html" class="nav-link active">
-                            <span class="nav-text">Home</span>
-                            <span class="nav-indicator"></span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="pages/diensten.html" class="nav-link">
-                            <span class="nav-text">Diensten</span>
-                            <span class="nav-indicator"></span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="pages/over-ons.html" class="nav-link">
-                            <span class="nav-text">Over Ons</span>
-                            <span class="nav-indicator"></span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="pages/vacatures.html" class="nav-link">
-                            <span class="nav-text">Vacatures</span>
-                            <span class="nav-indicator"></span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="pages/contact.html" class="nav-link nav-link--cta">
-                            <span class="nav-text">Contact</span>
-                            <span class="nav-indicator"></span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+            <!-- Navigation Right Side -->
+            <div class="nav-right">
+                <!-- Desktop Navigation -->
+                <nav class="desktop-nav" id="desktop-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link active">
+                                <span class="nav-text" data-translate="nav.home">Home</span>
+                                <span class="nav-indicator"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/diensten.html" class="nav-link">
+                                <span class="nav-text" data-translate="nav.services">Diensten</span>
+                                <span class="nav-indicator"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/over-ons.html" class="nav-link">
+                                <span class="nav-text" data-translate="nav.about">Over Ons</span>
+                                <span class="nav-indicator"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/vacatures.html" class="nav-link">
+                                <span class="nav-text" data-translate="nav.jobs">Vacatures</span>
+                                <span class="nav-indicator"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="pages/contact.html" class="nav-link nav-link--cta">
+                                <span class="nav-text" data-translate="nav.contact">Contact</span>
+                                <span class="nav-indicator"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- Language Switch -->
+                <div class="language-switch">
+                    <div class="language-dropdown">
+                        <button class="language-current" id="current-language">
+                            <span class="lang-flag">🇳🇱</span>
+                            <span class="lang-text">NL</span>
+                            <span class="language-dropdown-icon">▼</span>
+                        </button>
+                        <div class="language-dropdown-menu">
+                            <button class="language-btn active" data-lang="nl">
+                                <span class="lang-flag">🇳🇱</span>
+                                <span class="lang-text">NL</span>
+                            </button>
+                            <button class="language-btn" data-lang="en">
+                                <span class="lang-flag">🇬🇧</span>
+                                <span class="lang-text">EN</span>
+                            </button>
+                            <button class="language-btn" data-lang="de">
+                                <span class="lang-flag">🇩🇪</span>
+                                <span class="lang-text">DE</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <!-- Mobile Actions -->
             <div class="mobile-actions">
-                <a href="pages/contact.html" class="mobile-contact-btn">Contact</a>
-                <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu" aria-expanded="false">
+                <!-- Language Switch for Mobile -->
+                <div class="language-switch">
+                    <div class="language-dropdown">
+                        <button class="language-current" id="current-language-mobile">
+                            <span class="lang-flag">🇳🇱</span>
+                            <span class="lang-text">NL</span>
+                            <span class="language-dropdown-icon">▼</span>
+                        </button>
+                        <div class="language-dropdown-menu">
+                            <button class="language-btn active" data-lang="nl">
+                                <span class="lang-flag">🇳🇱</span>
+                                <span class="lang-text">NL</span>
+                            </button>
+                            <button class="language-btn" data-lang="en">
+                                <span class="lang-flag">🇬🇧</span>
+                                <span class="lang-text">EN</span>
+                            </button>
+                            <button class="language-btn" data-lang="de">
+                                <span class="lang-flag">🇩🇪</span>
+                                <span class="lang-text">DE</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <a href="pages/contact.html" class="mobile-contact-btn" data-translate="nav.contact">Contact</a>
+                <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu" aria-expanded="false" data-translate="common.menu">
                     <span class="menu-line menu-line-1"></span>
                     <span class="menu-line menu-line-2"></span>
                     <span class="menu-line menu-line-3"></span>
@@ -113,7 +165,7 @@
             <ul class="mobile-nav-list">
                 <li class="mobile-nav-item">
                     <a href="index.html" class="mobile-nav-link active">
-                        <span class="mobile-nav-text">Home</span>
+                        <span class="mobile-nav-text" data-translate="nav.home">Home</span>
                         <span class="mobile-nav-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                                 <path d="M3 9L12 2L21 9V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V9Z" stroke="currentColor" stroke-width="2"/>
@@ -123,7 +175,7 @@
                 </li>
                 <li class="mobile-nav-item">
                     <a href="pages/diensten.html" class="mobile-nav-link">
-                        <span class="mobile-nav-text">Diensten</span>
+                        <span class="mobile-nav-text" data-translate="nav.services">Diensten</span>
                         <span class="mobile-nav-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                                 <rect x="6" y="6" width="12" height="12" stroke="currentColor" stroke-width="2"/>
@@ -134,7 +186,7 @@
                 </li>
                 <li class="mobile-nav-item">
                     <a href="pages/over-ons.html" class="mobile-nav-link">
-                        <span class="mobile-nav-text">Over Ons</span>
+                        <span class="mobile-nav-text" data-translate="nav.about">Over Ons</span>
                         <span class="mobile-nav-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                                 <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="2"/>
@@ -145,7 +197,7 @@
                 </li>
                 <li class="mobile-nav-item">
                     <a href="pages/vacatures.html" class="mobile-nav-link">
-                        <span class="mobile-nav-text">Vacatures</span>
+                        <span class="mobile-nav-text" data-translate="nav.jobs">Vacatures</span>
                         <span class="mobile-nav-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                                 <rect x="2" y="7" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
@@ -168,13 +220,13 @@
         <div class="hero-container">
             <div class="hero-content">
                 <h1 class="hero-title">
-                    <span class="hero-line-1">Uw partner in</span>
-                    <span class="hero-line-2">veiligheid en</span>
-                    <span class="hero-line-3">betrouwbaarheid</span>
+                    <span class="hero-line-1" data-translate="hero.title_line1">Uw partner in</span>
+                    <span class="hero-line-2" data-translate="hero.title_line2">veiligheid en</span>
+                    <span class="hero-line-3" data-translate="hero.title_line3">betrouwbaarheid</span>
                 </h1>
                 
                 <p class="hero-subtitle">
-                    Specialist in sloop, ontruiming en graafwerkzaamheden sinds 2018
+                    <span data-translate="hero.subtitle">Specialist in sloop, ontruiming en graafwerkzaamheden sinds 2018</span>
                 </p>
                 
                 <div class="hero-cta">
@@ -182,9 +234,9 @@
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                             <path d="M7 3L14 10L7 17" stroke="currentColor" stroke-width="2"/>
                         </svg>
-                        Vraag offerte aan
+                        <span data-translate="hero.cta_button">Vraag offerte aan</span>
                     </a>
-                    <a href="tel:+31615372259" class="btn btn-secondary">Bel direct</a>
+                    <a href="tel:+31615372259" class="btn btn-secondary" data-translate="hero.call_button">Bel direct</a>
                 </div>
             </div>
             
@@ -236,7 +288,7 @@
 
     <!-- Photo popup -->
     <div class="photo-popup">
-        <button class="photo-popup-close" aria-label="Sluiten">×</button>
+        <button class="photo-popup-close" aria-label="Sluiten" data-translate="common.close">×</button>
     </div>
 
     <!-- Main Content -->
@@ -246,8 +298,8 @@
         <section class="services-overview section" id="services">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Onze expertise</h2>
-                    <p class="section-subtitle">Professionele diensten met oog voor detail</p>
+                    <h2 class="section-title" data-translate="services.title">Onze expertise</h2>
+                    <p class="section-subtitle" data-translate="services.subtitle">Professionele diensten met oog voor detail</p>
                 </div>
                 
                 <div class="services-grid">
@@ -259,10 +311,10 @@
                                     <path d="M8 20L24 4L40 20" stroke="currentColor" stroke-width="2"/>
                                 </svg>
                             </div>
-                            <h3 class="service-title">Sloopwerkzaamheden</h3>
-                            <p class="service-desc">Vakkundige sloop van badkamers, keukens en vloeren met moderne stofreductietechnieken</p>
+                            <h3 class="service-title" data-translate="services.demolition.title">Sloopwerkzaamheden</h3>
+                            <p class="service-desc" data-translate="services.demolition.description">Vakkundige sloop van badkamers, keukens en vloeren met moderne stofreductietechnieken</p>
                             <span class="service-link">
-                                Meer info
+                                <span data-translate="services.view_all">Meer info</span>
                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                                     <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5"/>
                                 </svg>
@@ -278,10 +330,10 @@
                                     <path d="M16 16V12C16 9.79086 17.7909 8 20 8H28C30.2091 8 32 9.79086 32 12V16" stroke="currentColor" stroke-width="2"/>
                                 </svg>
                             </div>
-                            <h3 class="service-title">Ontruimingen</h3>
-                            <p class="service-desc">Zorgvuldige ontruiming van woningen en bedrijfspanden met respect voor uw eigendommen</p>
+                            <h3 class="service-title" data-translate="services.clearing.title">Ontruimingen</h3>
+                            <p class="service-desc" data-translate="services.clearing.description">Zorgvuldige ontruiming van woningen en bedrijfspanden met respect voor uw eigendommen</p>
                             <span class="service-link">
-                                Meer info
+                                <span data-translate="services.view_all">Meer info</span>
                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                                     <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5"/>
                                 </svg>
@@ -298,10 +350,10 @@
                                     <circle cx="24" cy="8" r="4" stroke="currentColor" stroke-width="2"/>
                                 </svg>
                             </div>
-                            <h3 class="service-title">Graafwerkzaamheden</h3>
-                            <p class="service-desc">Professioneel graaf- en grondwerk voor tuinen, bestrating en infrastructuur</p>
+                            <h3 class="service-title" data-translate="services.excavation.title">Graafwerkzaamheden</h3>
+                            <p class="service-desc" data-translate="services.excavation.description">Professioneel graaf- en grondwerk voor tuinen, bestrating en infrastructuur</p>
                             <span class="service-link">
-                                Meer info
+                                <span data-translate="services.view_all">Meer info</span>
                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                                     <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="1.5"/>
                                 </svg>
@@ -317,14 +369,14 @@
             <div class="container">
                 <div class="about-content">
                     <div class="about-text">
-                        <h2 class="about-title">Weijden Multicare</h2>
-                        <p class="about-description">
+                        <h2 class="about-title" data-translate="about.title">Weijden Multicare</h2>
+                        <p class="about-description" data-translate="about.description">
                             Weijden Multicare: De basis waarop elk project kan worden gebouwd, met aandacht voor kwaliteit, 
                             veiligheid en persoonlijkheid! Waar wij aan de slag gaan ontstaat ruimte voor nieuwe mogelijkheden. 
                             Een basis die wacht op nieuwe creativiteit.
                         </p>
                         <a href="pages/over-ons.html" class="btn btn-primary">
-                            Meer over ons
+                            <span data-translate="about.learn_more">Meer over ons</span>
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                                 <path d="M7 3L14 10L7 17" stroke="currentColor" stroke-width="2"/>
                             </svg>
@@ -365,8 +417,8 @@
         <section class="partners section" id="partners">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Onze partners</h2>
-                    <p class="section-subtitle">Bedrijven die vertrouwen op onze service</p>
+                    <h2 class="section-title" data-translate="about_page.partners_title">Onze partners</h2>
+                    <p class="section-subtitle" data-translate="about_page.partners_subtitle">Bedrijven die vertrouwen op onze service</p>
                 </div>
             </div>
             
@@ -422,8 +474,8 @@
         <section class="statistics section">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Onze prestaties</h2>
-                    <p class="section-subtitle">Jarenlange ervaring en betrouwbare samenwerkingen</p>
+                    <h2 class="section-title" data-translate="statistics.title">Onze prestaties</h2>
+                    <p class="section-subtitle" data-translate="statistics.subtitle">Jarenlange ervaring en betrouwbare samenwerkingen</p>
                 </div>
                 
                 <div class="statistics-grid">
@@ -435,7 +487,7 @@
                             </svg>
                         </div>
                         <div class="statistic-number" data-target="7665">0</div>
-                        <div class="statistic-label">Klussen voltooid</div>
+                        <div class="statistic-label" data-translate="statistics.jobs_completed">Klussen voltooid</div>
                     </div>
                     
                     <div class="statistic-card">
@@ -447,7 +499,7 @@
                             </svg>
                         </div>
                         <div class="statistic-number" data-target="147">0</div>
-                        <div class="statistic-label">Betrouwbare partners</div>
+                        <div class="statistic-label" data-translate="statistics.reliable_partners">Betrouwbare partners</div>
                     </div>
                 </div>
             </div>
@@ -457,16 +509,16 @@
         <section class="cta section">
             <div class="container">
                 <div class="cta-content">
-                    <h2 class="cta-title">Klaar om samen te werken?</h2>
-                    <p class="cta-text">Neem contact op voor een vrijblijvende offerte</p>
+                    <h2 class="cta-title" data-translate="cta.title">Klaar voor uw volgende project?</h2>
+                    <p class="cta-text" data-translate="cta.subtitle">Neem contact op voor een vrijblijvende offerte</p>
                     <div class="cta-buttons">
                         <a href="tel:+31615372259" class="btn btn-primary">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                                 <path d="M3 5C3 3.89543 3.89543 3 5 3H7.27924C7.70967 3 8.09181 3.27543 8.22792 3.68377L9.2108 6.63246C9.33847 7.01453 9.22761 7.43263 8.92951 7.69825L7.54338 9.00101C8.60286 11.1177 10.3459 12.8609 12.463 13.921L13.7648 12.5341C14.0307 12.2358 14.449 12.1249 14.8312 12.2527L17.78 13.2357C18.1884 13.3719 18.4639 13.7541 18.4639 14.1846V16.3718C18.4639 17.5156 17.5395 18.44 16.3957 18.44C8.68949 18.44 2.44 12.1905 2.44 4.48425" stroke="currentColor" stroke-width="2"/>
                             </svg>
-                            Bel direct
+                            <span data-translate="hero.call_button">Bel direct</span>
                         </a>
-                        <a href="pages/contact.html" class="btn btn-secondary">Stuur een bericht</a>
+                        <a href="pages/contact.html" class="btn btn-secondary" data-translate="cta.button">Stuur een bericht</a>
                     </div>
                 </div>
             </div>
@@ -481,30 +533,30 @@
                     <div class="footer-logo">
                         <img src="assets/images/lightmode_big.svg" alt="Weijden Multicare" class="footer-logo-image">
                     </div>
-                    <p class="footer-desc">Uw partner in veiligheid en betrouwbaarheid sinds 2018</p>
+                    <p class="footer-desc" data-translate="footer.description">Uw partner in veiligheid en betrouwbaarheid sinds 2018</p>
                 </div>
                 
                 <div class="footer-links">
                     <div class="footer-column">
-                        <h4 class="footer-title">Diensten</h4>
+                        <h4 class="footer-title" data-translate="footer.services_title">Diensten</h4>
                         <ul class="footer-list">
-                            <li><a href="pages/diensten.html#sloop">Sloopwerkzaamheden</a></li>
-                            <li><a href="pages/diensten.html#ontruiming">Ontruimingen</a></li>
-                            <li><a href="pages/diensten.html#graaf">Graafwerkzaamheden</a></li>
+                            <li><a href="pages/diensten.html#sloop" data-translate="footer.demolition_services">Sloopwerkzaamheden</a></li>
+                            <li><a href="pages/diensten.html#ontruiming" data-translate="footer.clearance_services">Ontruimingen</a></li>
+                            <li><a href="pages/diensten.html#graaf" data-translate="footer.excavation_services">Graafwerkzaamheden</a></li>
                         </ul>
                     </div>
                     
                     <div class="footer-column">
-                        <h4 class="footer-title">Bedrijf</h4>
+                        <h4 class="footer-title" data-translate="footer.quick_links">Bedrijf</h4>
                         <ul class="footer-list">
-                            <li><a href="pages/over-ons.html">Over ons</a></li>
-                            <li><a href="pages/vacatures.html">Vacatures</a></li>
-                            <li><a href="pages/contact.html">Contact</a></li>
+                            <li><a href="pages/over-ons.html" data-translate="footer.about_us">Over ons</a></li>
+                            <li><a href="pages/vacatures.html" data-translate="footer.jobs">Vacatures</a></li>
+                            <li><a href="pages/contact.html" data-translate="footer.contact">Contact</a></li>
                         </ul>
                     </div>
                     
                     <div class="footer-column">
-                        <h4 class="footer-title">Contact</h4>
+                        <h4 class="footer-title" data-translate="footer.contact_title">Contact</h4>
                         <ul class="footer-list footer-contact">
                             <li>
                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -525,7 +577,7 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 Weijden Multicare. Alle rechten voorbehouden.</p>
+                <p data-translate="footer.copyright">&copy; 2025 Weijden Multicare. Alle rechten voorbehouden.</p>
             </div>
         </div>
     </footer>
@@ -1160,9 +1212,36 @@
             }
         });
 
+        // Dynamic job counter calculation
+        function calculateCurrentJobCount() {
+            // Base date: July 16, 2025 (today)
+            const baseDate = new Date('2025-07-16');
+            const baseJobCount = 7665;
+            const jobsPerDay = 6;
+            
+            // Calculate days elapsed since base date
+            const today = new Date();
+            const daysDifference = Math.floor((today - baseDate) / (1000 * 60 * 60 * 24));
+            
+            // Calculate current job count
+            const currentJobCount = baseJobCount + (daysDifference * jobsPerDay);
+            
+            console.log(`Days since base: ${daysDifference}, Current job count: ${currentJobCount}`);
+            
+            return currentJobCount;
+        }
+
         // Counter Animation functionality
         function initializeCounterAnimations() {
             console.log('Initializing counter animations...');
+            
+            // Update the klussen voltooid counter with dynamic value
+            const jobsCompletedElement = document.querySelector('.statistic-number[data-target="7665"]');
+            if (jobsCompletedElement) {
+                const currentJobCount = calculateCurrentJobCount();
+                jobsCompletedElement.setAttribute('data-target', currentJobCount);
+                console.log(`Updated klussen voltooid target to: ${currentJobCount}`);
+            }
             
             const statisticNumbers = document.querySelectorAll('.statistic-number');
             
@@ -1233,5 +1312,8 @@
             }, 500);
         });
     </script>
+    
+    <!-- Translations -->
+    <script src="js/translations.js"></script>
 </body>
 </html>

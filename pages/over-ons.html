@@ -45,45 +45,97 @@
                 </a>
             </div>
 
-            <!-- Desktop Navigation -->
-            <nav class="desktop-nav" id="desktop-nav">
-                <ul class="nav-list">
-                    <li class="nav-item">
-                        <a href="../index.html" class="nav-link">
-                            <span class="nav-text">Home</span>
-                            <span class="nav-indicator"></span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="diensten.html" class="nav-link">
-                            <span class="nav-text">Diensten</span>
-                            <span class="nav-indicator"></span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="over-ons.html" class="nav-link active">
-                            <span class="nav-text">Over Ons</span>
-                            <span class="nav-indicator"></span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="vacatures.html" class="nav-link">
-                            <span class="nav-text">Vacatures</span>
-                            <span class="nav-indicator"></span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="contact.html" class="nav-link nav-link--cta">
-                            <span class="nav-text">Contact</span>
-                            <span class="nav-indicator"></span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+            <!-- Navigation Right Side -->
+            <div class="nav-right">
+                <!-- Desktop Navigation -->
+                <nav class="desktop-nav" id="desktop-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="../index.html" class="nav-link">
+                                <span class="nav-text" data-translate="nav.home">Home</span>
+                                <span class="nav-indicator"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="diensten.html" class="nav-link">
+                                <span class="nav-text" data-translate="nav.services">Diensten</span>
+                                <span class="nav-indicator"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="over-ons.html" class="nav-link active">
+                                <span class="nav-text" data-translate="nav.about">Over Ons</span>
+                                <span class="nav-indicator"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="vacatures.html" class="nav-link">
+                                <span class="nav-text" data-translate="nav.jobs">Vacatures</span>
+                                <span class="nav-indicator"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link nav-link--cta">
+                                <span class="nav-text" data-translate="nav.contact">Contact</span>
+                                <span class="nav-indicator"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- Language Switch -->
+                <div class="language-switch">
+                    <div class="language-dropdown">
+                        <button class="language-current" id="current-language">
+                            <span class="lang-flag">🇳🇱</span>
+                            <span class="lang-text">NL</span>
+                            <span class="language-dropdown-icon">▼</span>
+                        </button>
+                        <div class="language-dropdown-menu">
+                            <button class="language-btn active" data-lang="nl">
+                                <span class="lang-flag">🇳🇱</span>
+                                <span class="lang-text">NL</span>
+                            </button>
+                            <button class="language-btn" data-lang="en">
+                                <span class="lang-flag">🇬🇧</span>
+                                <span class="lang-text">EN</span>
+                            </button>
+                            <button class="language-btn" data-lang="de">
+                                <span class="lang-flag">🇩🇪</span>
+                                <span class="lang-text">DE</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <!-- Mobile Actions -->
             <div class="mobile-actions">
-                <a href="../pages/contact.html" class="mobile-contact-btn">Contact</a>
+                <!-- Language Switch for Mobile -->
+                <div class="language-switch">
+                    <div class="language-dropdown">
+                        <button class="language-current" id="current-language-mobile">
+                            <span class="lang-flag">🇳🇱</span>
+                            <span class="lang-text">NL</span>
+                            <span class="language-dropdown-icon">▼</span>
+                        </button>
+                        <div class="language-dropdown-menu">
+                            <button class="language-btn active" data-lang="nl">
+                                <span class="lang-flag">🇳🇱</span>
+                                <span class="lang-text">NL</span>
+                            </button>
+                            <button class="language-btn" data-lang="en">
+                                <span class="lang-flag">🇬🇧</span>
+                                <span class="lang-text">EN</span>
+                            </button>
+                            <button class="language-btn" data-lang="de">
+                                <span class="lang-flag">🇩🇪</span>
+                                <span class="lang-text">DE</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <a href="../pages/contact.html" class="mobile-contact-btn" data-translate="nav.contact">Contact</a>
                 <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu" aria-expanded="false">
                     <span class="menu-line menu-line-1"></span>
                     <span class="menu-line menu-line-2"></span>
@@ -100,7 +152,7 @@
             <ul class="mobile-nav-list">
                 <li class="mobile-nav-item">
                     <a href="../index.html" class="mobile-nav-link">
-                        <span class="mobile-nav-text">Home</span>
+                        <span class="mobile-nav-text" data-translate="nav.home">Home</span>
                         <span class="mobile-nav-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                                 <path d="M3 9L12 2L21 9V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V9Z" stroke="currentColor" stroke-width="2"/>
@@ -110,7 +162,7 @@
                 </li>
                 <li class="mobile-nav-item">
                     <a href="diensten.html" class="mobile-nav-link">
-                        <span class="mobile-nav-text">Diensten</span>
+                        <span class="mobile-nav-text" data-translate="nav.services">Diensten</span>
                         <span class="mobile-nav-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                                 <rect x="6" y="6" width="12" height="12" stroke="currentColor" stroke-width="2"/>
@@ -121,7 +173,7 @@
                 </li>
                 <li class="mobile-nav-item">
                     <a href="over-ons.html" class="mobile-nav-link active">
-                        <span class="mobile-nav-text">Over Ons</span>
+                        <span class="mobile-nav-text" data-translate="nav.about">Over Ons</span>
                         <span class="mobile-nav-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                                 <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="2"/>
@@ -132,7 +184,7 @@
                 </li>
                 <li class="mobile-nav-item">
                     <a href="vacatures.html" class="mobile-nav-link">
-                        <span class="mobile-nav-text">Vacatures</span>
+                        <span class="mobile-nav-text" data-translate="nav.jobs">Vacatures</span>
                         <span class="mobile-nav-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                                 <rect x="2" y="7" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
@@ -150,8 +202,8 @@
         <!-- Page Hero -->
         <section class="page-hero">
             <div class="container">
-                <h1 class="page-title">Over ons</h1>
-                <p class="page-subtitle">Leer ons jonge en enthousiaste team kennen</p>
+                <h1 class="page-title" data-translate="about_page.title">Over ons</h1>
+                <p class="page-subtitle" data-translate="about_page.subtitle">Leer ons jonge en enthousiaste team kennen</p>
             </div>
         </section>
 
@@ -160,13 +212,13 @@
             <div class="container">
                 <div class="about-grid">
                     <div class="about-text-content">
-                        <h2 class="section-title">Welkom bij Weijden Multicare!</h2>
-                        <p class="intro-text">
+                        <h2 class="section-title" data-translate="about_page.welcome_title">Welkom bij Weijden Multicare!</h2>
+                        <p class="intro-text" data-translate="about_page.intro_text">
                             Opgericht in 2018 door Sander Weijden, zijn wij een jong en energiek bedrijf 
                             met een duidelijke missie: het leveren van kwaliteit, veiligheid en 
                             gepersonaliseerde diensten aan al onze klanten.
                         </p>
-                        <p>
+                        <p data-translate="about_page.team_text">
                             Ons team bestaat uit ervaren professionals die met passie en vakmanschap 
                             werken aan diverse projecten. Van kleine klussen tot grote renovaties, 
                             wij benaderen elke opdracht met dezelfde toewijding en oog voor detail.
@@ -207,8 +259,8 @@
         <section class="section values-section">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Onze kernwaarden</h2>
-                    <p class="section-subtitle">Waar we voor staan</p>
+                    <h2 class="section-title" data-translate="about_page.values_title">Onze kernwaarden</h2>
+                    <p class="section-subtitle" data-translate="about_page.values_subtitle">Waar we voor staan</p>
                 </div>
                 
                 <div class="values-grid">
@@ -218,8 +270,8 @@
                                 <path d="M24 8L27.09 17.26L37 18.27L30.45 24.97L32.18 35L24 30.27L15.82 35L17.55 24.97L11 18.27L20.91 17.26L24 8Z" stroke="currentColor" stroke-width="2"/>
                             </svg>
                         </div>
-                        <h3 class="value-title">Kwaliteit</h3>
-                        <p class="value-desc">
+                        <h3 class="value-title" data-translate="about_page.quality.title">Kwaliteit</h3>
+                        <p class="value-desc" data-translate="about_page.quality.description">
                             Wij streven naar de hoogste kwaliteit in alles wat we doen. 
                             Van de eerste planning tot de eindoplevering.
                         </p>
@@ -232,7 +284,7 @@
                                 <path d="M16 24L22 30L32 18" stroke="currentColor" stroke-width="2"/>
                             </svg>
                         </div>
-                        <h3 class="value-title">Veiligheid</h3>
+                        <h3 class="value-title" data-translate="about_page.safety.title">Veiligheid</h3>
                         <p class="value-desc">
                             Veiligheid staat altijd voorop. We zijn NEN3140 gecertificeerd 
                             en werken volgens de strengste veiligheidsnormen.
@@ -260,8 +312,8 @@
         <section class="section timeline-section">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Ons verhaal</h2>
-                    <p class="section-subtitle">Van start-up tot gevestigde naam</p>
+                    <h2 class="section-title" data-translate="about_page.timeline_title">Ons verhaal</h2>
+                    <p class="section-subtitle" data-translate="about_page.timeline_subtitle">Van start-up tot gevestigde naam</p>
                 </div>
                 
                 <div class="timeline">
@@ -270,8 +322,8 @@
                             <span>2018</span>
                         </div>
                         <div class="timeline-content">
-                            <h3>De start</h3>
-                            <p>Sander Weijden richt Weijden Multicare op met een duidelijke visie: 
+                            <h3 data-translate="about_page.timeline_2018.title">De start</h3>
+                            <p data-translate="about_page.timeline_2018.description">Sander Weijden richt Weijden Multicare op met een duidelijke visie: 
                             kwaliteit en betrouwbaarheid in de bouw- en renovatiesector.</p>
                         </div>
                     </div>
@@ -281,8 +333,8 @@
                             <span>2020</span>
                         </div>
                         <div class="timeline-content">
-                            <h3>Groei en uitbreiding</h3>
-                            <p>Uitbreiding van het team en diensten. Samenwerking met 
+                            <h3 data-translate="about_page.timeline_2020.title">Groei en uitbreiding</h3>
+                            <p data-translate="about_page.timeline_2020.description">Uitbreiding van het team en diensten. Samenwerking met 
                             gerenommeerde partners zoals Van Wijnen en Graus Bouw.</p>
                         </div>
                     </div>
@@ -292,8 +344,8 @@
                             <span>2024</span>
                         </div>
                         <div class="timeline-content">
-                            <h3>Certificering</h3>
-                            <p>NEN3140 cursus afgerond voor certificering elektrische werkmateriaal. 
+                            <h3 data-translate="about_page.timeline_2024.title">Certificering</h3>
+                            <p data-translate="about_page.timeline_2024.description">NEN3140 cursus afgerond voor certificering elektrische werkmateriaal. 
                             Continue investering in kennis en veiligheid.</p>
                         </div>
                     </div>
@@ -303,8 +355,8 @@
                             <span>Nu</span>
                         </div>
                         <div class="timeline-content">
-                            <h3>De toekomst</h3>
-                            <p>Met een ervaren team en bewezen track record, 
+                            <h3 data-translate="about_page.timeline_now.title">De toekomst</h3>
+                            <p data-translate="about_page.timeline_now.description">Met een ervaren team en bewezen track record, 
                             blijven we groeien en investeren in innovatie en duurzaamheid.</p>
                         </div>
                     </div>
@@ -316,8 +368,8 @@
         <section class="section team-section">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Ons team</h2>
-                    <p class="section-subtitle">Jong, energiek team met netwerk van ervaren specialisten</p>
+                    <h2 class="section-title" data-translate="about_page.team_title">Ons team</h2>
+                    <p class="section-subtitle" data-translate="about_page.team_subtitle">Jong, energiek team met netwerk van ervaren specialisten</p>
                 </div>
                 
                 <div class="team-photo-container">
@@ -345,8 +397,8 @@
         <section class="partners section" id="partners">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Onze partners</h2>
-                    <p class="section-subtitle">Bedrijven die vertrouwen op onze service</p>
+                    <h2 class="section-title" data-translate="about_page.partners_title">Onze partners</h2>
+                    <p class="section-subtitle" data-translate="about_page.partners_subtitle">Bedrijven die vertrouwen op onze service</p>
                 </div>
             </div>
             
@@ -402,16 +454,16 @@
         <section class="cta section">
             <div class="container">
                 <div class="cta-content">
-                    <h2 class="cta-title">Klaar om samen te werken?</h2>
-                    <p class="cta-text">Neem contact op en ervaar zelf wat Weijden Multicare voor u kan betekenen</p>
+                    <h2 class="cta-title" data-translate="about_page.cta_title">Klaar om samen te werken?</h2>
+                    <p class="cta-text" data-translate="about_page.cta_subtitle">Neem contact op en ervaar zelf wat Weijden Multicare voor u kan betekenen</p>
                     <div class="cta-buttons">
                         <a href="tel:+31615372259" class="btn btn-primary">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                                 <path d="M3 5C3 3.89543 3.89543 3 5 3H7.27924C7.70967 3 8.09181 3.27543 8.22792 3.68377L9.2108 6.63246C9.33847 7.01453 9.22761 7.43263 8.92951 7.69825L7.54338 9.00101C8.60286 11.1177 10.3459 12.8609 12.463 13.921L13.7648 12.5341C14.0307 12.2358 14.449 12.1249 14.8312 12.2527L17.78 13.2357C18.1884 13.3719 18.4639 13.7541 18.4639 14.1846V16.3718C18.4639 17.5156 17.5395 18.44 16.3957 18.44C8.68949 18.44 2.44 12.1905 2.44 4.48425" stroke="currentColor" stroke-width="2"/>
                             </svg>
-                            Bel direct
+                            <span data-translate="hero.call_button">Bel direct</span>
                         </a>
-                        <a href="contact.html" class="btn btn-secondary">Stuur een bericht</a>
+                        <a href="contact.html" class="btn btn-secondary" data-translate="about_page.cta_button">Stuur een bericht</a>
                     </div>
                 </div>
             </div>
@@ -426,30 +478,30 @@
                     <div class="footer-logo">
                         <img src="../assets/images/lightmode_big.svg" alt="Weijden Multicare" class="footer-logo-image">
                     </div>
-                    <p class="footer-desc">Uw partner in veiligheid en betrouwbaarheid sinds 2018</p>
+                    <p class="footer-desc" data-translate="footer.description">Uw partner in veiligheid en betrouwbaarheid sinds 2018</p>
                 </div>
                 
                 <div class="footer-links">
                     <div class="footer-column">
-                        <h4 class="footer-title">Diensten</h4>
+                        <h4 class="footer-title" data-translate="footer.services_title">Diensten</h4>
                         <ul class="footer-list">
-                            <li><a href="diensten.html#sloop">Sloopwerkzaamheden</a></li>
-                            <li><a href="diensten.html#ontruiming">Ontruimingen</a></li>
-                            <li><a href="diensten.html#graaf">Graafwerkzaamheden</a></li>
+                            <li><a href="diensten.html#sloop" data-translate="services_page.demolition.title">Sloopwerkzaamheden</a></li>
+                            <li><a href="diensten.html#ontruiming" data-translate="services_page.clearing.title">Ontruimingen</a></li>
+                            <li><a href="diensten.html#graaf" data-translate="services_page.excavation.title">Graafwerkzaamheden</a></li>
                         </ul>
                     </div>
                     
                     <div class="footer-column">
-                        <h4 class="footer-title">Bedrijf</h4>
+                        <h4 class="footer-title" data-translate="footer.company_title">Bedrijf</h4>
                         <ul class="footer-list">
-                            <li><a href="over-ons.html">Over ons</a></li>
-                            <li><a href="vacatures.html">Vacatures</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="over-ons.html" data-translate="nav.about">Over ons</a></li>
+                            <li><a href="vacatures.html" data-translate="nav.jobs">Vacatures</a></li>
+                            <li><a href="contact.html" data-translate="nav.contact">Contact</a></li>
                         </ul>
                     </div>
                     
                     <div class="footer-column">
-                        <h4 class="footer-title">Contact</h4>
+                        <h4 class="footer-title" data-translate="footer.contact_title">Contact</h4>
                         <ul class="footer-list footer-contact">
                             <li>
                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -470,7 +522,7 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 Weijden Multicare. Alle rechten voorbehouden.</p>
+                <p data-translate="footer.copyright">&copy; 2025 Weijden Multicare. Alle rechten voorbehouden.</p>
             </div>
         </div>
     </footer>
@@ -940,6 +992,9 @@
     <script src="../js/main.js"></script>
     <script src="../js/menu.js"></script>
     <script src="../js/grid-lines.js"></script>
+    
+    <!-- Translations -->
+    <script src="../js/translations.js"></script>
     
     <script>
         // Team photo drag slider functionality

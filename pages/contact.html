@@ -45,45 +45,97 @@
                 </a>
             </div>
 
-            <!-- Desktop Navigation -->
-            <nav class="desktop-nav" id="desktop-nav">
-                <ul class="nav-list">
-                    <li class="nav-item">
-                        <a href="../index.html" class="nav-link">
-                            <span class="nav-text">Home</span>
-                            <span class="nav-indicator"></span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="diensten.html" class="nav-link">
-                            <span class="nav-text">Diensten</span>
-                            <span class="nav-indicator"></span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="over-ons.html" class="nav-link">
-                            <span class="nav-text">Over Ons</span>
-                            <span class="nav-indicator"></span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="vacatures.html" class="nav-link">
-                            <span class="nav-text">Vacatures</span>
-                            <span class="nav-indicator"></span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="contact.html" class="nav-link nav-link--cta active">
-                            <span class="nav-text">Contact</span>
-                            <span class="nav-indicator"></span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+            <!-- Navigation Right Side -->
+            <div class="nav-right">
+                <!-- Desktop Navigation -->
+                <nav class="desktop-nav" id="desktop-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="../index.html" class="nav-link">
+                                <span class="nav-text" data-translate="nav.home">Home</span>
+                                <span class="nav-indicator"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="diensten.html" class="nav-link">
+                                <span class="nav-text" data-translate="nav.services">Diensten</span>
+                                <span class="nav-indicator"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="over-ons.html" class="nav-link">
+                                <span class="nav-text" data-translate="nav.about">Over Ons</span>
+                                <span class="nav-indicator"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="vacatures.html" class="nav-link">
+                                <span class="nav-text" data-translate="nav.jobs">Vacatures</span>
+                                <span class="nav-indicator"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link nav-link--cta active">
+                                <span class="nav-text" data-translate="nav.contact">Contact</span>
+                                <span class="nav-indicator"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- Language Switch -->
+                <div class="language-switch">
+                    <div class="language-dropdown">
+                        <button class="language-current" id="current-language">
+                            <span class="lang-flag">🇳🇱</span>
+                            <span class="lang-text">NL</span>
+                            <span class="language-dropdown-icon">▼</span>
+                        </button>
+                        <div class="language-dropdown-menu">
+                            <button class="language-btn active" data-lang="nl">
+                                <span class="lang-flag">🇳🇱</span>
+                                <span class="lang-text">NL</span>
+                            </button>
+                            <button class="language-btn" data-lang="en">
+                                <span class="lang-flag">🇬🇧</span>
+                                <span class="lang-text">EN</span>
+                            </button>
+                            <button class="language-btn" data-lang="de">
+                                <span class="lang-flag">🇩🇪</span>
+                                <span class="lang-text">DE</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <!-- Mobile Actions -->
             <div class="mobile-actions">
-                <a href="../pages/contact.html" class="mobile-contact-btn">Contact</a>
+                <!-- Language Switch for Mobile -->
+                <div class="language-switch">
+                    <div class="language-dropdown">
+                        <button class="language-current" id="current-language-mobile">
+                            <span class="lang-flag">🇳🇱</span>
+                            <span class="lang-text">NL</span>
+                            <span class="language-dropdown-icon">▼</span>
+                        </button>
+                        <div class="language-dropdown-menu">
+                            <button class="language-btn active" data-lang="nl">
+                                <span class="lang-flag">🇳🇱</span>
+                                <span class="lang-text">NL</span>
+                            </button>
+                            <button class="language-btn" data-lang="en">
+                                <span class="lang-flag">🇬🇧</span>
+                                <span class="lang-text">EN</span>
+                            </button>
+                            <button class="language-btn" data-lang="de">
+                                <span class="lang-flag">🇩🇪</span>
+                                <span class="lang-text">DE</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <a href="../pages/contact.html" class="mobile-contact-btn" data-translate="nav.contact">Contact</a>
                 <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu" aria-expanded="false">
                     <span class="menu-line menu-line-1"></span>
                     <span class="menu-line menu-line-2"></span>
@@ -150,8 +202,8 @@
         <!-- Page Hero -->
         <section class="page-hero">
             <div class="container">
-                <h1 class="page-title">Contact</h1>
-                <p class="page-subtitle">Neem contact op voor een vrijblijvende offerte</p>
+                <h1 class="page-title" data-translate="contact_page.title">Contact</h1>
+                <p class="page-subtitle" data-translate="contact_page.subtitle">Neem contact op voor een vrijblijvende offerte</p>
             </div>
         </section>
 
@@ -161,49 +213,49 @@
                 <div class="contact-grid">
                     <!-- Contact Form -->
                     <div class="contact-form-wrapper">
-                        <h2 class="form-title">Stuur ons een bericht</h2>
-                        <p class="form-subtitle">Vul het formulier in en we nemen zo snel mogelijk contact met u op</p>
+                        <h2 class="form-title" data-translate="contact_page.form_title">Stuur ons een bericht</h2>
+                        <p class="form-subtitle" data-translate="contact_page.form_subtitle">Vul het formulier in en we nemen zo snel mogelijk contact met u op</p>
                         
                         <form class="contact-form" id="contactForm">
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="name" class="form-label">Naam *</label>
+                                    <label for="name" class="form-label" data-translate="contact_page.form_labels.name">Naam *</label>
                                     <input type="text" id="name" name="name" class="form-input" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="email" class="form-label">E-mail *</label>
+                                    <label for="email" class="form-label" data-translate="contact_page.form_labels.email">E-mail *</label>
                                     <input type="email" id="email" name="email" class="form-input" required>
                                 </div>
                             </div>
                             
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="phone" class="form-label">Telefoon</label>
+                                    <label for="phone" class="form-label" data-translate="contact_page.form_labels.phone">Telefoon</label>
                                     <input type="tel" id="phone" name="phone" class="form-input">
                                 </div>
                                 <div class="form-group">
-                                    <label for="subject" class="form-label">Onderwerp</label>
+                                    <label for="subject" class="form-label" data-translate="contact_page.form_labels.subject">Onderwerp</label>
                                     <select id="subject" name="subject" class="form-input">
-                                        <option value="">Selecteer een onderwerp</option>
-                                        <option value="sloop">Sloopwerkzaamheden</option>
-                                        <option value="ontruiming">Ontruimingen</option>
-                                        <option value="graaf">Graafwerkzaamheden</option>
-                                        <option value="offerte">Offerte aanvragen</option>
-                                        <option value="anders">Anders</option>
+                                        <option value="" data-translate="contact_page.form_options.select_subject">Selecteer een onderwerp</option>
+                                        <option value="sloop" data-translate="contact_page.form_options.demolition">Sloopwerkzaamheden</option>
+                                        <option value="ontruiming" data-translate="contact_page.form_options.clearing">Ontruimingen</option>
+                                        <option value="graaf" data-translate="contact_page.form_options.excavation">Graafwerkzaamheden</option>
+                                        <option value="offerte" data-translate="contact_page.form_options.quote">Offerte aanvragen</option>
+                                        <option value="anders" data-translate="contact_page.form_options.other">Anders</option>
                                     </select>
                                 </div>
                             </div>
                             
                             <div class="form-group">
-                                <label for="message" class="form-label">Bericht *</label>
-                                <textarea id="message" name="message" class="form-input form-textarea" rows="6" placeholder="Beschrijf uw project of vraag..." required></textarea>
+                                <label for="message" class="form-label" data-translate="contact_page.form_labels.message">Bericht *</label>
+                                <textarea id="message" name="message" class="form-input form-textarea" rows="6" data-translate="contact_page.form_placeholders.message" placeholder="Beschrijf uw project of vraag..." required></textarea>
                             </div>
                             
                             <div class="form-group">
                                 <label class="checkbox-wrapper">
                                     <input type="checkbox" name="privacy" required>
                                     <span class="checkmark"></span>
-                                    Ik ga akkoord met de verwerking van mijn gegevens
+                                    <span data-translate="contact_page.privacy_agreement">Ik ga akkoord met de verwerking van mijn gegevens</span>
                                 </label>
                             </div>
                             
@@ -211,15 +263,15 @@
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                                     <path d="M2 8L18 2L12 18L10 10L2 8Z" stroke="currentColor" stroke-width="2"/>
                                 </svg>
-                                Bericht versturen
+                                <span data-translate="contact_page.submit_button">Bericht versturen</span>
                             </button>
                         </form>
                     </div>
                     
                     <!-- Contact Info -->
                     <div class="contact-info">
-                        <h2 class="info-title">Contactgegevens</h2>
-                        <p class="info-subtitle">We staan altijd voor u klaar</p>
+                        <h2 class="info-title" data-translate="contact_page.contact_info_title">Contactgegevens</h2>
+                        <p class="info-subtitle" data-translate="contact_page.contact_info_subtitle">We staan altijd voor u klaar</p>
                         
                         <div class="contact-cards">
                             <div class="contact-card">
@@ -228,11 +280,11 @@
                                         <path d="M4.8 8C4.8 6.23269 6.23269 4.8 8 4.8H11.6468C12.3635 4.8 13.0149 5.24069 13.3247 5.92603L15.1373 9.81194C15.4215 10.4232 15.3242 11.1402 14.8872 11.6532L12.4694 14.4016C14.1646 17.7884 16.6867 20.3091 20.0735 22.0046L22.8207 19.587C23.3339 19.1502 24.051 19.0529 24.6625 19.3366L28.5487 21.1493C29.234 21.459 29.6747 22.1104 29.6747 22.8272V26.474C29.6747 28.2413 28.2421 29.6739 26.4747 29.6739C13.8315 29.6739 3.67363 19.5161 3.67363 6.87283" stroke="currentColor" stroke-width="2"/>
                                     </svg>
                                 </div>
-                                <h3 class="contact-card-title">Telefoon</h3>
+                                <h3 class="contact-card-title" data-translate="contact_page.phone_label">Telefoon</h3>
                                 <p class="contact-card-info">
                                     <a href="tel:+31615372259">+31 6 15372259</a>
                                 </p>
-                                <p class="contact-card-desc">Ma-Vr: 07:00 - 18:00<br>Za: 08:00 - 16:00</p>
+                                <p class="contact-card-desc" data-translate="contact_page.working_hours_info">Ma-Vr: 07:00 - 18:00<br>Za: 08:00 - 16:00</p>
                             </div>
                             
                             <div class="contact-card">
@@ -242,11 +294,11 @@
                                         <path d="M4 10L16 18L28 10" stroke="currentColor" stroke-width="2"/>
                                     </svg>
                                 </div>
-                                <h3 class="contact-card-title">E-mail</h3>
+                                <h3 class="contact-card-title" data-translate="contact_page.email_label">E-mail</h3>
                                 <p class="contact-card-info">
                                     <a href="mailto:info@weijdenmulticare.nl">info@weijdenmulticare.nl</a>
                                 </p>
-                                <p class="contact-card-desc">We reageren binnen 24 uur</p>
+                                <p class="contact-card-desc" data-translate="contact_page.response_time_info">We reageren binnen 24 uur</p>
                             </div>
                             
                             <div class="contact-card">
@@ -256,9 +308,9 @@
                                         <path d="M16 8V16L22 20" stroke="currentColor" stroke-width="2"/>
                                     </svg>
                                 </div>
-                                <h3 class="contact-card-title">Werkdagen</h3>
-                                <p class="contact-card-info">Maandag - Zaterdag</p>
-                                <p class="contact-card-desc">Zondag op afspraak voor noodgevallen</p>
+                                <h3 class="contact-card-title" data-translate="contact_page.working_days_title">Werkdagen</h3>
+                                <p class="contact-card-info" data-translate="contact_page.working_days_info">Maandag - Zaterdag</p>
+                                <p class="contact-card-desc" data-translate="contact_page.working_days_description">Zondag op afspraak voor noodgevallen</p>
                             </div>
                             
                             <div class="contact-card">
@@ -268,14 +320,14 @@
                                         <circle cx="16" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
                                     </svg>
                                 </div>
-                                <h3 class="contact-card-title">Werkgebied</h3>
-                                <p class="contact-card-info">Limburg & omgeving</p>
-                                <p class="contact-card-desc">Voor projecten buiten dit gebied nemen we graag contact op</p>
+                                <h3 class="contact-card-title" data-translate="contact_page.work_area_title">Werkgebied</h3>
+                                <p class="contact-card-info" data-translate="contact_page.work_area_info">Limburg & omgeving</p>
+                                <p class="contact-card-desc" data-translate="contact_page.work_area_description">Voor projecten buiten dit gebied nemen we graag contact op</p>
                             </div>
                         </div>
                         
                         <div class="social-links">
-                            <h3>Volg ons</h3>
+                            <h3 data-translate="contact_page.social_follow_title">Volg ons</h3>
                             <div class="social-buttons">
                                 <a href="https://www.linkedin.com/in/sander-weijden-93a302302/" target="_blank" class="social-btn">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -296,38 +348,38 @@
         <section class="section faq-section">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Veelgestelde vragen</h2>
-                    <p class="section-subtitle">Antwoorden op de meest gestelde vragen</p>
+                    <h2 class="section-title" data-translate="contact_page.faq_section_title">Veelgestelde vragen</h2>
+                    <p class="section-subtitle" data-translate="contact_page.faq_section_subtitle">Antwoorden op de meest gestelde vragen</p>
                 </div>
                 
                 <div class="faq-grid">
                     <div class="faq-item">
-                        <h3 class="faq-question">Hoe snel kunnen jullie beginnen?</h3>
-                        <p class="faq-answer">
+                        <h3 class="faq-question" data-translate="contact_page.faq_how_soon_question">Hoe snel kunnen jullie beginnen?</h3>
+                        <p class="faq-answer" data-translate="contact_page.faq_how_soon_answer">
                             Afhankelijk van de planning kunnen we vaak binnen een week beginnen. 
                             Voor spoedeisende klussen nemen we direct contact op om de mogelijkheden te bespreken.
                         </p>
                     </div>
                     
                     <div class="faq-item">
-                        <h3 class="faq-question">Zijn jullie verzekerd?</h3>
-                        <p class="faq-answer">
+                        <h3 class="faq-question" data-translate="contact_page.faq_insurance_question">Zijn jullie verzekerd?</h3>
+                        <p class="faq-answer" data-translate="contact_page.faq_insurance_answer">
                             Ja, wij zijn volledig verzekerd en gecertificeerd. We beschikken over een 
                             uitgebreide aansprakelijkheidsverzekering en zijn NEN3140 gecertificeerd.
                         </p>
                     </div>
                     
                     <div class="faq-item">
-                        <h3 class="faq-question">Leveren jullie een garantie?</h3>
-                        <p class="faq-answer">
+                        <h3 class="faq-question" data-translate="contact_page.faq_warranty_question">Leveren jullie een garantie?</h3>
+                        <p class="faq-answer" data-translate="contact_page.faq_warranty_answer">
                             Wij staan voor kwaliteit en geven daarom garantie op al onze werkzaamheden. 
                             De garantieperiode verschilt per type werk en wordt vooraf afgesproken.
                         </p>
                     </div>
                     
                     <div class="faq-item">
-                        <h3 class="faq-question">Kunnen jullie ook in het weekend werken?</h3>
-                        <p class="faq-answer">
+                        <h3 class="faq-question" data-translate="contact_page.faq_weekend_question">Kunnen jullie ook in het weekend werken?</h3>
+                        <p class="faq-answer" data-translate="contact_page.faq_weekend_answer">
                             Ja, op zaterdag werken we regulier. Voor zondag en avondwerk kunnen we 
                             op verzoek een afspraak maken, afhankelijk van het type werkzaamheden.
                         </p>
@@ -345,30 +397,30 @@
                     <div class="footer-logo">
                         <img src="../assets/images/lightmode_big.svg" alt="Weijden Multicare" class="footer-logo-image">
                     </div>
-                    <p class="footer-desc">Uw partner in veiligheid en betrouwbaarheid sinds 2018</p>
+                    <p class="footer-desc" data-translate="footer.description">Uw partner in veiligheid en betrouwbaarheid sinds 2018</p>
                 </div>
                 
                 <div class="footer-links">
                     <div class="footer-column">
-                        <h4 class="footer-title">Diensten</h4>
+                        <h4 class="footer-title" data-translate="footer.services_title">Diensten</h4>
                         <ul class="footer-list">
-                            <li><a href="diensten.html#sloop">Sloopwerkzaamheden</a></li>
-                            <li><a href="diensten.html#ontruiming">Ontruimingen</a></li>
-                            <li><a href="diensten.html#graaf">Graafwerkzaamheden</a></li>
+                            <li><a href="diensten.html#sloop" data-translate="services_page.demolition.title">Sloopwerkzaamheden</a></li>
+                            <li><a href="diensten.html#ontruiming" data-translate="services_page.clearing.title">Ontruimingen</a></li>
+                            <li><a href="diensten.html#graaf" data-translate="services_page.excavation.title">Graafwerkzaamheden</a></li>
                         </ul>
                     </div>
                     
                     <div class="footer-column">
-                        <h4 class="footer-title">Bedrijf</h4>
+                        <h4 class="footer-title" data-translate="footer.company_title">Bedrijf</h4>
                         <ul class="footer-list">
-                            <li><a href="over-ons.html">Over ons</a></li>
-                            <li><a href="vacatures.html">Vacatures</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="over-ons.html" data-translate="nav.about">Over ons</a></li>
+                            <li><a href="vacatures.html" data-translate="nav.jobs">Vacatures</a></li>
+                            <li><a href="contact.html" data-translate="nav.contact">Contact</a></li>
                         </ul>
                     </div>
                     
                     <div class="footer-column">
-                        <h4 class="footer-title">Contact</h4>
+                        <h4 class="footer-title" data-translate="footer.contact_title">Contact</h4>
                         <ul class="footer-list footer-contact">
                             <li>
                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -389,7 +441,7 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 Weijden Multicare. Alle rechten voorbehouden.</p>
+                <p data-translate="footer.copyright">&copy; 2025 Weijden Multicare. Alle rechten voorbehouden.</p>
             </div>
         </div>
     </footer>
@@ -629,5 +681,8 @@
     <script src="../js/main.js"></script>
     <script src="../js/menu.js"></script>
     <script src="../js/grid-lines.js"></script>
+    
+    <!-- Translations -->
+    <script src="../js/translations.js"></script>
 </body>
 </html>

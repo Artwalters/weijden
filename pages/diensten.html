@@ -45,45 +45,97 @@
                 </a>
             </div>
 
-            <!-- Desktop Navigation -->
-            <nav class="desktop-nav" id="desktop-nav">
-                <ul class="nav-list">
-                    <li class="nav-item">
-                        <a href="../index.html" class="nav-link">
-                            <span class="nav-text">Home</span>
-                            <span class="nav-indicator"></span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../pages/diensten.html" class="nav-link active">
-                            <span class="nav-text">Diensten</span>
-                            <span class="nav-indicator"></span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../pages/over-ons.html" class="nav-link">
-                            <span class="nav-text">Over Ons</span>
-                            <span class="nav-indicator"></span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../pages/vacatures.html" class="nav-link">
-                            <span class="nav-text">Vacatures</span>
-                            <span class="nav-indicator"></span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../pages/contact.html" class="nav-link nav-link--cta">
-                            <span class="nav-text">Contact</span>
-                            <span class="nav-indicator"></span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+            <!-- Navigation Right Side -->
+            <div class="nav-right">
+                <!-- Desktop Navigation -->
+                <nav class="desktop-nav" id="desktop-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="../index.html" class="nav-link">
+                                <span class="nav-text" data-translate="nav.home">Home</span>
+                                <span class="nav-indicator"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../pages/diensten.html" class="nav-link active">
+                                <span class="nav-text" data-translate="nav.services">Diensten</span>
+                                <span class="nav-indicator"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../pages/over-ons.html" class="nav-link">
+                                <span class="nav-text" data-translate="nav.about">Over Ons</span>
+                                <span class="nav-indicator"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../pages/vacatures.html" class="nav-link">
+                                <span class="nav-text" data-translate="nav.jobs">Vacatures</span>
+                                <span class="nav-indicator"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../pages/contact.html" class="nav-link nav-link--cta">
+                                <span class="nav-text" data-translate="nav.contact">Contact</span>
+                                <span class="nav-indicator"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- Language Switch -->
+                <div class="language-switch">
+                    <div class="language-dropdown">
+                        <button class="language-current" id="current-language">
+                            <span class="lang-flag">🇳🇱</span>
+                            <span class="lang-text">NL</span>
+                            <span class="language-dropdown-icon">▼</span>
+                        </button>
+                        <div class="language-dropdown-menu">
+                            <button class="language-btn active" data-lang="nl">
+                                <span class="lang-flag">🇳🇱</span>
+                                <span class="lang-text">NL</span>
+                            </button>
+                            <button class="language-btn" data-lang="en">
+                                <span class="lang-flag">🇬🇧</span>
+                                <span class="lang-text">EN</span>
+                            </button>
+                            <button class="language-btn" data-lang="de">
+                                <span class="lang-flag">🇩🇪</span>
+                                <span class="lang-text">DE</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <!-- Mobile Actions -->
             <div class="mobile-actions">
-                <a href="../pages/contact.html" class="mobile-contact-btn">Contact</a>
+                <!-- Language Switch for Mobile -->
+                <div class="language-switch">
+                    <div class="language-dropdown">
+                        <button class="language-current" id="current-language-mobile">
+                            <span class="lang-flag">🇳🇱</span>
+                            <span class="lang-text">NL</span>
+                            <span class="language-dropdown-icon">▼</span>
+                        </button>
+                        <div class="language-dropdown-menu">
+                            <button class="language-btn active" data-lang="nl">
+                                <span class="lang-flag">🇳🇱</span>
+                                <span class="lang-text">NL</span>
+                            </button>
+                            <button class="language-btn" data-lang="en">
+                                <span class="lang-flag">🇬🇧</span>
+                                <span class="lang-text">EN</span>
+                            </button>
+                            <button class="language-btn" data-lang="de">
+                                <span class="lang-flag">🇩🇪</span>
+                                <span class="lang-text">DE</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <a href="../pages/contact.html" class="mobile-contact-btn" data-translate="nav.contact">Contact</a>
                 <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu" aria-expanded="false">
                     <span class="menu-line menu-line-1"></span>
                     <span class="menu-line menu-line-2"></span>
@@ -100,7 +152,7 @@
             <ul class="mobile-nav-list">
                 <li class="mobile-nav-item">
                     <a href="../index.html" class="mobile-nav-link">
-                        <span class="mobile-nav-text">Home</span>
+                        <span class="mobile-nav-text" data-translate="nav.home">Home</span>
                         <span class="mobile-nav-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                                 <path d="M3 9L12 2L21 9V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V9Z" stroke="currentColor" stroke-width="2"/>
@@ -110,7 +162,7 @@
                 </li>
                 <li class="mobile-nav-item">
                     <a href="../pages/diensten.html" class="mobile-nav-link active">
-                        <span class="mobile-nav-text">Diensten</span>
+                        <span class="mobile-nav-text" data-translate="nav.services">Diensten</span>
                         <span class="mobile-nav-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                                 <rect x="6" y="6" width="12" height="12" stroke="currentColor" stroke-width="2"/>
@@ -121,7 +173,7 @@
                 </li>
                 <li class="mobile-nav-item">
                     <a href="../pages/over-ons.html" class="mobile-nav-link">
-                        <span class="mobile-nav-text">Over Ons</span>
+                        <span class="mobile-nav-text" data-translate="nav.about">Over Ons</span>
                         <span class="mobile-nav-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                                 <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="2"/>
@@ -132,7 +184,7 @@
                 </li>
                 <li class="mobile-nav-item">
                     <a href="../pages/vacatures.html" class="mobile-nav-link">
-                        <span class="mobile-nav-text">Vacatures</span>
+                        <span class="mobile-nav-text" data-translate="nav.jobs">Vacatures</span>
                         <span class="mobile-nav-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                                 <rect x="2" y="7" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
@@ -150,8 +202,8 @@
         <!-- Page Hero -->
         <section class="page-hero">
             <div class="container">
-                <h1 class="page-title">Onze Diensten</h1>
-                <p class="page-subtitle">Professionele oplossingen voor al uw projecten</p>
+                <h1 class="page-title" data-translate="services_page.title">Onze Diensten</h1>
+                <p class="page-subtitle" data-translate="services_page.subtitle">Professionele oplossingen voor al uw projecten</p>
             </div>
         </section>
 
@@ -159,8 +211,8 @@
         <section class="section services-section">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Onze specialiteiten</h2>
-                    <p class="section-subtitle">Professionele diensten met jarenlange ervaring</p>
+                    <h2 class="section-title" data-translate="services_page.specialties_title">Onze specialiteiten</h2>
+                    <p class="section-subtitle" data-translate="services_page.specialties_subtitle">Professionele diensten met jarenlange ervaring</p>
                 </div>
                 
                 <div class="services-grid">
@@ -174,18 +226,18 @@
                                     <circle cx="24" cy="24" r="4" stroke="currentColor" stroke-width="2"/>
                                 </svg>
                             </div>
-                            <h3 class="service-title">Sloopwerkzaamheden</h3>
+                            <h3 class="service-title" data-translate="services_page.demolition.title">Sloopwerkzaamheden</h3>
                         </div>
-                        <p class="service-description">
+                        <p class="service-description" data-translate="services_page.demolition.description">
                             Wij bieden een uitgebreide reeks sloopwerkzaamheden aan, uitgevoerd met zorg en precisie. 
                             Tijdens onze werkzaamheden werken we stofvrij door gebruik te maken van moderne afzuigsystemen.
                         </p>
                         <ul class="service-list">
-                            <li>Badkamer- en keukenverwijdering</li>
-                            <li>Vloer- en tegelverwijdering</li>
-                            <li>Muur doorbraak en verwijdering</li>
-                            <li>Stofvrij werken met afzuigsystemen</li>
-                            <li>Professionele afvoer van puin</li>
+                            <li data-translate="services_page.demolition.services.bathroom_kitchen">Badkamer- en keukenverwijdering</li>
+                            <li data-translate="services_page.demolition.services.floor_tiles">Vloer- en tegelverwijdering</li>
+                            <li data-translate="services_page.demolition.services.wall_breakthrough">Muur doorbraak en verwijdering</li>
+                            <li data-translate="services_page.demolition.services.dust_free">Stofvrij werken met afzuigsystemen</li>
+                            <li data-translate="services_page.demolition.services.debris_removal">Professionele afvoer van puin</li>
                         </ul>
                     </article>
 
@@ -199,18 +251,18 @@
                                     <line x1="24" y1="26" x2="24" y2="30" stroke="currentColor" stroke-width="2"/>
                                 </svg>
                             </div>
-                            <h3 class="service-title">Ontruimingen</h3>
+                            <h3 class="service-title" data-translate="services_page.clearing.title">Ontruimingen</h3>
                         </div>
-                        <p class="service-description">
+                        <p class="service-description" data-translate="services_page.clearing.description">
                             Gespecialiseerd in het uitvoeren van ontruimingen. Of het nu gaat om koopwoningen, 
                             huurwoningen of bedrijfsruimtes, wij zorgen voor een efficiënte en zorgvuldige ontruiming.
                         </p>
                         <ul class="service-list">
-                            <li>Woningontruiming na verhuizing of overlijden</li>
-                            <li>Bedrijfspand ontruimen</li>
-                            <li>Schoonmaken en opleveren</li>
-                            <li>Afvoeren van grofvuil en meubels</li>
-                            <li>Respectvolle behandeling van eigendommen</li>
+                            <li data-translate="services_page.clearing.services.house_clearing">Woningontruiming na verhuizing of overlijden</li>
+                            <li data-translate="services_page.clearing.services.business_clearing">Bedrijfspand ontruimen</li>
+                            <li data-translate="services_page.clearing.services.cleaning_delivery">Schoonmaken en opleveren</li>
+                            <li data-translate="services_page.clearing.services.furniture_removal">Afvoeren van grofvuil en meubels</li>
+                            <li data-translate="services_page.clearing.services.respectful_treatment">Respectvolle behandeling van eigendommen</li>
                         </ul>
                     </article>
 
@@ -225,18 +277,18 @@
                                     <line x1="8" y1="40" x2="40" y2="40" stroke="currentColor" stroke-width="2"/>
                                 </svg>
                             </div>
-                            <h3 class="service-title">Graafwerkzaamheden</h3>
+                            <h3 class="service-title" data-translate="services_page.excavation.title">Graafwerkzaamheden</h3>
                         </div>
-                        <p class="service-description">
+                        <p class="service-description" data-translate="services_page.excavation.description">
                             Een uitgebreid scala aan graaf- en grondwerkzaamheden, uitgevoerd met precisie en vakmanschap. 
                             Van tuinprojecten tot infrastructuurwerken.
                         </p>
                         <ul class="service-list">
-                            <li>Bomen en heggen verwijderen</li>
-                            <li>Grondafgraving voor vijvers of zwembaden</li>
-                            <li>Voorbereidende grondwerken voor bestrating</li>
-                            <li>Drainage- en sleufwerkzaamheden</li>
-                            <li>Aanleg van tuinpaden en terrassen</li>
+                            <li data-translate="services_page.excavation.services.tree_removal">Bomen en heggen verwijderen</li>
+                            <li data-translate="services_page.excavation.services.pond_excavation">Grondafgraving voor vijvers of zwembaden</li>
+                            <li data-translate="services_page.excavation.services.paving_preparation">Voorbereidende grondwerken voor bestrating</li>
+                            <li data-translate="services_page.excavation.services.drainage_work">Drainage- en sleufwerkzaamheden</li>
+                            <li data-translate="services_page.excavation.services.garden_paths">Aanleg van tuinpaden en terrassen</li>
                         </ul>
                     </article>
                 </div>
@@ -247,8 +299,8 @@
         <section class="section additional-info">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Waarom Weijden Multicare?</h2>
-                    <p class="section-subtitle">Kwaliteit, betrouwbaarheid en vakmanschap sinds 2018</p>
+                    <h2 class="section-title" data-translate="services_page.why_choose_title">Waarom Weijden Multicare?</h2>
+                    <p class="section-subtitle" data-translate="services_page.why_choose_subtitle">Kwaliteit, betrouwbaarheid en vakmanschap sinds 2018</p>
                 </div>
                 
                 <div class="info-grid">
@@ -258,8 +310,8 @@
                                 <path d="M24 8L27.09 17.26L37 18.27L30.45 24.97L32.18 35L24 30.27L15.82 35L17.55 24.97L11 18.27L20.91 17.26L24 8Z" stroke="currentColor" stroke-width="2"/>
                             </svg>
                         </div>
-                        <h3 class="info-title">Ervaren Team</h3>
-                        <p class="info-desc">Jong, energiek team met jarenlange ervaring en een netwerk van specialisten</p>
+                        <h3 class="info-title" data-translate="services_page.experienced_team.title">Ervaren Team</h3>
+                        <p class="info-desc" data-translate="services_page.experienced_team.description">Jong, energiek team met jarenlange ervaring en een netwerk van specialisten</p>
                     </div>
                     
                     <div class="info-card">
@@ -269,8 +321,8 @@
                                 <path d="M16 24L22 30L32 18" stroke="currentColor" stroke-width="2"/>
                             </svg>
                         </div>
-                        <h3 class="info-title">Gecertificeerd</h3>
-                        <p class="info-desc">NEN3140 gecertificeerd voor veilig werken met elektrische installaties</p>
+                        <h3 class="info-title" data-translate="services_page.certified.title">Gecertificeerd</h3>
+                        <p class="info-desc" data-translate="services_page.certified.description">NEN3140 gecertificeerd voor veilig werken met elektrische installaties</p>
                     </div>
                     
                     <div class="info-card">
@@ -280,8 +332,8 @@
                                 <path d="M16 12V8C16 5.79086 17.7909 4 20 4H28C30.2091 4 32 5.79086 32 8V12" stroke="currentColor" stroke-width="2"/>
                             </svg>
                         </div>
-                        <h3 class="info-title">Maatwerk</h3>
-                        <p class="info-desc">Flexibele oplossingen aangepast aan uw specifieke wensen en behoeften</p>
+                        <h3 class="info-title" data-translate="services_page.custom_solutions.title">Maatwerk</h3>
+                        <p class="info-desc" data-translate="services_page.custom_solutions.description">Flexibele oplossingen aangepast aan uw specifieke wensen en behoeften</p>
                     </div>
                 </div>
             </div>
@@ -291,16 +343,16 @@
         <section class="cta section">
             <div class="container">
                 <div class="cta-content">
-                    <h2 class="cta-title">Interesse in onze diensten?</h2>
-                    <p class="cta-text">Neem contact op voor een vrijblijvende offerte</p>
+                    <h2 class="cta-title" data-translate="services_page.cta_title">Interesse in onze diensten?</h2>
+                    <p class="cta-text" data-translate="services_page.cta_subtitle">Neem contact op voor een vrijblijvende offerte</p>
                     <div class="cta-buttons">
                         <a href="tel:+31615372259" class="btn btn-primary">
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                                 <path d="M3 5C3 3.89543 3.89543 3 5 3H7.27924C7.70967 3 8.09181 3.27543 8.22792 3.68377L9.2108 6.63246C9.33847 7.01453 9.22761 7.43263 8.92951 7.69825L7.54338 9.00101C8.60286 11.1177 10.3459 12.8609 12.463 13.921L13.7648 12.5341C14.0307 12.2358 14.449 12.1249 14.8312 12.2527L17.78 13.2357C18.1884 13.3719 18.4639 13.7541 18.4639 14.1846V16.3718C18.4639 17.5156 17.5395 18.44 16.3957 18.44C8.68949 18.44 2.44 12.1905 2.44 4.48425" stroke="currentColor" stroke-width="2"/>
                             </svg>
-                            Bel direct
+                            <span data-translate="services_page.cta_call_button">Bel direct</span>
                         </a>
-                        <a href="contact.html" class="btn btn-secondary">Stuur een bericht</a>
+                        <a href="contact.html" class="btn btn-secondary" data-translate="services_page.cta_message_button">Stuur een bericht</a>
                     </div>
                 </div>
             </div>
@@ -315,30 +367,30 @@
                     <div class="footer-logo">
                         <img src="../assets/images/lightmode_big.svg" alt="Weijden Multicare" class="footer-logo-image">
                     </div>
-                    <p class="footer-desc">Uw partner in veiligheid en betrouwbaarheid sinds 2018</p>
+                    <p class="footer-desc" data-translate="footer.description">Uw partner in veiligheid en betrouwbaarheid sinds 2018</p>
                 </div>
                 
                 <div class="footer-links">
                     <div class="footer-column">
-                        <h4 class="footer-title">Diensten</h4>
+                        <h4 class="footer-title" data-translate="footer.services_title">Diensten</h4>
                         <ul class="footer-list">
-                            <li><a href="#sloop">Sloopwerkzaamheden</a></li>
-                            <li><a href="#ontruiming">Ontruimingen</a></li>
-                            <li><a href="#graaf">Graafwerkzaamheden</a></li>
+                            <li><a href="#sloop" data-translate="services_page.demolition.title">Sloopwerkzaamheden</a></li>
+                            <li><a href="#ontruiming" data-translate="services_page.clearing.title">Ontruimingen</a></li>
+                            <li><a href="#graaf" data-translate="services_page.excavation.title">Graafwerkzaamheden</a></li>
                         </ul>
                     </div>
                     
                     <div class="footer-column">
-                        <h4 class="footer-title">Bedrijf</h4>
+                        <h4 class="footer-title" data-translate="footer.company_title">Bedrijf</h4>
                         <ul class="footer-list">
-                            <li><a href="over-ons.html">Over ons</a></li>
-                            <li><a href="vacatures.html">Vacatures</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="over-ons.html" data-translate="nav.about">Over ons</a></li>
+                            <li><a href="vacatures.html" data-translate="nav.jobs">Vacatures</a></li>
+                            <li><a href="contact.html" data-translate="nav.contact">Contact</a></li>
                         </ul>
                     </div>
                     
                     <div class="footer-column">
-                        <h4 class="footer-title">Contact</h4>
+                        <h4 class="footer-title" data-translate="footer.contact_title">Contact</h4>
                         <ul class="footer-list footer-contact">
                             <li>
                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -359,7 +411,7 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 Weijden Multicare. Alle rechten voorbehouden.</p>
+                <p data-translate="footer.copyright">&copy; 2025 Weijden Multicare. Alle rechten voorbehouden.</p>
             </div>
         </div>
     </footer>
@@ -529,5 +581,8 @@
     <script src="../js/main.js"></script>
     <script src="../js/menu.js"></script>
     <script src="../js/grid-lines.js"></script>
+    
+    <!-- Translations -->
+    <script src="../js/translations.js"></script>
 </body>
 </html>

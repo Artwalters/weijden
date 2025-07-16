@@ -45,45 +45,97 @@
                 </a>
             </div>
 
-            <!-- Desktop Navigation -->
-            <nav class="desktop-nav" id="desktop-nav">
-                <ul class="nav-list">
-                    <li class="nav-item">
-                        <a href="../index.html" class="nav-link">
-                            <span class="nav-text">Home</span>
-                            <span class="nav-indicator"></span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="diensten.html" class="nav-link">
-                            <span class="nav-text">Diensten</span>
-                            <span class="nav-indicator"></span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="over-ons.html" class="nav-link">
-                            <span class="nav-text">Over Ons</span>
-                            <span class="nav-indicator"></span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="vacatures.html" class="nav-link active">
-                            <span class="nav-text">Vacatures</span>
-                            <span class="nav-indicator"></span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="contact.html" class="nav-link nav-link--cta">
-                            <span class="nav-text">Contact</span>
-                            <span class="nav-indicator"></span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+            <!-- Navigation Right Side -->
+            <div class="nav-right">
+                <!-- Desktop Navigation -->
+                <nav class="desktop-nav" id="desktop-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item">
+                            <a href="../index.html" class="nav-link">
+                                <span class="nav-text" data-translate="nav.home">Home</span>
+                                <span class="nav-indicator"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="diensten.html" class="nav-link">
+                                <span class="nav-text" data-translate="nav.services">Diensten</span>
+                                <span class="nav-indicator"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="over-ons.html" class="nav-link">
+                                <span class="nav-text" data-translate="nav.about">Over Ons</span>
+                                <span class="nav-indicator"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="vacatures.html" class="nav-link active">
+                                <span class="nav-text" data-translate="nav.jobs">Vacatures</span>
+                                <span class="nav-indicator"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="contact.html" class="nav-link nav-link--cta">
+                                <span class="nav-text" data-translate="nav.contact">Contact</span>
+                                <span class="nav-indicator"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- Language Switch -->
+                <div class="language-switch">
+                    <div class="language-dropdown">
+                        <button class="language-current" id="current-language">
+                            <span class="lang-flag">🇳🇱</span>
+                            <span class="lang-text">NL</span>
+                            <span class="language-dropdown-icon">▼</span>
+                        </button>
+                        <div class="language-dropdown-menu">
+                            <button class="language-btn active" data-lang="nl">
+                                <span class="lang-flag">🇳🇱</span>
+                                <span class="lang-text">NL</span>
+                            </button>
+                            <button class="language-btn" data-lang="en">
+                                <span class="lang-flag">🇬🇧</span>
+                                <span class="lang-text">EN</span>
+                            </button>
+                            <button class="language-btn" data-lang="de">
+                                <span class="lang-flag">🇩🇪</span>
+                                <span class="lang-text">DE</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <!-- Mobile Actions -->
             <div class="mobile-actions">
-                <a href="../pages/contact.html" class="mobile-contact-btn">Contact</a>
+                <!-- Language Switch for Mobile -->
+                <div class="language-switch">
+                    <div class="language-dropdown">
+                        <button class="language-current" id="current-language-mobile">
+                            <span class="lang-flag">🇳🇱</span>
+                            <span class="lang-text">NL</span>
+                            <span class="language-dropdown-icon">▼</span>
+                        </button>
+                        <div class="language-dropdown-menu">
+                            <button class="language-btn active" data-lang="nl">
+                                <span class="lang-flag">🇳🇱</span>
+                                <span class="lang-text">NL</span>
+                            </button>
+                            <button class="language-btn" data-lang="en">
+                                <span class="lang-flag">🇬🇧</span>
+                                <span class="lang-text">EN</span>
+                            </button>
+                            <button class="language-btn" data-lang="de">
+                                <span class="lang-flag">🇩🇪</span>
+                                <span class="lang-text">DE</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <a href="../pages/contact.html" class="mobile-contact-btn" data-translate="nav.contact">Contact</a>
                 <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu" aria-expanded="false">
                     <span class="menu-line menu-line-1"></span>
                     <span class="menu-line menu-line-2"></span>
@@ -100,7 +152,7 @@
             <ul class="mobile-nav-list">
                 <li class="mobile-nav-item">
                     <a href="../index.html" class="mobile-nav-link">
-                        <span class="mobile-nav-text">Home</span>
+                        <span class="mobile-nav-text" data-translate="nav.home">Home</span>
                         <span class="mobile-nav-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                                 <path d="M3 9L12 2L21 9V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V9Z" stroke="currentColor" stroke-width="2"/>
@@ -110,7 +162,7 @@
                 </li>
                 <li class="mobile-nav-item">
                     <a href="diensten.html" class="mobile-nav-link">
-                        <span class="mobile-nav-text">Diensten</span>
+                        <span class="mobile-nav-text" data-translate="nav.services">Diensten</span>
                         <span class="mobile-nav-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                                 <rect x="6" y="6" width="12" height="12" stroke="currentColor" stroke-width="2"/>
@@ -121,7 +173,7 @@
                 </li>
                 <li class="mobile-nav-item">
                     <a href="over-ons.html" class="mobile-nav-link">
-                        <span class="mobile-nav-text">Over Ons</span>
+                        <span class="mobile-nav-text" data-translate="nav.about">Over Ons</span>
                         <span class="mobile-nav-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                                 <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="2"/>
@@ -132,7 +184,7 @@
                 </li>
                 <li class="mobile-nav-item">
                     <a href="vacatures.html" class="mobile-nav-link active">
-                        <span class="mobile-nav-text">Vacatures</span>
+                        <span class="mobile-nav-text" data-translate="nav.jobs">Vacatures</span>
                         <span class="mobile-nav-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                                 <rect x="2" y="7" width="20" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
@@ -150,8 +202,8 @@
         <!-- Page Hero -->
         <section class="page-hero">
             <div class="container">
-                <h1 class="page-title">Vacatures</h1>
-                <p class="page-subtitle">Word deel van ons enthousiaste team bij Weijden Multicare</p>
+                <h1 class="page-title" data-translate="vacatures_page.title">Vacatures</h1>
+                <p class="page-subtitle" data-translate="vacatures_page.subtitle">Word deel van ons enthousiaste team bij Weijden Multicare</p>
             </div>
         </section>
 
@@ -159,13 +211,13 @@
         <section class="section intro-section">
             <div class="container">
                 <div class="intro-content">
-                    <h2 class="intro-title">Werken bij Weijden Multicare</h2>
-                    <p class="intro-text">
+                    <h2 class="intro-title" data-translate="vacatures_page.work_title">Werken bij Weijden Multicare</h2>
+                    <p class="intro-text" data-translate="vacatures_page.no_positions_text">
                         Wij zijn altijd op zoek naar gemotiveerde en hardwerkende collega's die ons team willen versterken. 
                         Bij Weijden Multicare werk je in een jonge, dynamische omgeving waar kwaliteit, veiligheid en 
                         teamwork centraal staan.
                     </p>
-                    <p>
+                    <p data-translate="vacatures_page.spontaneous_text">
                         Ook als er momenteel geen specifieke vacatures open staan, nodigen we je uit om een 
                         open sollicitatie te sturen. We waarderen initiatief en zijn altijd geïnteresseerd 
                         in talent dat past bij onze bedrijfscultuur.
@@ -178,8 +230,8 @@
         <section class="section benefits-section">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Waarom werken bij ons?</h2>
-                    <p class="section-subtitle">Wat wij jou te bieden hebben</p>
+                    <h2 class="section-title" data-translate="vacatures_page.why_work_title">Waarom werken bij ons?</h2>
+                    <p class="section-subtitle" data-translate="vacatures_page.why_work_subtitle">Wat wij jou te bieden hebben</p>
                 </div>
                 
                 <div class="benefits-grid">
@@ -189,8 +241,8 @@
                                 <path d="M24 8L27.09 17.26L37 18.27L30.45 24.97L32.18 35L24 30.27L15.82 35L17.55 24.97L11 18.27L20.91 17.26L24 8Z" stroke="currentColor" stroke-width="2"/>
                             </svg>
                         </div>
-                        <h3 class="benefit-title">Groei & Ontwikkeling</h3>
-                        <p class="benefit-desc">
+                        <h3 class="benefit-title" data-translate="vacatures_page.growth_opportunities">Groei & Ontwikkeling</h3>
+                        <p class="benefit-desc" data-translate="vacatures_page.growth_opportunities_desc">
                             Ruimte voor persoonlijke en professionele ontwikkeling. 
                             We investeren in cursussen en certificeringen voor onze medewerkers.
                         </p>
@@ -203,8 +255,8 @@
                                 <path d="M22 30H26" stroke="currentColor" stroke-width="2"/>
                             </svg>
                         </div>
-                        <h3 class="benefit-title">Stabiele Werkgever</h3>
-                        <p class="benefit-desc">
+                        <h3 class="benefit-title" data-translate="vacatures_page.stable_employer">Stabiele Werkgever</h3>
+                        <p class="benefit-desc" data-translate="vacatures_page.stable_employer_desc">
                             Een groeiend bedrijf met een sterke reputatie en vaste klanten. 
                             Zekerheid en stabiliteit in een dynamische sector.
                         </p>
@@ -217,8 +269,8 @@
                                 <path d="M8 40C8 32 15 26 24 26C33 26 40 32 40 40" stroke="currentColor" stroke-width="2"/>
                             </svg>
                         </div>
-                        <h3 class="benefit-title">Jong Team</h3>
-                        <p class="benefit-desc">
+                        <h3 class="benefit-title" data-translate="vacatures_page.young_team">Jong Team</h3>
+                        <p class="benefit-desc" data-translate="vacatures_page.young_team_desc">
                             Werk samen met een enthousiast en gedreven team. 
                             Korte communicatielijnen en een informele werksfeer.
                         </p>
@@ -232,8 +284,8 @@
                                 <path d="M24 28C29.5228 28 34 32.4772 34 38C34 43.5228 29.5228 48 24 48C18.4772 48 14 43.5228 14 38C14 32.4772 18.4772 28 24 28Z" stroke="currentColor" stroke-width="2"/>
                             </svg>
                         </div>
-                        <h3 class="benefit-title">Afwisselend Werk</h3>
-                        <p class="benefit-desc">
+                        <h3 class="benefit-title" data-translate="vacatures_page.varied_work">Afwisselend Werk</h3>
+                        <p class="benefit-desc" data-translate="vacatures_page.varied_work_desc">
                             Geen dag is hetzelfde. Werk aan diverse projecten 
                             van kleine klussen tot grote renovaties.
                         </p>
@@ -247,8 +299,8 @@
                                 <circle cx="24" cy="28" r="3" stroke="currentColor" stroke-width="2"/>
                             </svg>
                         </div>
-                        <h3 class="benefit-title">Goede Arbeidsvoorwaarden</h3>
-                        <p class="benefit-desc">
+                        <h3 class="benefit-title" data-translate="vacatures_page.good_conditions">Goede Arbeidsvoorwaarden</h3>
+                        <p class="benefit-desc" data-translate="vacatures_page.good_conditions_desc">
                             Marktconform salaris, bedrijfskleding en gereedschappen. 
                             Ook pensioenregeling en vakantiegeld.
                         </p>
@@ -261,8 +313,8 @@
                                 <path d="M16 24L22 30L32 18" stroke="currentColor" stroke-width="2"/>
                             </svg>
                         </div>
-                        <h3 class="benefit-title">Veiligheid Voorop</h3>
-                        <p class="benefit-desc">
+                        <h3 class="benefit-title" data-translate="vacatures_page.safety_first">Veiligheid Voorop</h3>
+                        <p class="benefit-desc" data-translate="vacatures_page.safety_first_desc">
                             Veilig werken staat centraal. Alle benodigde certificeringen, 
                             PBM's en veiligheidsuitrusting worden verzorgd.
                         </p>
@@ -276,8 +328,8 @@
         <section class="section profiles-section">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">Wie zoeken we?</h2>
-                    <p class="section-subtitle">Profielen die bij ons passen</p>
+                    <h2 class="section-title" data-translate="vacatures_page.job_profiles_title">Wie zoeken we?</h2>
+                    <p class="section-subtitle" data-translate="vacatures_page.job_profiles_subtitle">Profielen die bij ons passen</p>
                 </div>
                 
                 <div class="profiles-grid">
@@ -289,12 +341,12 @@
                                 <circle cx="24" cy="24" r="4" stroke="currentColor" stroke-width="2"/>
                             </svg>
                         </div>
-                        <h3 class="profile-title">Sloopwerker</h3>
+                        <h3 class="profile-title" data-translate="vacatures_page.demolition_worker">Sloopwerker</h3>
                         <ul class="profile-requirements">
-                            <li>Ervaring met sloopwerkzaamheden</li>
-                            <li>VCA certificaat (of bereidheid om te behalen)</li>
-                            <li>Fysiek in goede conditie</li>
-                            <li>Zelfstandig en in teamverband kunnen werken</li>
+                            <li data-translate="vacatures_page.demolition_req_1">Ervaring met sloopwerkzaamheden</li>
+                            <li data-translate="vacatures_page.demolition_req_2">VCA certificaat (of bereidheid om te behalen)</li>
+                            <li data-translate="vacatures_page.demolition_req_3">Fysiek in goede conditie</li>
+                            <li data-translate="vacatures_page.demolition_req_4">Zelfstandig en in teamverband kunnen werken</li>
                         </ul>
                     </div>
                     
@@ -307,12 +359,12 @@
                                 <line x1="8" y1="40" x2="40" y2="40" stroke="currentColor" stroke-width="2"/>
                             </svg>
                         </div>
-                        <h3 class="profile-title">Grondwerker</h3>
+                        <h3 class="profile-title" data-translate="vacatures_page.groundworker">Grondwerker</h3>
                         <ul class="profile-requirements">
-                            <li>Ervaring met graafmachines en grondverzet</li>
-                            <li>Rijbewijs B, bij voorkeur ook voor graafmachine</li>
-                            <li>Kennis van bestrating en drainage</li>
-                            <li>Accuraat en resultaatgericht</li>
+                            <li data-translate="vacatures_page.groundworker_req_1">Ervaring met graafmachines en grondverzet</li>
+                            <li data-translate="vacatures_page.groundworker_req_2">Rijbewijs B, bij voorkeur ook voor graafmachine</li>
+                            <li data-translate="vacatures_page.groundworker_req_3">Kennis van bestrating en drainage</li>
+                            <li data-translate="vacatures_page.groundworker_req_4">Accuraat en resultaatgericht</li>
                         </ul>
                     </div>
                     
@@ -324,12 +376,12 @@
                                 <line x1="24" y1="26" x2="24" y2="30" stroke="currentColor" stroke-width="2"/>
                             </svg>
                         </div>
-                        <h3 class="profile-title">Allround Medewerker</h3>
+                        <h3 class="profile-title" data-translate="vacatures_page.allround_worker">Allround Medewerker</h3>
                         <ul class="profile-requirements">
-                            <li>Breed inzetbaar in verschillende disciplines</li>
-                            <li>Handig en praktisch ingesteld</li>
-                            <li>Rijbewijs B</li>
-                            <li>Leergierig en flexibel</li>
+                            <li data-translate="vacatures_page.allround_req_1">Breed inzetbaar in verschillende disciplines</li>
+                            <li data-translate="vacatures_page.allround_req_2">Handig en praktisch ingesteld</li>
+                            <li data-translate="vacatures_page.allround_req_3">Rijbewijs B</li>
+                            <li data-translate="vacatures_page.allround_req_4">Leergierig en flexibel</li>
                         </ul>
                     </div>
                 </div>
@@ -341,44 +393,44 @@
             <div class="container">
                 <div class="application-content">
                     <div class="application-text">
-                        <h2 class="application-title">Interesse? Neem contact op!</h2>
-                        <p class="application-desc">
+                        <h2 class="application-title" data-translate="vacatures_page.application_title">Interesse? Neem contact op!</h2>
+                        <p class="application-desc" data-translate="vacatures_page.application_description">
                             Herken je jezelf in een van de profielen? Of denk je dat je op een andere manier 
                             een waardevolle toevoeging kunt zijn aan ons team? We horen graag van je!
                         </p>
                         <div class="application-info">
-                            <h3>Wat verwachten we van je sollicitatie?</h3>
+                            <h3 data-translate="vacatures_page.application_expectations_title">Wat verwachten we van je sollicitatie?</h3>
                             <ul>
-                                <li>Een motivatiebrief waarin je vertelt waarom je bij ons wilt werken</li>
-                                <li>Je CV met relevante werkervaring</li>
-                                <li>Eventuele certificaten (VCA, rijbewijzen, etc.)</li>
-                                <li>Contactgegevens van referenties</li>
+                                <li data-translate="vacatures_page.application_exp_1">Een motivatiebrief waarin je vertelt waarom je bij ons wilt werken</li>
+                                <li data-translate="vacatures_page.application_exp_2">Je CV met relevante werkervaring</li>
+                                <li data-translate="vacatures_page.application_exp_3">Eventuele certificaten (VCA, rijbewijzen, etc.)</li>
+                                <li data-translate="vacatures_page.application_exp_4">Contactgegevens van referenties</li>
                             </ul>
                         </div>
                     </div>
                     
                     <div class="application-actions">
-                        <h3>Solliciteren kan op verschillende manieren:</h3>
+                        <h3 data-translate="vacatures_page.application_methods_title">Solliciteren kan op verschillende manieren:</h3>
                         <div class="action-buttons">
                             <a href="mailto:info@weijdenmulticare.nl?subject=Sollicitatie" class="btn btn-primary">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                                     <rect x="2" y="4" width="16" height="12" rx="1" stroke="currentColor" stroke-width="2"/>
                                     <path d="M2 5L10 11L18 5" stroke="currentColor" stroke-width="2"/>
                                 </svg>
-                                E-mail sollicitatie
+                                <span data-translate="vacatures_page.email_application">E-mail sollicitatie</span>
                             </a>
                             <a href="tel:+31615372259" class="btn btn-secondary">
                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                                     <path d="M3 5C3 3.89543 3.89543 3 5 3H7.27924C7.70967 3 8.09181 3.27543 8.22792 3.68377L9.2108 6.63246C9.33847 7.01453 9.22761 7.43263 8.92951 7.69825L7.54338 9.00101C8.60286 11.1177 10.3459 12.8609 12.463 13.921L13.7648 12.5341C14.0307 12.2358 14.449 12.1249 14.8312 12.2527L17.78 13.2357C18.1884 13.3719 18.4639 13.7541 18.4639 14.1846V16.3718C18.4639 17.5156 17.5395 18.44 16.3957 18.44C8.68949 18.44 2.44 12.1905 2.44 4.48425" stroke="currentColor" stroke-width="2"/>
                                 </svg>
-                                Bel voor informatie
+                                <span data-translate="vacatures_page.call_for_info">Bel voor informatie</span>
                             </a>
                         </div>
                         
                         <div class="contact-person">
-                            <h4>Contactpersoon</h4>
+                            <h4 data-translate="vacatures_page.contact_person_title">Contactpersoon</h4>
                             <p><strong>Sander Weijden</strong><br>
-                            Eigenaar & Projectleider<br>
+                            <span data-translate="vacatures_page.contact_person_role">Eigenaar & Projectleider</span><br>
                             <a href="tel:+31615372259">+31 6 15372259</a></p>
                         </div>
                     </div>
@@ -395,30 +447,30 @@
                     <div class="footer-logo">
                         <img src="../assets/images/lightmode_big.svg" alt="Weijden Multicare" class="footer-logo-image">
                     </div>
-                    <p class="footer-desc">Uw partner in veiligheid en betrouwbaarheid sinds 2018</p>
+                    <p class="footer-desc" data-translate="footer.description">Uw partner in veiligheid en betrouwbaarheid sinds 2018</p>
                 </div>
                 
                 <div class="footer-links">
                     <div class="footer-column">
-                        <h4 class="footer-title">Diensten</h4>
+                        <h4 class="footer-title" data-translate="footer.services_title">Diensten</h4>
                         <ul class="footer-list">
-                            <li><a href="diensten.html#sloop">Sloopwerkzaamheden</a></li>
-                            <li><a href="diensten.html#ontruiming">Ontruimingen</a></li>
-                            <li><a href="diensten.html#graaf">Graafwerkzaamheden</a></li>
+                            <li><a href="diensten.html#sloop" data-translate="footer.demolition_services">Sloopwerkzaamheden</a></li>
+                            <li><a href="diensten.html#ontruiming" data-translate="footer.clearance_services">Ontruimingen</a></li>
+                            <li><a href="diensten.html#graaf" data-translate="footer.excavation_services">Graafwerkzaamheden</a></li>
                         </ul>
                     </div>
                     
                     <div class="footer-column">
-                        <h4 class="footer-title">Bedrijf</h4>
+                        <h4 class="footer-title" data-translate="footer.company_title">Bedrijf</h4>
                         <ul class="footer-list">
-                            <li><a href="over-ons.html">Over ons</a></li>
-                            <li><a href="vacatures.html">Vacatures</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="over-ons.html" data-translate="footer.about_us">Over ons</a></li>
+                            <li><a href="vacatures.html" data-translate="footer.jobs">Vacatures</a></li>
+                            <li><a href="contact.html" data-translate="footer.contact">Contact</a></li>
                         </ul>
                     </div>
                     
                     <div class="footer-column">
-                        <h4 class="footer-title">Contact</h4>
+                        <h4 class="footer-title" data-translate="footer.contact_title">Contact</h4>
                         <ul class="footer-list footer-contact">
                             <li>
                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -439,7 +491,7 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 Weijden Multicare. Alle rechten voorbehouden.</p>
+                <p data-translate="footer.copyright">&copy; 2025 Weijden Multicare. Alle rechten voorbehouden.</p>
             </div>
         </div>
     </footer>
@@ -723,5 +775,8 @@
     <script src="../js/main.js"></script>
     <script src="../js/menu.js"></script>
     <script src="../js/grid-lines.js"></script>
+    
+    <!-- Translations -->
+    <script src="../js/translations.js"></script>
 </body>
 </html>
