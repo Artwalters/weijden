@@ -19,8 +19,9 @@ Weijden Multicare is een jong en dynamisch bedrijf gespecialiseerd in:
 - **Animations**: GSAP + ScrollTrigger
 - **Styling**: CSS Custom Properties (CSS Variables)
 - **Responsive**: Mobile-first design
-- **Deployment**: GitHub Pages
+- **Deployment**: GitHub Pages (gh-pages branch)
 - **Multi-language**: Dutch, English, German support with translation system
+- **Architecture**: Class-based JavaScript with WeijdenMulticare & ModernMenu classes
 
 ## 🚀 Development
 
@@ -41,11 +42,13 @@ wijdenmulticare/
 ├── index.html              # Homepage
 ├── pages/                  # Subpages
 │   ├── diensten.html      # Services
-│   ├── over-ons.html      # About us
+│   ├── wie-zijn-we.html   # About us
 │   ├── vacatures.html     # Jobs
 │   └── contact.html       # Contact
 ├── css/styles.css         # Main stylesheet
-├── js/                    # JavaScript modules
+├── js/
+│   ├── main.js              # Core WeijdenMulticare class
+│   └── menu.js              # ModernMenu class with GSAP animations
 └── assets/images/         # Images & logos
 ```
 
@@ -53,7 +56,7 @@ wijdenmulticare/
 
 - Responsive design met mobile-first approach
 - GSAP animaties voor smooth scroll effects
-- Interactive timeline op Over ons pagina
+- Interactive timeline op Wie zijn we pagina
 - Responsive carousel/cartwheel op homepage
 - SEO geoptimaliseerd
 - Accessibility compliant
