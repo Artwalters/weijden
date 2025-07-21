@@ -22,7 +22,7 @@ const translations = {
             de: "Dienstleistungen"
         },
         about: {
-            nl: "Wie zijn we",
+            nl: "Over ons",
             en: "About Us",
             de: "Über uns"
         },

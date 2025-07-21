@@ -8,11 +8,21 @@ class WeijdenMulticare {
     this.isInitialized = false;
     this.components = {};
     
+    // EmailJS Configuration
+    this.emailJSConfig = {
+      publicKey: 'xWTP2b06khXRsP1K8',
+      serviceId: 'service_x1k0ond',
+      templateId: 'template_sn6ip4e'
+    };
+    
     this.init();
   }
 
   init() {
     if (this.isInitialized) return;
+    
+    // Initialize EmailJS
+    this.initializeEmailJS();
     
     this.setupGlobalEventListeners();
     this.initializeComponents();
@@ -25,6 +35,13 @@ class WeijdenMulticare {
     
     // Dispatch ready event
     window.dispatchEvent(new CustomEvent('weijdenmulticare:ready'));
+  }
+
+  initializeEmailJS() {
+    // Initialize EmailJS with public key
+    if (typeof emailjs !== 'undefined') {
+      emailjs.init(this.emailJSConfig.publicKey);
+    }
   }
 
   setupGlobalEventListeners() {
@@ -291,17 +308,35 @@ class WeijdenMulticare {
 
     // Show loading state
     const submitButton = form.querySelector('button[type="submit"]');
-    const originalText = submitButton.textContent;
-    submitButton.textContent = 'Verzenden...';
+    const originalText = submitButton.innerHTML;
+    submitButton.innerHTML = '<span>Verzenden...</span>';
     submitButton.disabled = true;
 
-    // Simulate form submission (replace with actual endpoint)
-    setTimeout(() => {
-      this.showFormSuccess(form);
-      form.reset();
-      submitButton.textContent = originalText;
+    // Check if EmailJS is available
+    if (typeof emailjs === 'undefined') {
+      console.error('EmailJS is not loaded');
+      this.showFormError(form, 'Er is een technische fout opgetreden. Probeer het later opnieuw.');
+      submitButton.innerHTML = originalText;
       submitButton.disabled = false;
-    }, 1000);
+      return;
+    }
+
+    // Send email using EmailJS
+    emailjs.sendForm(this.emailJSConfig.serviceId, this.emailJSConfig.templateId, form)
+      .then(() => {
+        // Success
+        this.showFormSuccess(form);
+        form.reset();
+        submitButton.innerHTML = originalText;
+        submitButton.disabled = false;
+      })
+      .catch((error) => {
+        // Error
+        console.error('EmailJS error:', error);
+        this.showFormError(form, 'Er is een fout opgetreden bij het verzenden. Probeer het opnieuw of neem telefonisch contact op.');
+        submitButton.innerHTML = originalText;
+        submitButton.disabled = false;
+      });
   }
 
   validateForm(data) {
@@ -359,6 +394,27 @@ class WeijdenMulticare {
     successContainer.textContent = 'Bedankt voor uw bericht! We nemen zo snel mogelijk contact met u op.';
     
     form.appendChild(successContainer);
+  }
+
+  showFormError(form, message) {
+    // Remove existing messages
+    form.querySelectorAll('.form-error, .form-success').forEach(msg => msg.remove());
+    
+    // Show error message
+    const errorContainer = document.createElement('div');
+    errorContainer.className = 'form-error';
+    errorContainer.style.cssText = `
+      color: #dc3545;
+      font-size: 0.875rem;
+      margin-top: 0.5rem;
+      padding: 1rem;
+      background: #f8d7da;
+      border-radius: 0.5rem;
+      border: 1px solid #f5c6cb;
+    `;
+    errorContainer.textContent = message;
+    
+    form.appendChild(errorContainer);
   }
 
   setupPerformanceOptimizations() {

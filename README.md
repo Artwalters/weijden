@@ -53,7 +53,7 @@ wijdenmulticare/
 
 - Responsive design met mobile-first approach
 - GSAP animaties voor smooth scroll effects
-- Interactive timeline op Over Ons pagina
+- Interactive timeline op Over ons pagina
 - Responsive carousel/cartwheel op homepage
 - SEO geoptimaliseerd
 - Accessibility compliant
