@@ -2,19 +2,25 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://artwalters.github.io/weijden/sitemap.xml
+Sitemap: https://www.weijdenmulticare.nl/sitemap.xml
 
-# Disallow specific files/directories
-Disallow: /node_modules/
+# Disallow development and documentation files
 Disallow: /*.md$
-Disallow: /package*.json
-Disallow: /start-dev.*
+Disallow: /EMAILJS_SETUP.md
+Disallow: /CLAUDE.md
+Disallow: /README.md
 
-# Allow important directories
+# Allow all important directories
 Allow: /css/
 Allow: /js/
 Allow: /assets/
 Allow: /pages/
+Allow: /fonts/
 
-# Crawl delay (optional)
+# Crawl delay for respectful crawling
 Crawl-delay: 1
+
+# Company: Weijden Multicare
+# Website: https://www.weijdenmulticare.nl
+# Services: Sloopwerkzaamheden, Ontruimingen, Graafwerkzaamheden
+# Location: Limburg, Nederland

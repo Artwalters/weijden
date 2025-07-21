@@ -1,47 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd
+        http://www.google.com/schemas/sitemap-image/1.1
+        http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd">
     
-    <!-- Homepage -->
+    <!-- Homepage - Weijden Multicare -->
     <url>
-        <loc>https://artwalters.github.io/weijden/</loc>
-        <lastmod>2025-01-08</lastmod>
+        <loc>https://www.weijdenmulticare.nl/</loc>
+        <lastmod>2025-07-21</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://www.weijdenmulticare.nl/assets/images/lightmode_big.svg</image:loc>
+            <image:caption>Weijden Multicare - Sloop, Ontruiming en Graafwerkzaamheden</image:caption>
+            <image:title>Weijden Multicare Logo</image:title>
+        </image:image>
     </url>
     
-    <!-- Diensten -->
+    <!-- Diensten - Sloopwerkzaamheden, Ontruimingen, Graafwerkzaamheden -->
     <url>
-        <loc>https://artwalters.github.io/weijden/pages/diensten.html</loc>
-        <lastmod>2025-01-08</lastmod>
+        <loc>https://www.weijdenmulticare.nl/pages/diensten.html</loc>
+        <lastmod>2025-07-21</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://www.weijdenmulticare.nl/assets/images/bouw1.jpg</image:loc>
+            <image:caption>Sloopwerkzaamheden door Weijden Multicare</image:caption>
+            <image:title>Professionele Sloopwerkzaamheden</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://www.weijdenmulticare.nl/assets/images/bouw2.jpg</image:loc>
+            <image:caption>Ontruimingen en Afvalverwerking</image:caption>
+            <image:title>Complete Ontruimingsdiensten</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://www.weijdenmulticare.nl/assets/images/bouw3.jpg</image:loc>
+            <image:caption>Graafwerkzaamheden en Grondwerk</image:caption>
+            <image:title>Professionele Graafwerkzaamheden</image:title>
+        </image:image>
     </url>
     
-    <!-- Over ons -->
+    <!-- Over ons - Weijden Multicare Team -->
     <url>
-        <loc>https://artwalters.github.io/weijden/pages/over-ons.html</loc>
-        <lastmod>2025-01-08</lastmod>
+        <loc>https://www.weijdenmulticare.nl/pages/over-ons.html</loc>
+        <lastmod>2025-07-21</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://www.weijdenmulticare.nl/assets/images/teamphoto.jpg</image:loc>
+            <image:caption>Het ervaren team van Weijden Multicare</image:caption>
+            <image:title>Weijden Multicare Team</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://www.weijdenmulticare.nl/assets/images/sander.jpeg</image:loc>
+            <image:caption>Sander Weijden - Eigenaar Weijden Multicare</image:caption>
+            <image:title>Sander Weijden</image:title>
+        </image:image>
     </url>
     
-    <!-- Contact -->
+    <!-- Contact - Gratis Offerte Aanvragen -->
     <url>
-        <loc>https://artwalters.github.io/weijden/pages/contact.html</loc>
-        <lastmod>2025-01-08</lastmod>
+        <loc>https://www.weijdenmulticare.nl/pages/contact.html</loc>
+        <lastmod>2025-07-21</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://www.weijdenmulticare.nl/assets/images/businesscar.jpg</image:loc>
+            <image:caption>Contact Weijden Multicare voor gratis offerte</image:caption>
+            <image:title>Contact Weijden Multicare</image:title>
+        </image:image>
     </url>
     
-    <!-- Vacatures -->
+    <!-- Vacatures - Werken bij Weijden Multicare -->
     <url>
-        <loc>https://artwalters.github.io/weijden/pages/vacatures.html</loc>
-        <lastmod>2025-01-08</lastmod>
+        <loc>https://www.weijdenmulticare.nl/pages/vacatures.html</loc>
+        <lastmod>2025-07-21</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.7</priority>
+        <image:image>
+            <image:loc>https://www.weijdenmulticare.nl/assets/images/teamphoto2.jpg</image:loc>
+            <image:caption>Werk mee aan mooie projecten bij Weijden Multicare</image:caption>
+            <image:title>Vacatures Weijden Multicare</image:title>
+        </image:image>
     </url>
     
 </urlset>
