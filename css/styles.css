@@ -1358,6 +1358,12 @@ a:hover {
   border: 0.1875rem solid var(--primary); /* 3px */
 }
 
+/* WebP support with modernizr-style feature detection */
+.webp .about-shape-1,
+.webp .about-shape-2 {
+  background-image: url('../assets/images/businesscar.webp');
+}
+
 .about-shape-1 {
   width: 12.5rem; /* 200px */
   height: 12.5rem; /* 200px */
