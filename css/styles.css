@@ -1351,7 +1351,7 @@ a:hover {
 .about-shape-2 {
   position: absolute;
   border-radius: var(--radius-xl);
-  background-image: url('../assets/images/businesscar.jpg');
+  background-image: url('../assets/images/businesscar.webp');
   background-size: cover;
   background-position: center;
   opacity: 0.85;
