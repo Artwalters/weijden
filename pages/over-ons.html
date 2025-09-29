@@ -22,8 +22,13 @@
     <link rel="canonical" href="https://weijdenmulticare.nl/pages/over-ons.html">
     
     <!-- Favicon -->
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="../assets/images/favicon.png">
+    <link rel="apple-touch-icon" href="../assets/images/favicon.png">
     <link rel="icon" type="image/svg+xml" href="../assets/images/weijden_multicare.svg">
-    
+    <link rel="alternate icon" href="../assets/images/lightmode_big.svg">
+
     <!-- CSS -->
     <link rel="stylesheet" href="../css/styles.css">
     
@@ -448,6 +453,9 @@
                             <div class="partner-item">
                                 <img src="../assets/images/klant6.png" alt="Partner 6" class="partner-logo">
                             </div>
+                            <div class="partner-item">
+                                <img src="../assets/images/klant7.png" alt="Partner 7" class="partner-logo">
+                            </div>
                         </div>
                         <div class="partners-slide">
                             <div class="partner-item">
@@ -467,6 +475,9 @@
                             </div>
                             <div class="partner-item">
                                 <img src="../assets/images/klant6.png" alt="Partner 6" class="partner-logo">
+                            </div>
+                            <div class="partner-item">
+                                <img src="../assets/images/klant7.png" alt="Partner 7" class="partner-logo">
                             </div>
                         </div>
                     </div>
@@ -1123,8 +1134,9 @@
             
             function setupAboutCircle() {
                 const isMobile = window.innerWidth <= 768;
+                const containerSize = isMobile ? 300 : 500; // Container grootte
                 const radius = isMobile ? 100 : 180; // Aangepaste radius voor perfecte centering
-                const center = isMobile ? 150 : 250; // Center van de container (300px/2 mobile, 500px/2 desktop)
+                const center = containerSize / 2; // Exact center van de container
                 const total = aboutCards.length;
                 const slice = (2 * Math.PI) / total;
 
